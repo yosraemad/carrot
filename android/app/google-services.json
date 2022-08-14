@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "673708137319",
+    "project_id": "carrot-223b9",
+    "storage_bucket": "carrot-223b9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:673708137319:android:e7de469d6e2a3f84e72dc2",
+        "android_client_info": {
+          "package_name": "com.example.carrot_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "673708137319-37u93qgi36hgse6a9tmbc2i67c0r8u5l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDW3gmr8TcH1Gg8YG9a-cfHWgbwCgolDA4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "673708137319-37u93qgi36hgse6a9tmbc2i67c0r8u5l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
