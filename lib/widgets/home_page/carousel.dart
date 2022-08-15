@@ -8,18 +8,21 @@ class Carousel extends StatelessWidget {
   Widget build(BuildContext context) {
     return CarouselSlider(
       items: getCarouselItems(),
-      options: CarouselOptions(),
+      options: CarouselOptions(autoPlay: true, enlargeCenterPage: true),
     );
   }
 
   List<Widget> getCarouselItems() {
     List<Widget> list = [];
     for (int i = 0; i < 4; i++) {
-      list.add(Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8.0),
+      list.add(Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 3),
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8.0),
+          ),
+          child: Image.asset("assets/images/campaign.png"),
         ),
-        child: Image.asset("assets/images/campaign.png"),
       ));
     }
 
