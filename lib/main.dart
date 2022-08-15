@@ -1,6 +1,7 @@
 import 'package:carrot_app/bloc/user_bloc.dart';
 import 'package:carrot_app/pages/category_page.dart';
 import 'package:carrot_app/pages/home_page.dart';
+import 'package:carrot_app/pages/item_page.dart';
 import 'package:carrot_app/pages/login_page.dart';
 import 'package:carrot_app/pages/signup_page.dart';
 import 'package:carrot_app/utils/palette.dart';
@@ -37,6 +38,7 @@ class MyApp extends StatelessWidget {
           "/sign-up": (context) => const SignUpPage(),
           "/home": (context) => const HomePage(),
           "/category": (context) => const CategoryPage(),
+          "/item": (context) => const ItemPage(),
         },
       ),
     );
