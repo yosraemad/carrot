@@ -1,0 +1,604 @@
+[
+  {
+    "name": "Fruits",
+    "image": "https://cdn-icons-png.flaticon.com/512/2843/2843568.png",
+    "items": [
+      {
+        "id": 1,
+        "name": "Watermelon",
+        "weight": "2kg",
+        "price": 8.98,
+        "image": "https://cdn-icons.flaticon.com/png/512/5582/premium/5582706.png?token=exp=1660479460~hmac=1f71dc58a4d4f1860cccbb24b3091036",
+        "description": "Our wide assortment of meticulously hand-picked fruits and vegetables are stored each in their own suitable conditions; which ensures you to experience our high-quality fresh products. Whether you prefer imported or local products, Carrefour offers you wide ranges of healthy choices to choose from."
+      },
+      {
+        "id": 2,
+        "name": "Banana",
+        "weight": "1kg",
+        "price": 49.95,
+        "image": "https://cdn-icons-png.flaticon.com/512/2909/2909761.png",
+        "description": "Our wide assortment of meticulously hand-picked fruits and vegetables are stored each in their own suitable conditions; which ensures you to experience our high-quality fresh products. Whether you prefer imported or local products, Carrefour offers you wide ranges of healthy choices to choose from."
+      },
+      {
+        "id": 3,
+        "name": "Mango",
+        "weight": "1kg",
+        "price": 19.95,
+        "image": "https://cdn-icons.flaticon.com/png/512/3137/premium/3137152.png?token=exp=1660479823~hmac=71c078ec9b979ce1c38039a60b5d022b",
+        "description": "Our wide assortment of meticulously hand-picked fruits and vegetables are stored each in their own suitable conditions; which ensures you to experience our high-quality fresh products. Whether you prefer imported or local products, Carrefour offers you wide ranges of healthy choices to choose from."
+      },
+      {
+        "id": 4,
+        "name": "Kiwi",
+        "weight": "1kg",
+        "price": 79.95,
+        "image": "https://cdn-icons.flaticon.com/png/512/3786/premium/3786242.png?token=exp=1660479879~hmac=dd85cc37790c4ee855bbcb1207e80b77",
+        "description": "Our wide assortment of meticulously hand-picked fruits and vegetables are stored each in their own suitable conditions; which ensures you to experience our high-quality fresh products. Whether you prefer imported or local products, Carrefour offers you wide ranges of healthy choices to choose from."
+      },
+      {
+        "id": 5,
+        "name": "Apples",
+        "weight": "1kg",
+        "price": 39.95,
+        "image": "https://cdn-icons-png.flaticon.com/512/415/415682.png",
+        "description": "Our wide assortment of meticulously hand-picked fruits and vegetables are stored each in their own suitable conditions; which ensures you to experience our high-quality fresh products. Whether you prefer imported or local products, Carrefour offers you wide ranges of healthy choices to choose from."
+      },
+      {
+        "id": 6,
+        "name": "Pineapple",
+        "weight": "1kg",
+        "price": 49.95,
+        "image": "https://cdn-icons-png.flaticon.com/512/6866/6866518.png",
+        "description": "Our wide assortment of meticulously hand-picked fruits and vegetables are stored each in their own suitable conditions; which ensures you to experience our high-quality fresh products. Whether you prefer imported or local products, Carrefour offers you wide ranges of healthy choices to choose from."
+      },
+      {
+        "id": 7,
+        "name": "Cherry",
+        "weight": "1kg",
+        "price": 129.95,
+        "image": "https://cdn-icons.flaticon.com/png/512/1791/premium/1791306.png?token=exp=1660480231~hmac=ce107fbade19d36611ae2df447d2cf14",
+        "description": "Our wide assortment of meticulously hand-picked fruits and vegetables are stored each in their own suitable conditions; which ensures you to experience our high-quality fresh products. Whether you prefer imported or local products, Carrefour offers you wide ranges of healthy choices to choose from."
+      },
+      {
+        "id": 8,
+        "name": "Grapes",
+        "weight": "1kg",
+        "price": 12.45,
+        "image": "https://cdn-icons.flaticon.com/png/512/3137/premium/3137056.png?token=exp=1660480308~hmac=cd60b61afb9178d546bc4324182e6509",
+        "description": "Our wide assortment of meticulously hand-picked fruits and vegetables are stored each in their own suitable conditions; which ensures you to experience our high-quality fresh products. Whether you prefer imported or local products, Carrefour offers you wide ranges of healthy choices to choose from."
+      },
+      {
+        "id": 9,
+        "name": "Pomegranate",
+        "weight": "1kg",
+        "price": 9.95,
+        "image": "https://cdn-icons.flaticon.com/png/512/3944/premium/3944213.png?token=exp=1660480446~hmac=72a0cf562d335b525eb8910560bef8ef",
+        "description": "Our wide assortment of meticulously hand-picked fruits and vegetables are stored each in their own suitable conditions; which ensures you to experience our high-quality fresh products. Whether you prefer imported or local products, Carrefour offers you wide ranges of healthy choices to choose from."
+      },
+      {
+        "id": 10,
+        "name": "Oranges",
+        "weight": "2kg",
+        "price": 37.95,
+        "image": "https://cdn-icons-png.flaticon.com/512/1728/1728765.png",
+        "description": "Our wide assortment of meticulously hand-picked fruits and vegetables are stored each in their own suitable conditions; which ensures you to experience our high-quality fresh products. Whether you prefer imported or local products, Carrefour offers you wide ranges of healthy choices to choose from."
+      }
+    ]
+  },
+  {
+    "name": "Vegetables",
+    "image": "https://cdn-icons-png.flaticon.com/512/2329/2329865.png",
+    "items": [
+      {
+        "id": 11,
+        "name": "Tomatoes",
+        "weight": "1kg",
+        "price": 8.95,
+        "image": "https://cdn-icons.flaticon.com/png/512/2662/premium/2662082.png?token=exp=1660480692~hmac=7f8fdc92214db43af2798c4f0b0d4dc2",
+        "description": "Our wide assortment of meticulously hand-picked fruits and vegetables are stored each in their own suitable conditions; which ensures you to experience our high-quality fresh products. Whether you prefer imported or local products, Carrefour offers you wide ranges of healthy choices to choose from."
+      },
+      {
+        "id": 12,
+        "name": "Potatoes",
+        "weight": "1kg",
+        "price": 9.8,
+        "image": "https://cdn-icons.flaticon.com/png/512/924/premium/924310.png?token=exp=1660480750~hmac=2e9f6b722de818e54c3a213edfb150ae",
+        "description": "Our wide assortment of meticulously hand-picked fruits and vegetables are stored each in their own suitable conditions; which ensures you to experience our high-quality fresh products. Whether you prefer imported or local products, Carrefour offers you wide ranges of healthy choices to choose from."
+      },
+      {
+        "id": 13,
+        "name": "Onions",
+        "weight": "1kg",
+        "price": 2.95,
+        "image": "https://cdn-icons.flaticon.com/png/512/2923/premium/2923216.png?token=exp=1660480815~hmac=77b13b9e5aa2f53e46b8d639242ca2d3",
+        "description": "Our wide assortment of meticulously hand-picked fruits and vegetables are stored each in their own suitable conditions; which ensures you to experience our high-quality fresh products. Whether you prefer imported or local products, Carrefour offers you wide ranges of healthy choices to choose from."
+      },
+      {
+        "id": 14,
+        "name": "Carrots",
+        "weight": "1kg",
+        "price": 8.95,
+        "image": "https://cdn-icons.flaticon.com/png/512/3136/premium/3136973.png?token=exp=1660480895~hmac=2008b312a01dbe4bd60d57020c6b35ad",
+        "description": "Our wide assortment of meticulously hand-picked fruits and vegetables are stored each in their own suitable conditions; which ensures you to experience our high-quality fresh products. Whether you prefer imported or local products, Carrefour offers you wide ranges of healthy choices to choose from."
+      },
+      {
+        "id": 15,
+        "name": "Yellow Bell Pepper",
+        "weight": "1kg",
+        "price": 16.95,
+        "image": "https://cdn-icons-png.flaticon.com/512/2909/2909848.png",
+        "description": "Our wide assortment of meticulously hand-picked fruits and vegetables are stored each in their own suitable conditions; which ensures you to experience our high-quality fresh products. Whether you prefer imported or local products, Carrefour offers you wide ranges of healthy choices to choose from."
+      },
+      {
+        "id": 16,
+        "name": "Sweet Potatoes",
+        "weight": "1kg",
+        "price": 16.95,
+        "image": "https://cdn-icons-png.flaticon.com/512/4278/4278227.png",
+        "description": "Our wide assortment of meticulously hand-picked fruits and vegetables are stored each in their own suitable conditions; which ensures you to experience our high-quality fresh products. Whether you prefer imported or local products, Carrefour offers you wide ranges of healthy choices to choose from."
+      },
+      {
+        "id": 17,
+        "name": "Zucchini",
+        "weight": "1kg",
+        "price": 18.95,
+        "image": "https://cdn-icons-png.flaticon.com/512/1514/1514958.png",
+        "description": "Our wide assortment of meticulously hand-picked fruits and vegetables are stored each in their own suitable conditions; which ensures you to experience our high-quality fresh products. Whether you prefer imported or local products, Carrefour offers you wide ranges of healthy choices to choose from."
+      },
+      {
+        "id": 18,
+        "name": "Red Bell Pepper",
+        "weight": "1kg",
+        "price": 16.95,
+        "image": "https://cdn-icons-png.flaticon.com/512/810/810597.png",
+        "description": "Our wide assortment of meticulously hand-picked fruits and vegetables are stored each in their own suitable conditions; which ensures you to experience our high-quality fresh products. Whether you prefer imported or local products, Carrefour offers you wide ranges of healthy choices to choose from."
+      },
+      {
+        "id": 19,
+        "name": "Green Bell Pepper",
+        "weight": "1kg",
+        "price": 9.95,
+        "image": "https://cdn-icons-png.flaticon.com/512/2909/2909767.png",
+        "description": "Our wide assortment of meticulously hand-picked fruits and vegetables are stored each in their own suitable conditions; which ensures you to experience our high-quality fresh products. Whether you prefer imported or local products, Carrefour offers you wide ranges of healthy choices to choose from."
+      },
+      {
+        "id": 20,
+        "name": "Eggplants",
+        "weight": "1kg",
+        "price": 3.95,
+        "image": "https://cdn-icons-png.flaticon.com/512/766/766026.png",
+        "description": "Our wide assortment of meticulously hand-picked fruits and vegetables are stored each in their own suitable conditions; which ensures you to experience our high-quality fresh products. Whether you prefer imported or local products, Carrefour offers you wide ranges of healthy choices to choose from."
+      }
+    ]
+  },
+  {
+    "name": "Snacks",
+    "image": "https://cdn-icons-png.flaticon.com/512/2553/2553691.png",
+    "items": [
+      {
+        "id": 21,
+        "name": "Chips",
+        "weight": "42g",
+        "price": 2.95,
+        "image": "https://cdn-icons-png.flaticon.com/512/305/305385.png",
+        "description": "Our chips is an ideal snacking option for you and your family. It offers a perfect balance of flavor and taste that satiate your taste buds. You can enjoy this crunchy snack while watching a movie or reading a book for fulfilling your hunger pangs."
+      },
+      {
+        "id": 22,
+        "name": "Toasties",
+        "weight": "38g",
+        "price": 5.25,
+        "image": "https://cdn-icons.flaticon.com/png/512/676/premium/676751.png?token=exp=1660481378~hmac=b798f121bdba6287ef97fb394b0340de",
+        "description": "Our toasties is an ideal snacking option for you and your family. It offers a perfect balance of flavor and taste that satiate your taste buds. You can enjoy this crunchy snack while watching a movie or reading a book for fulfilling your hunger pangs."
+      },
+      {
+        "id": 23,
+        "name": "Popcorn",
+        "weight": "60g",
+        "price": 9.25,
+        "image": "https://cdn-icons-png.flaticon.com/512/3418/3418886.png",
+        "description": "Our popcorn is an ideal snacking option for you and your family. It offers a perfect balance of flavor and taste that satiate your taste buds. You can enjoy this crunchy snack while watching a movie or reading a book for fulfilling your hunger pangs."
+      },
+      {
+        "id": 24,
+        "name": "Chocolate",
+        "weight": "90g",
+        "price": 21.95,
+        "image": "https://cdn-icons.flaticon.com/png/512/2136/premium/2136997.png?token=exp=1660481538~hmac=0793b15991fd55f42e21c9f802e82143",
+        "description": "Our chocolate is an ideal snacking option for you and your family. It offers a perfect balance of flavor and taste that satiate your taste buds. You can enjoy this crunchy snack while watching a movie or reading a book for fulfilling your hunger pangs."
+      },
+      {
+        "id": 25,
+        "name": "Mini Chocolate",
+        "weight": "90g",
+        "price": 10.6,
+        "image": "https://cdn-icons.flaticon.com/png/512/1065/premium/1065222.png?token=exp=1660481606~hmac=a95a4ec4f8b4d662395c91eeba764389",
+        "description": "Our mini chocolate is an ideal snacking option for you and your family. It offers a perfect balance of flavor and taste that satiate your taste buds. You can enjoy this crunchy snack while watching a movie or reading a book for fulfilling your hunger pangs."
+      },
+      {
+        "id": 26,
+        "name": "Jelly",
+        "weight": "20g",
+        "price": 4.5,
+        "image": "https://cdn-icons-png.flaticon.com/512/1398/1398525.png",
+        "description": "Our jelly is an ideal snacking option for you and your family. It offers a perfect balance of flavor and taste that satiate your taste buds. You can enjoy this crunchy snack while watching a movie or reading a book for fulfilling your hunger pangs."
+      },
+      {
+        "id": 27,
+        "name": "Gum",
+        "weight": "10pcs",
+        "price": 4.5,
+        "image": "https://cdn-icons.flaticon.com/png/512/3173/premium/3173532.png?token=exp=1660481764~hmac=7b01a20187efb5303e84172954ed4a03",
+        "description": "Our gum is an ideal snacking option for you and your family. It offers a perfect balance of flavor and taste that satiate your taste buds. You can enjoy this crunchy snack while watching a movie or reading a book for fulfilling your hunger pangs."
+      },
+      {
+        "id": 28,
+        "name": "Jelly Cola",
+        "weight": "25g",
+        "price": 4.5,
+        "image": "https://cdn-icons-png.flaticon.com/512/6097/6097990.png",
+        "description": "Our jelly cola is an ideal snacking option for you and your family. It offers a perfect balance of flavor and taste that satiate your taste buds. You can enjoy this crunchy snack while watching a movie or reading a book for fulfilling your hunger pangs."
+      },
+      {
+        "id": 29,
+        "name": "Chocolate Truffles",
+        "weight": "200g",
+        "price": 91.85,
+        "image": "https://cdn-icons.flaticon.com/png/512/3535/premium/3535283.png?token=exp=1660481924~hmac=e9bebd3bfee5894817a00c34255eb3df",
+        "description": "Our chocolate truffles is an ideal snacking option for you and your family. It offers a perfect balance of flavor and taste that satiate your taste buds. You can enjoy this crunchy snack while watching a movie or reading a book for fulfilling your hunger pangs."
+      },
+      {
+        "id": 30,
+        "name": "Halls Menthol",
+        "weight": "25g",
+        "price": 4.7,
+        "image": "https://cdn-icons-png.flaticon.com/512/1553/1553039.png",
+        "description": "Our halls menthol is an ideal snacking option for you and your family. It offers a perfect balance of flavor and taste that satiate your taste buds. You can enjoy this crunchy snack while watching a movie or reading a book for fulfilling your hunger pangs."
+      }
+    ]
+  },
+  {
+    "name": "Beverages",
+    "image": "https://cdn-icons-png.flaticon.com/512/3050/3050130.png",
+    "items": [
+      {
+        "id": 31,
+        "name": "Ground Coffee",
+        "weight": "200g",
+        "price": 121.0,
+        "image": "https://cdn-icons-png.flaticon.com/512/2302/2302566.png",
+        "description": "Start your day straight with the first sip of this classic, which awakens your senses to new opportunities."
+      },
+      {
+        "id": 32,
+        "name": "Instant Coffee",
+        "weight": "20g",
+        "price": 2.5,
+        "image": "https://cdn-icons-png.flaticon.com/512/6694/6694896.png",
+        "description": "Premium foamy instant coffee straight at home, a must-try for all coffee lovers."
+      },
+      {
+        "id": 33,
+        "name": "Orange Juice",
+        "weight": "1L",
+        "price": 9.75,
+        "image": "https://cdn-icons-png.flaticon.com/512/2442/2442019.png",
+        "description": "Orange Juice is rich in delicious fruit taste, produced from the finest ingredients rich in vitamin C, making it the best choice among consumers."
+      },
+      {
+        "id": 34,
+        "name": "Apple Juice",
+        "weight": "1L",
+        "price": 9.75,
+        "image": "https://cdn-icons-png.flaticon.com/512/571/571493.png",
+        "description": "It has been developed to be your great tasting healthy habit, making it easy for you to do some good to your health."
+      },
+      {
+        "id": 35,
+        "name": "Strawberry Smoothie",
+        "weight": "1L",
+        "price": 19.95,
+        "image": "https://cdn-icons-png.flaticon.com/512/2405/2405470.png",
+        "description": "It has been developed to be your great tasting healthy habit, making it easy for you to do some good to your health."
+      },
+      {
+        "id": 36,
+        "name": "Sparkling Water",
+        "weight": "1L",
+        "price": 6.25,
+        "image": "https://cdn-icons-png.flaticon.com/512/2070/2070170.png",
+        "description": "The bright taste of this sparkling water beverage is ideal for a classic drinking sensation or as an elegant mixer."
+      },
+      {
+        "id": 37,
+        "name": "Soft Drink",
+        "weight": "970mL",
+        "price": 10.75,
+        "image": "https://cdn-icons-png.flaticon.com/512/659/659385.png",
+        "description": "The Soda is sure to motivate to keep hydrated. This sparkling water is made by added minerals to boost overall health. This soda has versatile applications and keeps hydrated for an extended period. This soda may also help with digestion and improve oral health."
+      },
+      {
+        "id": 38,
+        "name": "Tea",
+        "weight": "250g",
+        "price": 30.25,
+        "image": "https://cdn-icons.flaticon.com/png/512/2418/premium/2418214.png?token=exp=1660482684~hmac=8d634f6d99408ae3bb491774be7be624",
+        "description": "Give your mornings a refreshing start with our Instant Tea. It is made from carefully sourced Tea to ensure the perfect taste and flavour in every sip. The delicious taste and refreshing aroma make this Tea stand out. It easily and quickly mixes with milk or water to give you a rich colour. It is sure to put you in a better mood instantly, no matter if it is day or night. You can relish a cup during late-night meetings, a perfect accompaniment while reading a book or for kick-starting the day in the right way."
+      },
+      {
+        "id": 39,
+        "name": "Bubble Tea",
+        "weight": "250g",
+        "price": 60.25,
+        "image": "https://cdn-icons-png.flaticon.com/512/3081/3081162.png",
+        "description": "Give your mornings a refreshing start with our Instant Tea. It is made from carefully sourced Tea to ensure the perfect taste and flavour in every sip. The delicious taste and refreshing aroma make this Tea stand out. It easily and quickly mixes with milk or water to give you a rich colour. It is sure to put you in a better mood instantly, no matter if it is day or night. You can relish a cup during late-night meetings, a perfect accompaniment while reading a book or for kick-starting the day in the right way."
+      },
+      {
+        "id": 40,
+        "name": "Mineral Water",
+        "weight": "18.9L",
+        "price": 33.95,
+        "image": "https://cdn-icons.flaticon.com/png/512/2447/premium/2447774.png?token=exp=1660482808~hmac=552c264f5d6d48bb8cc10f32dcd467d7",
+        "description": "Our mineral water combines filtration with added minerals to create a fresh, clean, and premium tasting water that is pure and delicious."
+      }
+    ]
+  },
+  {
+    "name": "Dairy & Eggs",
+    "image": "https://cdn-icons-png.flaticon.com/512/2674/2674486.png",
+    "items": [
+      {
+        "id": 41,
+        "name": "Milk",
+        "weight": "1.5L",
+        "price": 24.45,
+        "image": "https://cdn-icons-png.flaticon.com/512/3500/3500270.png",
+        "description": "Energize your every morning with the our Full Cream Milk. It is an excellent addition to your healthy diet, whose every sip is stacked with pure delight and pleasure. This milk is a rich source of calcium and protein that not only promotes healthy wellbeing but also balances out your diet. Also, it can be enjoyed on its own or by using it with other meals."
+      },
+      {
+        "id": 42,
+        "name": "Yogurt",
+        "weight": "105g",
+        "price": 27.95,
+        "image": "https://cdn-icons.flaticon.com/png/512/1047/premium/1047469.png?token=exp=1660490345~hmac=3406961fb77ad1ecb26f64fb702aff63",
+        "description": "Energize your every morning with the our Full Cream Yogurt. It is an excellent addition to your healthy diet, whose every spoon is stacked with pure delight and pleasure. This yogurt is a rich source of calcium and protein that not only promotes healthy wellbeing but also balances out your diet. Also, it can be enjoyed on its own or by using it with other meals."
+      },
+      {
+        "id": 43,
+        "name": "Cheese",
+        "weight": "1kg",
+        "price": 133.95,
+        "image": "https://cdn-icons.flaticon.com/png/512/4063/premium/4063291.png?token=exp=1660490401~hmac=870bdaaf66b9ecb4b7ff9e81fad8b878",
+        "description": "We offer you a broad variety of cheese and cold cuts from all the brands you trust, stored in our high-tech refrigerators which keeps their original taste for long. Just think of how you like your breakfast sandwich, easily choose your favorite products with the desired weight; and have it delivered to you at the comfort of your own home."
+      },
+      {
+        "id": 44,
+        "name": "Eggs",
+        "weight": "30pcs",
+        "price": 66.95,
+        "image": "https://cdn-icons.flaticon.com/png/512/2713/premium/2713474.png?token=exp=1660490470~hmac=02bab8fc89088396b4cd19d41f17d873",
+        "description": "It helps to boost memory power and contains nutrition like Choline, Selenium and Lutein that are essential for brain development and eye vision."
+      },
+      {
+        "id": 45,
+        "name": "Butter",
+        "weight": "400gm",
+        "price": 95.55,
+        "image": "https://cdn-icons-png.flaticon.com/512/2366/2366403.png",
+        "description": "Delicious spread, an essential ingredient of baking and a known enhancer for many food items."
+      },
+      {
+        "id": 46,
+        "name": "Pudding",
+        "weight": "100gm",
+        "price": 33.95,
+        "image": "https://cdn-icons-png.flaticon.com/512/590/590740.png",
+        "description": "Enjoy the goodness of milk and its rich, velvety texture in the form of the Pudding. It is a delightful breakfast dessert in sweet caramel flavor to feed the entire family with a dose of essential nutrients."
+      },
+      {
+        "id": 47,
+        "name": "Greek Yogurt",
+        "weight": "140gm",
+        "price": 12.75,
+        "image": "https://cdn-icons-png.flaticon.com/512/6476/6476100.png",
+        "description": "Energize your every morning with the our Greek Yogurt. It is an excellent addition to your healthy diet, whose every spoon is stacked with pure delight and pleasure. This yogurt is a rich source of calcium and protein that not only promotes healthy wellbeing but also balances out your diet. Also, it can be enjoyed on its own or by using it with other meals."
+      },
+      {
+        "id": 48,
+        "name": "Yogurt Drink",
+        "weight": "420ml",
+        "price": 9.25,
+        "image": "https://cdn-icons-png.flaticon.com/512/7627/7627502.png",
+        "description": "Energize your every morning with the our Yogurt Drink. It is an excellent addition to your healthy diet, whose every spoon is stacked with pure delight and pleasure. This yogurt is a rich source of calcium and protein that not only promotes healthy wellbeing but also balances out your diet. Also, it can be enjoyed on its own or by using it with other meals."
+      },
+      {
+        "id": 49,
+        "name": "Cooking Cream",
+        "weight": "500ml",
+        "price": 42.95,
+        "image": "https://cdn-icons-png.flaticon.com/512/7752/7752995.png",
+        "description": "Enjoy the goodness of milk and its rich, velvety texture in the form of the Pudding. It is a delightful breakfast dessert in sweet caramel flavor to feed the entire family with a dose of essential nutrients."
+      },
+      {
+        "id": 50,
+        "name": "Margarine",
+        "weight": "200gm",
+        "price": 52.05,
+        "image": "https://cdn-icons.flaticon.com/png/512/4034/premium/4034030.png?token=exp=1660491241~hmac=6a4e627bc22f32da7a45ecc839ddee1a",
+        "description": "Delicious spread, an essential ingredient of baking and a known enhancer for many food items."
+      }
+    ]
+  },
+  {
+    "name": "Herbs, Spices & Seasoning",
+    "image": "https://cdn-icons-png.flaticon.com/512/616/616576.png",
+    "items": [
+      {
+        "id": 51,
+        "name": "Dill",
+        "weight": "50gm",
+        "price": 1.5,
+        "image": "https://cdn-icons-png.flaticon.com/512/7231/7231007.png",
+        "description": "Our wide assortment of meticulously hand-picked fruits and vegetables are stored each in their own suitable conditions; which ensures you to experience our high-quality fresh products. Whether you prefer imported or local products, Carrefour offers you wide ranges of healthy choices to choose from."
+      },
+      {
+        "id": 52,
+        "name": "Celery",
+        "weight": "50gm",
+        "price": 7.95,
+        "image": "https://cdn-icons.flaticon.com/png/512/4056/premium/4056902.png?token=exp=1660491494~hmac=fb7dece767b0bf9223063c1d1ea0d019",
+        "description": "Our wide assortment of meticulously hand-picked fruits and vegetables are stored each in their own suitable conditions; which ensures you to experience our high-quality fresh products. Whether you prefer imported or local products, Carrefour offers you wide ranges of healthy choices to choose from."
+      },
+      {
+        "id": 53,
+        "name": "Watercress",
+        "weight": "100gm",
+        "price": 2.75,
+        "image": "https://cdn-icons-png.flaticon.com/512/6931/6931916.png",
+        "description": "Our wide assortment of meticulously hand-picked fruits and vegetables are stored each in their own suitable conditions; which ensures you to experience our high-quality fresh products. Whether you prefer imported or local products, Carrefour offers you wide ranges of healthy choices to choose from."
+      },
+      {
+        "id": 54,
+        "name": "Basil",
+        "weight": "100gm",
+        "price": 7.95,
+        "image": "https://cdn-icons-png.flaticon.com/512/6409/6409368.png",
+        "description": "Our wide assortment of meticulously hand-picked fruits and vegetables are stored each in their own suitable conditions; which ensures you to experience our high-quality fresh products. Whether you prefer imported or local products, Carrefour offers you wide ranges of healthy choices to choose from."
+      },
+      {
+        "id": 55,
+        "name": "Table Salt",
+        "weight": "700gm",
+        "price": 5.8,
+        "image": "https://cdn-icons-png.flaticon.com/512/736/736923.png",
+        "description": "Perfect for adding flavour to your daily meals."
+      },
+      {
+        "id": 56,
+        "name": "Spices Mix",
+        "weight": "40gm",
+        "price": 5.95,
+        "image": "https://cdn-icons.flaticon.com/png/512/5862/premium/5862822.png?token=exp=1660491815~hmac=9997afe4b2c9ed92abcab4754b5775b0",
+        "description": "Perfect for adding flavour to your daily meals."
+      },
+      {
+        "id": 57,
+        "name": "Black Pepper",
+        "weight": "45gm",
+        "price": 13.95,
+        "image": "https://cdn-icons-png.flaticon.com/512/6378/6378180.png",
+        "description": "Perfect for adding flavour to your daily meals."
+      },
+      {
+        "id": 58,
+        "name": "Cumin",
+        "weight": "1kg",
+        "price": 129.95,
+        "image": "https://cdn-icons-png.flaticon.com/512/4788/4788088.png",
+        "description": "Perfect for adding flavour to your daily meals."
+      },
+      {
+        "id": 59,
+        "name": "Lentils",
+        "weight": "1kg",
+        "price": 38.95,
+        "image": "https://cdn-icons-png.flaticon.com/512/2165/2165967.png",
+        "description": "Perfect for adding flavour to your daily meals."
+      },
+      {
+        "id": 60,
+        "name": "Paprika",
+        "weight": "1kg",
+        "price": 139.95,
+        "image": "https://cdn-icons-png.flaticon.com/512/6332/6332497.png",
+        "description": "Perfect for adding flavour to your daily meals."
+      }
+    ]
+  },
+  {
+    "name": "Oils, Vinegar & Salad Dressings",
+    "image": "https://cdn-icons-png.flaticon.com/512/4264/4264676.png",
+    "items": [
+      {
+        "id": 61,
+        "name": "Vinegar",
+        "weight": "1L",
+        "price": 10.45,
+        "image": "https://cdn-icons-png.flaticon.com/512/123/123309.png",
+        "description": "Our Vinegar is natural and stands out because of its ideal taste profile. It also has antiseptic and disinfectant qualities that significantly extend its uses."
+      },
+      {
+        "id": 62,
+        "name": "White Vinegar",
+        "weight": "1L",
+        "price": 10.45,
+        "image": "https://cdn-icons-png.flaticon.com/512/123/123309.png",
+        "description": "Our Vinegar is natural and stands out because of its ideal taste profile. It also has antiseptic and disinfectant qualities that significantly extend its uses."
+      },
+      {
+        "id": 63,
+        "name": "Tahini",
+        "weight": "505g",
+        "price": 41.65,
+        "image": "https://cdn-icons-png.flaticon.com/512/2612/2612753.png",
+        "description": "It is a tasty way to add powerful antioxidants and healthy fats to your diet"
+      },
+      {
+        "id": 64,
+        "name": "Mustard",
+        "weight": "235g",
+        "price": 22.35,
+        "image": "https://cdn-icons.flaticon.com/png/512/661/premium/661756.png?token=exp=1660492449~hmac=252577a2a97d0a9f5e61ef88b34ece83",
+        "description": "Sweetness with a strong mustard bite."
+      },
+      {
+        "id": 65,
+        "name": "Mayonnaise",
+        "weight": "310g",
+        "price": 31.35,
+        "image": "https://cdn-icons.flaticon.com/png/512/3376/premium/3376991.png?token=exp=1660492540~hmac=cd2df3ea12708faedb65b3fbd5c068f3",
+        "description": "Our Classic Mayonnaise a generous splash of stokes to spice up any recipe, Made from the finest ingredients to give you a rich flavour."
+      },
+      {
+        "id": 66,
+        "name": "Ketchup",
+        "weight": "285g",
+        "price": 18.9,
+        "image": "https://cdn-icons.flaticon.com/png/512/2821/premium/2821793.png?token=exp=1660492571~hmac=1c087c7347175f89c1eba4a75b0c2a97",
+        "description": "Our Tomato Ketchup is made with 100% real, naturally ripened fresh Tomatoes."
+      },
+      {
+        "id": 67,
+        "name": "Hot Sauce",
+        "weight": "165g",
+        "price": 16.2,
+        "image": "https://cdn-icons-png.flaticon.com/512/3040/3040047.png",
+        "description": "Our Premium Hot Sauce to you the basic age-old Red Pasta Sauce. It is a basic tomato-based sauce that is made with tomatoes, garlic, crushed red pepper, and basil. It is a very simple sauce yet is rich in flavour."
+      },
+      {
+        "id": 68,
+        "name": "BBQ Sauce",
+        "weight": "200g",
+        "price": 13.95,
+        "image": "https://cdn-icons-png.flaticon.com/512/2755/2755300.png",
+        "description": "Our barbecue sauce is a classic sauce with a rich, hickory smoked flavour for traditional barbecue item."
+      },
+      {
+        "id": 69,
+        "name": "Salad Dressing",
+        "weight": "500g",
+        "price": 29.45,
+        "image": "https://cdn-icons.flaticon.com/png/512/4940/premium/4940017.png?token=exp=1660492804~hmac=37943eff68d5acfa106a6746dec06c05",
+        "description": "This perfect blend of spices transferred in a salad dressing is very appealing to the taste buds and offer a lip smacking experience."
+      },
+      {
+        "id": 70,
+        "name": "Apple Cider Vinegar",
+        "weight": "300ml",
+        "price": 37.5,
+        "image": "https://cdn-icons.flaticon.com/png/512/3931/premium/3931366.png?token=exp=1660492902~hmac=839b56916bb361bd679a1f68fb174d8e",
+        "description": "Our Vinegar is natural and stands out because of its ideal taste profile. It also has antiseptic and disinfectant qualities that significantly extend its uses."
+      }
+    ]
+  }
+]
