@@ -42,7 +42,9 @@ class CheckoutButton extends StatelessWidget {
                   backgroundColor: Theme.of(context).primaryColor,
                   minimumSize: Size.infinite,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, "/success");
+                },
                 child: const Text(
                   "Checkout",
                   style: TextStyle(color: Colors.white),

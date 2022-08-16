@@ -3,6 +3,7 @@ import 'package:carrot_app/views/category_page/category_page.dart';
 import 'package:carrot_app/views/home_page/home_page.dart';
 import 'package:carrot_app/views/item_page/item_page.dart';
 import 'package:carrot_app/views/login_page/login_page.dart';
+import 'package:carrot_app/views/order_placed_page/order_placed_screen.dart';
 import 'package:carrot_app/views/signup_page/signup_page.dart';
 import 'package:carrot_app/utils/palette.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -38,6 +39,7 @@ class MyApp extends StatelessWidget {
           "/home": (context) => const HomePage(),
           "/category": (context) => const CategoryPage(),
           "/item": (context) => const ItemPage(),
+          "/success": (context) => const OrderPlacedScreen(),
         },
       ),
     );
