@@ -2,24 +2,58 @@ import 'package:bloc/bloc.dart';
 import 'package:carrot_app/models/product.dart';
 import 'package:carrot_app/models/user.dart';
 import 'package:equatable/equatable.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 part 'user_event.dart';
 part 'user_state.dart';
 
-final FirebaseAuth _auth = FirebaseAuth.instance;
-
 class UserBloc extends Bloc<UserEvent, UserState> {
-  UserBloc() : super(UserInitial()) {
+  UserBloc()
+      : super(UserInitial(const UserModel("", isLoggedIn: false, cart: []))) {
     on<SignUp>((event, emit) async {
-      emit(UserSignedIn(
-          user: UserModel(event.userId, isLoggedIn: true, cart: const [])));
+      emit(UserSignedIn(UserModel(event.userId, isLoggedIn: true, cart: [])));
     });
 
-    on<SignIn>((event, emit) {});
+    on<SignIn>((event, emit) {
+      emit(UserSignedIn(UserModel(event.userId, isLoggedIn: true, cart: [])));
+    });
 
-    on<AddToCart>((event, emit) {});
+    on<AddToCart>((event, emit) {
+      emit(UserChangingCart(state.user));
+      try {
+        Product? product = state.user.cart
+            .firstWhere((element) => element.id == event.product.id);
+        product.incrementQuantity();
+        List<Product> newList = List<Product>.from(state.user.cart)
+            .map((e) => e.id == product.id ? product : e)
+            .toList();
+        emit(UserAddedToCart(UserModel(state.user.id,
+            isLoggedIn: state.user.isLoggedIn, cart: newList)));
+      } on StateError {
+        List<Product> newList = List<Product>.from(state.user.cart);
+        newList.add(event.product);
+        emit(UserAddedToCart(UserModel(state.user.id,
+            isLoggedIn: state.user.isLoggedIn, cart: newList)));
+      }
+    });
 
-    on<RemoveFromCart>((event, emit) {});
+    on<RemoveFromCart>((event, emit) {
+      emit(UserChangingCart(state.user));
+      Product product = state.user.cart
+          .firstWhere((element) => element.id == event.product.id);
+
+      if (product.quantity > 1) {
+        product.decrementQuantity();
+        List<Product> newList = List<Product>.from(state.user.cart)
+            .map((e) => e.id == product.id ? product : e)
+            .toList();
+        emit(UserRemovedFromCart(UserModel(state.user.id,
+            isLoggedIn: state.user.isLoggedIn, cart: newList)));
+      } else {
+        List<Product> newList = List<Product>.from(state.user.cart);
+        newList.remove(product);
+        emit(UserRemovedFromCart(UserModel(state.user.id,
+            isLoggedIn: state.user.isLoggedIn, cart: newList)));
+      }
+    });
   }
 }

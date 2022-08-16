@@ -1,0 +1,111 @@
+import 'package:carrot_app/bloc/user_bloc.dart';
+import 'package:carrot_app/models/product.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter/material.dart';
+
+class AddToCartButton extends StatelessWidget {
+  final Product product;
+  const AddToCartButton(this.product, {super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final userBloc = BlocProvider.of<UserBloc>(context, listen: true);
+
+    return BlocBuilder<UserBloc, UserState>(
+      builder: (context, state) {
+        if (state.user.cart.indexWhere((element) => element.id == product.id) ==
+            -1) {
+          return Container(
+            width: 40,
+            height: 40,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  color: const Color(0xff006f18).withAlpha(25),
+                  blurRadius: 4.0,
+                  spreadRadius: 0.0,
+                ),
+              ],
+            ),
+            child: IconButton(
+              color: Colors.white,
+              onPressed: () {
+                userBloc.add(AddToCart(product));
+              },
+              icon: Align(
+                alignment: Alignment.centerLeft,
+                child: Icon(
+                  Icons.add,
+                  color: Theme.of(context).primaryColor,
+                ),
+              ),
+            ),
+          );
+        }
+
+        return Column(
+          children: [
+            Container(
+              width: 40,
+              height: 41,
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                      blurRadius: 4.0,
+                      color: const Color(0xff006f18).withAlpha(30))
+                ],
+                color: Colors.white,
+              ),
+              child: IconButton(
+                  splashColor: Colors.transparent,
+                  color: Theme.of(context).primaryColor,
+                  iconSize: 20,
+                  onPressed: () {
+                    userBloc.add(RemoveFromCart(product));
+                  },
+                  icon: const Icon(Icons.remove)),
+            ),
+            Container(
+              width: 34,
+              height: 35,
+              color: Theme.of(context).primaryColor,
+              child: Center(
+                child: Text(
+                  state.user.cart
+                      .firstWhere((element) => element.id == product.id)
+                      .quantity
+                      .toString(),
+                  style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
+            Container(
+              width: 40,
+              height: 41,
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                      blurRadius: 4.0, color: Color(0xff006f18).withAlpha(30))
+                ],
+                color: Colors.white,
+              ),
+              child: IconButton(
+                splashColor: Colors.transparent,
+                color: Theme.of(context).primaryColor,
+                iconSize: 20,
+                onPressed: () {
+                  userBloc.add(AddToCart(product));
+                },
+                icon: const Icon(Icons.add),
+              ),
+            )
+          ],
+        );
+      },
+    );
+  }
+}

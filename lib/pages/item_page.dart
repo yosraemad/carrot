@@ -1,5 +1,9 @@
+import 'package:carrot_app/bloc/user_bloc.dart';
+import 'package:carrot_app/models/product.dart';
+import 'package:carrot_app/widgets/item_page/cart_button.dart';
 import 'package:carrot_app/widgets/item_page/product_description.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ItemPageArgs {
   final Map<String, dynamic> item;
@@ -78,28 +82,11 @@ class ItemPage extends StatelessWidget {
           child: ProductDescription(item["description"]),
         ),
         Expanded(
-            child: Align(
-          alignment: Alignment.bottomCenter,
-          child: Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: SizedBox(
-              width: double.infinity,
-              height: 50,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(elevation: 0),
-                onPressed: () {},
-                child: const Text(
-                  "Add to Cart",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
-                  ),
-                ),
-              ),
-            ),
+          child: Align(
+            alignment: Alignment.bottomCenter,
+            child: CartButton(Product.fromJson(item)),
           ),
-        ))
+        ),
       ]),
     );
   }

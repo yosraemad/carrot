@@ -1,5 +1,9 @@
+import 'package:carrot_app/bloc/user_bloc.dart';
+import 'package:carrot_app/models/product.dart';
 import 'package:carrot_app/pages/item_page.dart';
+import 'package:carrot_app/widgets/category_page/add_to_cart_button.dart';
 import "package:flutter/material.dart";
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CategoryItem extends StatelessWidget {
   final Map<String, dynamic> item;
@@ -34,32 +38,9 @@ class CategoryItem extends StatelessWidget {
                       ),
                     ),
                     Positioned(
-                      top: -10,
-                      right: -5,
-                      child: Container(
-                        width: 40,
-                        height: 40,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          boxShadow: [
-                            BoxShadow(
-                              color: const Color(0xff006f18).withAlpha(25),
-                              blurRadius: 4.0,
-                              spreadRadius: 0.0,
-                            ),
-                          ],
-                        ),
-                        child: IconButton(
-                            color: Colors.white,
-                            onPressed: () {},
-                            icon: Align(
-                              alignment: Alignment.centerLeft,
-                              child: Icon(
-                                Icons.add,
-                                color: Theme.of(context).primaryColor,
-                              ),
-                            )),
-                      ),
+                      top: -11.27,
+                      right: -11,
+                      child: AddToCartButton(Product.fromJson(item)),
                     )
                   ],
                 ),
