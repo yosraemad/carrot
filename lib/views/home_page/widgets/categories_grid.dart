@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:carrot_app/pages/category_page.dart';
+import 'package:carrot_app/views/category_page/category_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

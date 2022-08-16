@@ -1,9 +1,9 @@
 import 'package:carrot_app/bloc/user_bloc.dart';
-import 'package:carrot_app/pages/category_page.dart';
-import 'package:carrot_app/pages/home_page.dart';
-import 'package:carrot_app/pages/item_page.dart';
-import 'package:carrot_app/pages/login_page.dart';
-import 'package:carrot_app/pages/signup_page.dart';
+import 'package:carrot_app/views/category_page/category_page.dart';
+import 'package:carrot_app/views/home_page/home_page.dart';
+import 'package:carrot_app/views/item_page/item_page.dart';
+import 'package:carrot_app/views/login_page/login_page.dart';
+import 'package:carrot_app/views/signup_page/signup_page.dart';
 import 'package:carrot_app/utils/palette.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';

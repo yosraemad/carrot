@@ -1,4 +1,5 @@
-import 'package:carrot_app/widgets/category_page/category_item.dart';
+import 'package:carrot_app/views/category_page/widgets/category_item.dart';
+import 'package:carrot_app/views/category_page/widgets/category_page_appbar.dart';
 import 'package:flutter/material.dart';
 
 class CategoryPageArgs {
@@ -23,24 +24,7 @@ class CategoryPage extends StatelessWidget {
     final double itemWidth = size.width / 2;
     final args = ModalRoute.of(context)!.settings.arguments as CategoryPageArgs;
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: IconButton(
-          splashColor: Colors.transparent,
-          highlightColor: Colors.transparent,
-          icon: const Icon(
-            Icons.chevron_left,
-            size: 40,
-          ),
-          onPressed: () => Navigator.pop(context),
-        ),
-        title: Text(
-          args.name,
-          style: const TextStyle(fontSize: 20),
-        ),
-      ),
+      appBar: CategoryPageAppBar(args: args),
       body: GridView.builder(
         itemCount: args.items.length,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

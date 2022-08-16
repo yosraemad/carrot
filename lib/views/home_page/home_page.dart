@@ -1,8 +1,8 @@
-import 'package:carrot_app/pages/cart_page.dart';
-import 'package:carrot_app/widgets/cart_page/cart_appbar.dart';
-import 'package:carrot_app/widgets/home_page/carousel.dart';
-import 'package:carrot_app/widgets/home_page/categories_grid.dart';
-import 'package:carrot_app/widgets/home_page/home_appbar.dart';
+import 'package:carrot_app/views/cart_page/cart_page.dart';
+import 'package:carrot_app/views/cart_page/widgets/cart_appbar.dart';
+import 'package:carrot_app/views/home_page/widgets/carousel.dart';
+import 'package:carrot_app/views/home_page/widgets/categories_grid.dart';
+import 'package:carrot_app/views/home_page/widgets/home_appbar.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {

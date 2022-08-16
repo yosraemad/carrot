@@ -2,7 +2,7 @@ import 'package:carrot_app/bloc/user_bloc.dart';
 import 'package:carrot_app/widgets/custom/form_button.dart';
 import 'package:carrot_app/widgets/custom/form_textbox.dart';
 import 'package:carrot_app/widgets/custom/header_one.dart';
-import 'package:carrot_app/widgets/login_page/signup_button.dart';
+import 'package:carrot_app/views/login_page/widgets/signup_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

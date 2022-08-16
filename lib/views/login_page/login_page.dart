@@ -1,4 +1,5 @@
-import 'package:carrot_app/widgets/login_page/login_form.dart';
+import 'package:carrot_app/views/login_page/widgets/header_image.dart';
+import 'package:carrot_app/views/login_page/widgets/login_form.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
@@ -11,14 +12,8 @@ class LoginPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              width: double.infinity,
-              alignment: Alignment.topRight,
-              child: Image.asset(
-                "assets/images/login_header.png",
-              ),
-            ),
+          children: const [
+            HeaderImage(),
             LoginForm(),
           ],
         ),
