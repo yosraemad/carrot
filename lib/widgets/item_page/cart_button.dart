@@ -9,7 +9,7 @@ class CartButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final userBloc = BlocProvider.of<UserBloc>(context, listen: true);
+    final userBloc = BlocProvider.of<UserBloc>(context);
     return BlocBuilder<UserBloc, UserState>(
       builder: (context, state) {
         if (state.user.cart.indexWhere((element) => element.id == product.id) ==
@@ -79,7 +79,7 @@ class CartButton extends StatelessWidget {
                     boxShadow: [
                       BoxShadow(
                           blurRadius: 4.0,
-                          color: Color(0xff006f18).withAlpha(30))
+                          color: const Color(0xff006f18).withAlpha(30))
                     ],
                     color: Colors.white,
                   ),

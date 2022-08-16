@@ -9,7 +9,7 @@ class AddToCartButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final userBloc = BlocProvider.of<UserBloc>(context, listen: true);
+    final userBloc = BlocProvider.of<UserBloc>(context);
 
     return BlocBuilder<UserBloc, UserState>(
       builder: (context, state) {

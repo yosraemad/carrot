@@ -8,6 +8,14 @@ class UserModel extends Equatable {
 
   const UserModel(this.id, {required this.isLoggedIn, required this.cart});
 
+  double get totalPrice {
+    double total = 0;
+    for (int i = 0; i < cart.length; i++) {
+      total += cart[i].total;
+    }
+    return total;
+  }
+
   @override
   List<Object?> get props => [isLoggedIn];
 }
