@@ -8,6 +8,7 @@ part 'product_state.dart';
 class ProductBloc extends Bloc<ProductEvent, ProductState> {
   ProductBloc() : super(ProductInitial([], 0)) {
     on<AddToCart>((event, emit) {
+      emit(AddingToCart(state.products, state.props.length));
       try {
         Product? product = state.products
             .firstWhere((element) => element.id == event.product.id);
@@ -24,6 +25,7 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
     });
 
     on<RemoveFromCart>((event, emit) {
+      emit(AddingToCart(state.products, state.props.length));
       Product product = state.products
           .firstWhere((element) => element.id == event.product.id);
 

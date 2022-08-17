@@ -14,6 +14,13 @@ class ProductInitial extends ProductState {
   const ProductInitial(super.products, super.length);
 }
 
+class AddingToCart extends ProductState {
+  const AddingToCart(super.products, super.length);
+
+  @override
+  List<Object> get props => [products, length];
+}
+
 class AddedToCart extends ProductState {
   const AddedToCart(super.products, super.length);
 
