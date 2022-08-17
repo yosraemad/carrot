@@ -34,7 +34,7 @@ class Product {
         price: json["price"].toDouble(),
         image: json["image"],
         description: json["description"],
-        quantity: json["quantity"],
+        quantity: json["quantity"] ?? 1,
       );
 
   Map<String, dynamic> toMap() {
