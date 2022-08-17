@@ -42,6 +42,7 @@ dependencies:
   equatable: ^2.0.3
   carousel_slider: ^4.1.1
   flutter_native_splash: ^2.2.7
+  cloud_firestore: ^3.4.4
 
 dev_dependencies:
   flutter_test:
@@ -57,7 +58,7 @@ dev_dependencies:
 
 flutter_native_splash:
   color: "#ffffff"
-  image: "assets/images/success.png"
+  image: assets/images/splash.png
   android: true
   ios: true
 

@@ -1,5 +1,4 @@
-import 'package:carrot_app/bloc/user_bloc.dart';
-import 'package:carrot_app/models/product.dart';
+import 'package:carrot_app/models/product/product.dart';
 import 'package:carrot_app/views/item_page/item_page.dart';
 import 'package:carrot_app/views/category_page/widgets/add_to_cart_button.dart';
 import "package:flutter/material.dart";

@@ -1,5 +1,6 @@
-import 'package:carrot_app/bloc/user_bloc.dart';
-import 'package:carrot_app/models/product.dart';
+import 'package:carrot_app/models/product/bloc/product_bloc.dart';
+import 'package:carrot_app/models/product/product.dart';
+import 'package:carrot_app/models/user/bloc/user_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -9,7 +10,7 @@ class CartPageItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final userBloc = BlocProvider.of<UserBloc>(context);
+    final userBloc = BlocProvider.of<ProductBloc>(context);
     final width = MediaQuery.of(context).size.width;
     return Column(
       children: [

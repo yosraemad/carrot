@@ -1,4 +1,4 @@
-import 'package:carrot_app/bloc/user_bloc.dart';
+import 'package:carrot_app/view_models/user_view_model.dart';
 import 'package:carrot_app/widgets/custom/form_button.dart';
 import 'package:carrot_app/widgets/custom/form_textbox.dart';
 import 'package:carrot_app/widgets/custom/header_one.dart';
@@ -75,31 +75,12 @@ class _LoginFormState extends State<LoginForm> {
               child: FormButton(
                 text: "Login",
                 onPressed: () async {
-                  try {
-                    if (_formKey.currentState!.validate()) {
-                      User? user = (await FirebaseAuth.instance
-                              .signInWithEmailAndPassword(
-                                  email: _emailController.text,
-                                  password: _passwordController.text))
-                          .user;
-                      if (!mounted) return;
-                      if (user != null) {
-                        context.read<UserBloc>().add(SignUp(userId: user.uid));
-                        Navigator.pushNamedAndRemoveUntil(
-                            context, "/home", (route) => false);
-                      }
-                    }
-                  } on FirebaseAuthException catch (e) {
-                    if (e.code == "user-not-found") {
-                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                          content: Text("No user found for this email")));
-                    } else if (e.code == "wrong-password") {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text("Wrong Password")));
-                    }
-                  } catch (e) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text("An Error Occurred")));
+                  if (_formKey.currentState!.validate()) {
+                    await UserViewModel().signInUser(
+                        context,
+                        _emailController.text,
+                        _passwordController.text,
+                        mounted);
                   }
                 },
               ),

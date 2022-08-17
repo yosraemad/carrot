@@ -1,5 +1,6 @@
-import 'package:carrot_app/bloc/user_bloc.dart';
-import 'package:carrot_app/models/user.dart';
+import 'package:carrot_app/models/product/bloc/product_bloc.dart';
+import 'package:carrot_app/models/user/bloc/user_bloc.dart';
+import 'package:carrot_app/models/user/user.dart';
 import 'package:carrot_app/views/cart_page/widgets/cart_page_item.dart';
 import 'package:carrot_app/views/cart_page/widgets/checkout_button.dart';
 import "package:flutter/material.dart";
@@ -10,15 +11,15 @@ class CartPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UserBloc, UserState>(
+    return BlocBuilder<ProductBloc, ProductState>(
       builder: (context, state) {
         return Column(
           children: [
             Expanded(
               child: ListView.builder(
-                itemCount: state.user.cart.length,
+                itemCount: state.products.length,
                 itemBuilder: (context, index) {
-                  return CartPageItem(state.user.cart[index]);
+                  return CartPageItem(state.products[index]);
                 },
               ),
             ),

@@ -1,4 +1,5 @@
-import 'package:carrot_app/bloc/user_bloc.dart';
+import 'package:carrot_app/models/product/bloc/product_bloc.dart';
+import 'package:carrot_app/models/user/bloc/user_bloc.dart';
 import 'package:carrot_app/views/category_page/category_page.dart';
 import 'package:carrot_app/views/home_page/home_page.dart';
 import 'package:carrot_app/views/item_page/item_page.dart';
@@ -28,7 +29,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [BlocProvider(create: (context) => UserBloc())],
+      providers: [
+        BlocProvider(create: (context) => UserBloc()),
+        BlocProvider(create: (context) => ProductBloc())
+      ],
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(

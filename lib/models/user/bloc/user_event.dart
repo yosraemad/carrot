@@ -24,20 +24,3 @@ class SignUp extends UserEvent {
   @override
   List<Object> get props => [userId];
 }
-
-class AddToCart extends UserEvent {
-  final Product product;
-
-  const AddToCart(this.product);
-
-  @override
-  List<Object> get props => [product];
-}
-
-class RemoveFromCart extends UserEvent {
-  final Product product;
-  const RemoveFromCart(this.product);
-
-  @override
-  List<Object> get props => [product];
-}

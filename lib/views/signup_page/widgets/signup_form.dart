@@ -1,4 +1,4 @@
-import 'package:carrot_app/bloc/user_bloc.dart';
+import 'package:carrot_app/view_models/user_view_model.dart';
 import 'package:carrot_app/widgets/custom/form_button.dart';
 import 'package:carrot_app/widgets/custom/form_textbox.dart';
 import 'package:carrot_app/widgets/custom/header_one.dart';
@@ -101,44 +101,8 @@ class _SignUpFormState extends State<SignUpForm> {
                 text: "Register",
                 onPressed: () async {
                   if (_formKey.currentState!.validate()) {
-                    try {
-                      if (kDebugMode) {
-                        print(_emailController.text);
-                        print(_passwordController.text);
-                      }
-                      final User? user = (await FirebaseAuth.instance
-                              .createUserWithEmailAndPassword(
-                                  email: _emailController.text,
-                                  password: _passwordController.text))
-                          .user;
-                      if (!mounted) return;
-                      if (user != null) {
-                        context.read<UserBloc>().add(SignUp(userId: user.uid));
-                        Navigator.pushNamedAndRemoveUntil(
-                            context, "/home", (route) => false);
-                      } else {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(content: Text("An Error Occurred")));
-                      }
-                    } on FirebaseAuthException catch (e) {
-                      if (kDebugMode) {
-                        print(e);
-                      }
-                      if (e.code == "weak-password") {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                                content:
-                                    Text("The password provided is too weak")));
-                      } else if (e.code == "email-already-in-use") {
-                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                            content: Text(
-                                "An account already exists for that email")));
-                      }
-                    } catch (e) {
-                      if (kDebugMode) {
-                        print(e);
-                      }
-                    }
+                    UserViewModel().createUser(context, _emailController.text,
+                        _passwordController.text, mounted);
                   }
                 },
               ),
