@@ -1,3 +1,4 @@
+import 'package:carrot_app/view_models/product_view_model.dart';
 import 'package:carrot_app/views/cart_page/cart_page.dart';
 import 'package:carrot_app/views/cart_page/widgets/cart_appbar.dart';
 import 'package:carrot_app/views/home_page/widgets/carousel.dart';
@@ -14,6 +15,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
+  late final Future getProducts = ProductViewModel().getUserProducts(context);
+
   final List<Widget> _widgetOptions = [
     Column(
       children: const [
@@ -38,7 +41,21 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appbar,
-      body: _widgetOptions.elementAt(_selectedIndex),
+      body: FutureBuilder(
+          future: getProducts,
+          builder: (context, snapshot) {
+            if (!snapshot.hasData && _selectedIndex == 2) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+            if (snapshot.hasError) {
+              return Center(
+                child: Text(snapshot.error.toString()),
+              );
+            }
+            return _widgetOptions.elementAt(_selectedIndex);
+          }),
       bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           selectedItemColor: Theme.of(context).primaryColor,

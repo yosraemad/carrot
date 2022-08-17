@@ -1,6 +1,7 @@
 import 'package:carrot_app/models/product/bloc/product_bloc.dart';
 import 'package:carrot_app/models/product/product.dart';
 import 'package:carrot_app/models/user/bloc/user_bloc.dart';
+import 'package:carrot_app/view_models/product_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -10,7 +11,6 @@ class CartButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final userBloc = BlocProvider.of<ProductBloc>(context);
     return BlocBuilder<ProductBloc, ProductState>(
       builder: (context, state) {
         if (state.products.indexWhere((element) => element.id == product.id) ==
@@ -23,7 +23,7 @@ class CartButton extends StatelessWidget {
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(elevation: 0),
                 onPressed: () {
-                  userBloc.add(AddToCart(product));
+                  ProductViewModel().addToCart(product, context);
                 },
                 child: const Text(
                   "Add to Cart",
@@ -54,7 +54,7 @@ class CartButton extends StatelessWidget {
                   child: IconButton(
                       color: Theme.of(context).primaryColor,
                       onPressed: () {
-                        userBloc.add(RemoveFromCart(product));
+                        ProductViewModel().removeFromCart(product, context);
                       },
                       icon: const Icon(Icons.remove)),
                 ),
@@ -87,7 +87,7 @@ class CartButton extends StatelessWidget {
                   child: IconButton(
                     color: Theme.of(context).primaryColor,
                     onPressed: () {
-                      userBloc.add(AddToCart(product));
+                      ProductViewModel().addToCart(product, context);
                     },
                     icon: const Icon(Icons.add),
                   ),

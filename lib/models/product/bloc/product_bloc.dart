@@ -41,5 +41,8 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
         emit(RemovedFromCart(newList, state.props.length - 1));
       }
     });
+
+    on<SetCart>(
+        (event, emit) => emit(CartSet(event.products, state.props.length)));
   }
 }

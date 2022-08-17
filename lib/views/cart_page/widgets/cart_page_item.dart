@@ -1,8 +1,6 @@
-import 'package:carrot_app/models/product/bloc/product_bloc.dart';
 import 'package:carrot_app/models/product/product.dart';
-import 'package:carrot_app/models/user/bloc/user_bloc.dart';
+import 'package:carrot_app/view_models/product_view_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CartPageItem extends StatelessWidget {
   final Product product;
@@ -10,7 +8,6 @@ class CartPageItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final userBloc = BlocProvider.of<ProductBloc>(context);
     final width = MediaQuery.of(context).size.width;
     return Column(
       children: [
@@ -68,7 +65,7 @@ class CartPageItem extends StatelessWidget {
                         iconSize: 17,
                         color: Theme.of(context).primaryColor,
                         onPressed: () {
-                          userBloc.add(RemoveFromCart(product));
+                          ProductViewModel().removeFromCart(product, context);
                         },
                         icon: product.quantity == 1
                             ? const Icon(Icons.delete_outline)
@@ -104,7 +101,7 @@ class CartPageItem extends StatelessWidget {
                       iconSize: 17,
                       color: Theme.of(context).primaryColor,
                       onPressed: () {
-                        userBloc.add(AddToCart(product));
+                        ProductViewModel().addToCart(product, context);
                       },
                       icon: const Icon(Icons.add),
                     ),

@@ -34,3 +34,10 @@ class RemovedFromCart extends ProductState {
   @override
   List<Object> get props => [products, length];
 }
+
+class CartSet extends ProductState {
+  const CartSet(super.products, super.length);
+
+  @override
+  List<Object> get props => [products, length];
+}

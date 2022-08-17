@@ -6,6 +6,7 @@ class Product {
     required this.price,
     required this.image,
     required this.description,
+    this.quantity = 1,
   });
 
   int id;
@@ -14,19 +15,17 @@ class Product {
   double price;
   String image;
   String description;
-  int _quantity = 1;
-
-  int get quantity => _quantity;
+  int quantity;
 
   void incrementQuantity() {
-    _quantity++;
+    quantity++;
   }
 
   void decrementQuantity() {
-    _quantity--;
+    quantity--;
   }
 
-  double get total => _quantity * price;
+  double get total => quantity * price;
 
   factory Product.fromJson(Map<String, dynamic> json) => Product(
         id: json["id"],
@@ -35,5 +34,18 @@ class Product {
         price: json["price"].toDouble(),
         image: json["image"],
         description: json["description"],
+        quantity: json["quantity"],
       );
+
+  Map<String, dynamic> toMap() {
+    return {
+      "id": id,
+      "name": name,
+      "weight": weight,
+      "price": price,
+      "image": image,
+      "description": description,
+      "quantity": quantity,
+    };
+  }
 }
