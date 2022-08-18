@@ -19,14 +19,16 @@ class ProductViewModel {
   Future<bool> getUserProducts(BuildContext context) async {
     final userBloc = BlocProvider.of<UserBloc>(context, listen: true);
     final productBloc = BlocProvider.of<ProductBloc>(context);
-    List<dynamic>? products = (await FirebaseFirestore.instance
-            .collection("products")
-            .doc(userBloc.state.user.id)
-            .get())
-        .data()?["products"];
-    if (products != null) {
-      productBloc
-          .add(SetCart(products.map((e) => Product.fromJson(e)).toList()));
+    if (userBloc.state.user.id.isNotEmpty) {
+      List<dynamic>? products = (await FirebaseFirestore.instance
+              .collection("products")
+              .doc(userBloc.state.user.id)
+              .get())
+          .data()?["products"];
+      if (products != null) {
+        productBloc
+            .add(SetCart(products.map((e) => Product.fromJson(e)).toList()));
+      }
     }
     return true;
   }

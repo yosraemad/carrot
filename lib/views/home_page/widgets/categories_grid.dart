@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:carrot_app/views/category_page/category_page.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -8,9 +9,11 @@ class CategoriesGrid extends StatelessWidget {
   const CategoriesGrid({super.key});
 
   Future<List> readJson() async {
-    final String response =
-        await rootBundle.loadString("assets/data/data.json");
-    return await json.decode(response);
+    List<dynamic>? products =
+        (await FirebaseFirestore.instance.collection("all-products").get())
+            .docs
+            .toList();
+    return products;
   }
 
   @override
