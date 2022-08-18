@@ -15,5 +15,8 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     on<SignIn>((event, emit) {
       emit(UserSignedIn(UserModel(event.userId, isLoggedIn: true)));
     });
+    on<SignOut>((event, emit) {
+      emit(UserInitial(UserModel("", isLoggedIn: false)));
+    });
   }
 }

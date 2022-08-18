@@ -4,6 +4,8 @@ import 'package:carrot_app/views/cart_page/widgets/cart_appbar.dart';
 import 'package:carrot_app/views/home_page/widgets/carousel.dart';
 import 'package:carrot_app/views/home_page/widgets/categories_grid.dart';
 import 'package:carrot_app/views/home_page/widgets/home_appbar.dart';
+import 'package:carrot_app/views/profile_page/profile_screen.dart';
+import 'package:carrot_app/views/profile_page/widgets/profile_page_appbar.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -31,9 +33,7 @@ class _HomePageState extends State<HomePage> {
     const Center(
       child: Text("Campaign"),
     ),
-    const Center(
-      child: Text("Profile"),
-    ),
+    const ProfileScreen(),
   ];
 
   PreferredSizeWidget? appbar = const HomeAppBar();
@@ -65,6 +65,11 @@ class _HomePageState extends State<HomePage> {
             if (value == 2) {
               setState(() {
                 appbar = const CartAppBar();
+                _selectedIndex = value;
+              });
+            } else if (value == 4) {
+              setState(() {
+                appbar = const ProfilePageAppBar();
                 _selectedIndex = value;
               });
             } else {
