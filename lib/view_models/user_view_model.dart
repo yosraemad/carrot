@@ -5,6 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class UserViewModel {
+  Future<void> signInUserWithId(BuildContext context, String uid) async {
+    context.read<UserBloc>().add(SignIn(userId: uid));
+  }
+
   Future<void> signInUser(
       BuildContext context, String email, String password, bool mounted) async {
     try {
@@ -13,9 +17,8 @@ class UserViewModel {
           .user;
       if (user == null) return;
       if (!mounted) return;
-      Navigator.pushNamedAndRemoveUntil(context, "/home", (route) => false);
 
-      context.read<UserBloc>().add(SignUp(userId: user.uid));
+      context.read<UserBloc>().add(SignIn(userId: user.uid));
     } on FirebaseAuthException catch (e) {
       if (e.code == "user-not-found") {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -36,10 +39,10 @@ class UserViewModel {
       final User? user = (await FirebaseAuth.instance
               .createUserWithEmailAndPassword(email: email, password: password))
           .user;
+      if (user == null) return;
       if (!mounted) return;
       if (user != null) {
         context.read<UserBloc>().add(SignUp(userId: user.uid));
-        Navigator.pushNamedAndRemoveUntil(context, "/home", (route) => false);
       } else {
         ScaffoldMessenger.of(context)
             .showSnackBar(const SnackBar(content: Text("An Error Occurred")));
@@ -62,7 +65,6 @@ class UserViewModel {
     try {
       await FirebaseAuth.instance.signOut();
       context.read<UserBloc>().add(const SignOut());
-      Navigator.pushNamedAndRemoveUntil(context, "/", (route) => false);
     } catch (e) {
       ScaffoldMessenger.of(context)
           .showSnackBar(const SnackBar(content: Text("An Error Occurred")));

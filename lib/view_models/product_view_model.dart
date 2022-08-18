@@ -17,7 +17,7 @@ class ProductViewModel {
   }
 
   Future<bool> getUserProducts(BuildContext context) async {
-    final userBloc = BlocProvider.of<UserBloc>(context);
+    final userBloc = BlocProvider.of<UserBloc>(context, listen: true);
     final productBloc = BlocProvider.of<ProductBloc>(context);
     List<dynamic>? products = (await FirebaseFirestore.instance
             .collection("products")

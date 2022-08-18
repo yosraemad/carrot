@@ -1,3 +1,4 @@
+import 'package:carrot_app/models/user/bloc/user_bloc.dart';
 import 'package:carrot_app/view_models/product_view_model.dart';
 import 'package:carrot_app/views/cart_page/cart_page.dart';
 import 'package:carrot_app/views/cart_page/widgets/cart_appbar.dart';
@@ -7,6 +8,7 @@ import 'package:carrot_app/views/home_page/widgets/home_appbar.dart';
 import 'package:carrot_app/views/profile_page/profile_screen.dart';
 import 'package:carrot_app/views/profile_page/widgets/profile_page_appbar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -17,8 +19,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
-  late final Future getProducts = ProductViewModel().getUserProducts(context);
-
   final List<Widget> _widgetOptions = [
     Column(
       children: const [
@@ -39,6 +39,8 @@ class _HomePageState extends State<HomePage> {
   PreferredSizeWidget? appbar = const HomeAppBar();
   @override
   Widget build(BuildContext context) {
+    final userBloc = context.watch<UserBloc>();
+    late final Future getProducts = ProductViewModel().getUserProducts(context);
     return Scaffold(
       appBar: appbar,
       body: FutureBuilder(
@@ -50,8 +52,9 @@ class _HomePageState extends State<HomePage> {
               );
             }
             if (snapshot.hasError) {
-              return Center(
-                child: Text(snapshot.error.toString()),
+              print(snapshot.error);
+              return const Center(
+                child: CircularProgressIndicator(),
               );
             }
             return _widgetOptions.elementAt(_selectedIndex);
