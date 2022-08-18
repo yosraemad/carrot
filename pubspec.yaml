@@ -42,8 +42,6 @@ dependencies:
   equatable: ^2.0.3
   carousel_slider: ^4.1.1
   flutter_native_splash: ^2.2.7
-  cloud_firestore: ^3.4.4
-  flutter_switch: ^0.3.2
 
 dev_dependencies:
   flutter_test:
@@ -55,13 +53,8 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
-  flutter_launcher_icons: "^0.10.0"
-
-flutter_native_splash:
-  color: "#ffffff"
-  image: assets/images/splash.png
-  android: true
-  ios: true
+  cloud_firestore: ^3.4.4
+  flutter_switch: ^0.3.2
 
 flutter_icons:
   android: "launcher_icon"
