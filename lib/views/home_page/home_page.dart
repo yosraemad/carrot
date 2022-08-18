@@ -19,26 +19,34 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
-  final List<Widget> _widgetOptions = [
-    Column(
-      children: const [
-        Carousel(),
-        Expanded(child: CategoriesGrid()),
-      ],
-    ),
-    const Center(
-      child: Text("Search"),
-    ),
-    const CartPage(),
-    const Center(
-      child: Text("Campaign"),
-    ),
-    const ProfileScreen(),
-  ];
+  void goHome() {
+    setState(() {
+      _selectedIndex = 0;
+    });
+  }
 
   PreferredSizeWidget? appbar = const HomeAppBar();
   @override
   Widget build(BuildContext context) {
+    final List<Widget> _widgetOptions = [
+      Column(
+        children: const [
+          Carousel(),
+          Expanded(child: CategoriesGrid()),
+        ],
+      ),
+      const Center(
+        child: Text("Search"),
+      ),
+      CartPage(
+        goHome: goHome,
+      ),
+      const Center(
+        child: Text("Campaign"),
+      ),
+      const ProfileScreen(),
+    ];
+
     final userBloc = context.watch<UserBloc>();
     late final Future getProducts = ProductViewModel().getUserProducts(context);
     return Scaffold(
