@@ -10,7 +10,7 @@ class ProfileTile extends StatelessWidget {
       this.trailing,
       this.onTap});
 
-  final IconData icon;
+  final Widget icon;
   final String text;
   final Widget? trailing;
   final TapFunction onTap;
@@ -22,10 +22,7 @@ class ProfileTile extends StatelessWidget {
       child: ListTile(
         horizontalTitleGap: 1,
         contentPadding: EdgeInsets.zero,
-        leading: Icon(
-          icon,
-          size: 30,
-        ),
+        leading: icon,
         title: Text(
           text,
           style: const TextStyle(

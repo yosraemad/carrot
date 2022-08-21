@@ -9,6 +9,7 @@ import 'package:carrot_app/views/profile_page/profile_screen.dart';
 import 'package:carrot_app/views/profile_page/widgets/profile_page_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -69,7 +70,7 @@ class _HomePageState extends State<HomePage> {
           }),
       bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
-          selectedItemColor: Theme.of(context).primaryColor,
+          selectedFontSize: 12.0,
           showUnselectedLabels: true,
           unselectedItemColor: Colors.grey,
           onTap: ((value) {
@@ -91,16 +92,47 @@ class _HomePageState extends State<HomePage> {
             }
           }),
           currentIndex: _selectedIndex,
-          items: const [
+          items: [
             BottomNavigationBarItem(
-                icon: Icon(Icons.home_outlined), label: "Home"),
-            BottomNavigationBarItem(icon: Icon(Icons.search), label: "Search"),
+              icon: SvgPicture.asset("assets/images/home_icon.svg"),
+              label: "Home",
+              activeIcon: SvgPicture.asset(
+                "assets/images/home_icon.svg",
+                color: Theme.of(context).primaryColor,
+              ),
+            ),
             BottomNavigationBarItem(
-                icon: Icon(Icons.shopping_cart_outlined), label: "Cart"),
+              icon: SvgPicture.asset("assets/images/search_icon.svg"),
+              label: "Search",
+              activeIcon: SvgPicture.asset(
+                "assets/images/search_icon.svg",
+                color: Theme.of(context).primaryColor,
+              ),
+            ),
             BottomNavigationBarItem(
-                icon: Icon(Icons.discount), label: "Campaigns"),
+              icon: SvgPicture.asset("assets/images/cart_icon.svg"),
+              label: "Cart",
+              activeIcon: SvgPicture.asset(
+                "assets/images/cart_icon.svg",
+                color: Theme.of(context).primaryColor,
+              ),
+            ),
             BottomNavigationBarItem(
-                icon: Icon(Icons.person_outline), label: "Profile"),
+              icon: SvgPicture.asset("assets/images/campaign_icon.svg"),
+              label: "Campaigns",
+              activeIcon: SvgPicture.asset(
+                "assets/images/campaign_icon.svg",
+                color: Theme.of(context).primaryColor,
+              ),
+            ),
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset("assets/images/profile_icon.svg"),
+              label: "Profile",
+              activeIcon: SvgPicture.asset(
+                "assets/images/profile_icon.svg",
+                color: Theme.of(context).primaryColor,
+              ),
+            ),
           ]),
     );
   }
