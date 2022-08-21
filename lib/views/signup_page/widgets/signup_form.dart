@@ -101,8 +101,13 @@ class _SignUpFormState extends State<SignUpForm> {
                 text: "Register",
                 onPressed: () async {
                   if (_formKey.currentState!.validate()) {
-                    UserViewModel().createUser(context, _emailController.text,
-                        _passwordController.text, mounted);
+                    await UserViewModel().createUser(
+                        context,
+                        _emailController.text,
+                        _passwordController.text,
+                        mounted);
+                    if (!mounted) return;
+                    Navigator.pop(context);
                   }
                 },
               ),
