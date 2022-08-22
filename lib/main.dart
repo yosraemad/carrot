@@ -51,12 +51,12 @@ class MyApp extends StatelessWidget {
           },
         ),
         routes: {
-          "/login": (context) => const LoginPage(),
-          "/sign-up": (context) => const SignUpPage(),
-          "/home": (context) => const HomePage(),
-          "/category": (context) => const CategoryPage(),
-          "/item": (context) => const ItemPage(),
-          "/success": (context) => const OrderPlacedScreen(),
+          LoginPage.routeName: (context) => const LoginPage(),
+          SignUpPage.routeName: (context) => const SignUpPage(),
+          HomePage.routeName: (context) => const HomePage(),
+          CategoryPage.routeName: (context) => const CategoryPage(),
+          ItemPage.routeName: (context) => const ItemPage(),
+          OrderPlacedScreen.routeName: (context) => const OrderPlacedScreen(),
         },
       ),
     );

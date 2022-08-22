@@ -15,6 +15,8 @@ class ItemPageArgs {
 class ItemPage extends StatelessWidget {
   const ItemPage({super.key});
 
+  static String routeName = "/item";
+
   @override
   Widget build(BuildContext context) {
     final item =

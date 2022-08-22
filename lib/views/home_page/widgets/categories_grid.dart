@@ -40,7 +40,7 @@ class _CategoriesGridState extends State<CategoriesGrid>
             itemBuilder: (context, index) {
               return InkWell(
                 onTap: () {
-                  Navigator.pushNamed(context, "/category",
+                  Navigator.pushNamed(context, CategoryPage.routeName,
                       arguments: CategoryPageArgs(snapshot.data![index]));
                 },
                 child: Card(

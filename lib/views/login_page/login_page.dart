@@ -3,6 +3,7 @@ import 'package:carrot_app/views/login_page/widgets/login_form.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
+  static String routeName = "/login";
   const LoginPage({super.key});
 
   @override

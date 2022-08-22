@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 class OrderPlacedScreen extends StatelessWidget {
   const OrderPlacedScreen({super.key});
 
+  static String routeName = "/success";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

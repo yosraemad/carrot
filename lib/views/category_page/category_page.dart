@@ -17,6 +17,8 @@ class CategoryPageArgs {
 class CategoryPage extends StatelessWidget {
   const CategoryPage({super.key});
 
+  static String routeName = "/category";
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;

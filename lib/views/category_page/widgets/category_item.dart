@@ -14,7 +14,8 @@ class CategoryItem extends StatelessWidget {
       padding: const EdgeInsets.all(12),
       child: InkWell(
         onTap: () {
-          Navigator.pushNamed(context, "/item", arguments: ItemPageArgs(item));
+          Navigator.pushNamed(context, ItemPage.routeName,
+              arguments: ItemPageArgs(item));
         },
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
