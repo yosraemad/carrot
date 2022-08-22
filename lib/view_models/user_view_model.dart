@@ -1,4 +1,4 @@
-import 'package:carrot_app/models/user/bloc/user_bloc.dart';
+import 'package:carrot_app/bloc/app_bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class UserViewModel {
   Future<void> signInUserWithId(BuildContext context, String uid) async {
-    context.read<UserBloc>().add(SignIn(userId: uid));
+    context.read<AppBloc>().add(SignIn(userId: uid));
   }
 
   Future<void> signInUser(
@@ -18,7 +18,7 @@ class UserViewModel {
       if (user == null) return;
       if (!mounted) return;
 
-      context.read<UserBloc>().add(SignIn(userId: user.uid));
+      context.read<AppBloc>().add(SignIn(userId: user.uid));
     } on FirebaseAuthException catch (e) {
       if (e.code == "user-not-found") {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -42,7 +42,7 @@ class UserViewModel {
       if (user == null) return;
       if (!mounted) return;
       if (user != null) {
-        context.read<UserBloc>().add(SignUp(userId: user.uid));
+        context.read<AppBloc>().add(SignUp(userId: user.uid));
       } else {
         ScaffoldMessenger.of(context)
             .showSnackBar(const SnackBar(content: Text("An Error Occurred")));
@@ -64,7 +64,7 @@ class UserViewModel {
   Future<void> signOutUser(BuildContext context) async {
     try {
       await FirebaseAuth.instance.signOut();
-      context.read<UserBloc>().add(const SignOut());
+      context.read<AppBloc>().add(const SignOut());
     } catch (e) {
       ScaffoldMessenger.of(context)
           .showSnackBar(const SnackBar(content: Text("An Error Occurred")));

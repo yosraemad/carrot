@@ -1,4 +1,4 @@
-import 'package:carrot_app/models/user/bloc/user_bloc.dart';
+import 'package:carrot_app/bloc/app_bloc.dart';
 import 'package:carrot_app/view_models/product_view_model.dart';
 import 'package:carrot_app/views/cart_page/cart_page.dart';
 import 'package:carrot_app/views/cart_page/widgets/cart_appbar.dart';
@@ -49,7 +49,7 @@ class _HomePageState extends State<HomePage> {
       const ProfileScreen(),
     ];
 
-    final userBloc = context.watch<UserBloc>();
+    final appBloc = context.watch<AppBloc>();
     late final Future getProducts = ProductViewModel().getUserProducts(context);
     return Scaffold(
       appBar: appbar,

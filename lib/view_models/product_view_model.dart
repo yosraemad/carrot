@@ -1,6 +1,6 @@
+import 'package:carrot_app/bloc/app_bloc.dart';
 import 'package:carrot_app/models/product/bloc/product_bloc.dart';
 import 'package:carrot_app/models/product/product.dart';
-import 'package:carrot_app/models/user/bloc/user_bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,12 +17,12 @@ class ProductViewModel {
   }
 
   Future<bool> getUserProducts(BuildContext context) async {
-    final userBloc = BlocProvider.of<UserBloc>(context, listen: true);
+    final appBloc = BlocProvider.of<AppBloc>(context, listen: true);
     final productBloc = BlocProvider.of<ProductBloc>(context);
-    if (userBloc.state.user.id.isNotEmpty) {
+    if (appBloc.state.user.id.isNotEmpty) {
       List<dynamic>? products = (await FirebaseFirestore.instance
               .collection("products")
-              .doc(userBloc.state.user.id)
+              .doc(appBloc.state.user.id)
               .get())
           .data()?["products"];
       if (products != null) {
@@ -47,11 +47,11 @@ class ProductViewModel {
 
   _setProductsInDatabase(BuildContext context) async {
     final productBloc = BlocProvider.of<ProductBloc>(context);
-    final userBloc = BlocProvider.of<UserBloc>(context);
+    final appBloc = BlocProvider.of<AppBloc>(context);
     CollectionReference products =
         await FirebaseFirestore.instance.collection("products");
-    await products.doc(userBloc.state.user.id).set({
-      "id": userBloc.state.user.id,
+    await products.doc(appBloc.state.user.id).set({
+      "id": appBloc.state.user.id,
       "products": productBloc.state.products.map((e) => e.toMap()).toList(),
     });
   }

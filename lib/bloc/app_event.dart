@@ -1,13 +1,13 @@
-part of 'user_bloc.dart';
+part of 'app_bloc.dart';
 
-abstract class UserEvent extends Equatable {
-  const UserEvent();
+abstract class AppEvent extends Equatable {
+  const AppEvent();
 
   @override
   List<Object> get props => [];
 }
 
-class SignIn extends UserEvent {
+class SignIn extends AppEvent {
   final String userId;
 
   const SignIn({required this.userId});
@@ -16,7 +16,7 @@ class SignIn extends UserEvent {
   List<Object> get props => [userId];
 }
 
-class SignUp extends UserEvent {
+class SignUp extends AppEvent {
   final String userId;
 
   const SignUp({required this.userId});
@@ -25,6 +25,6 @@ class SignUp extends UserEvent {
   List<Object> get props => [userId];
 }
 
-class SignOut extends UserEvent {
+class SignOut extends AppEvent {
   const SignOut();
 }
