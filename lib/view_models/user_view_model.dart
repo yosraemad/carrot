@@ -33,16 +33,15 @@ class UserViewModel {
     }
   }
 
-  Future<void> createUser(
-      BuildContext context, String email, String password, bool mounted) async {
+  Future<bool> createUser(
+      BuildContext context, String email, String password) async {
     try {
       final User? user = (await FirebaseAuth.instance
               .createUserWithEmailAndPassword(email: email, password: password))
           .user;
-      if (user == null) return;
-      if (!mounted) return;
       if (user != null) {
         context.read<AppBloc>().add(SignUp(userId: user.uid));
+        return true;
       } else {
         ScaffoldMessenger.of(context)
             .showSnackBar(const SnackBar(content: Text("An Error Occurred")));
@@ -59,6 +58,7 @@ class UserViewModel {
       ScaffoldMessenger.of(context)
           .showSnackBar(const SnackBar(content: Text("An Error Occurred")));
     }
+    return false;
   }
 
   Future<void> signOutUser(BuildContext context) async {
