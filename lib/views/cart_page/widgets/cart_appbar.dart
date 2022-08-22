@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CartAppBar extends StatelessWidget with PreferredSizeWidget {
-  const CartAppBar({super.key});
+  const CartAppBar({key}) : super(key: key);
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);

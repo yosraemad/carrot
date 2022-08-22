@@ -5,7 +5,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 class EmptyCart extends StatelessWidget {
-  const EmptyCart(this.goHome, {super.key});
+  const EmptyCart(this.goHome, {key}) : super(key: key);
   final GoHomeFunction goHome;
 
   @override

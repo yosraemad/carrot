@@ -13,7 +13,7 @@ class ItemPageArgs {
 }
 
 class ItemPage extends StatelessWidget {
-  const ItemPage({super.key});
+  const ItemPage({key}) : super(key: key);
 
   static String routeName = "/item";
 

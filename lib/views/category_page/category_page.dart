@@ -15,7 +15,7 @@ class CategoryPageArgs {
 }
 
 class CategoryPage extends StatelessWidget {
-  const CategoryPage({super.key});
+  const CategoryPage({key}) : super(key: key);
 
   static String routeName = "/category";
 

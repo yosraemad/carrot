@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 
 class AddToCartButton extends StatelessWidget {
   final Product product;
-  const AddToCartButton(this.product, {super.key});
+  const AddToCartButton(this.product, {key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class SignUpButton extends StatelessWidget {
-  const SignUpButton({super.key});
+  const SignUpButton({key}) : super(key: key);
 
   final fontSize = 18.0;
 

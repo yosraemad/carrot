@@ -4,11 +4,8 @@ typedef TapFunction = void Function()?;
 
 class ProfileTile extends StatelessWidget {
   const ProfileTile(
-      {super.key,
-      required this.icon,
-      required this.text,
-      this.trailing,
-      this.onTap});
+      {key, required this.icon, required this.text, this.trailing, this.onTap})
+      : super(key: key);
 
   final Widget icon;
   final String text;

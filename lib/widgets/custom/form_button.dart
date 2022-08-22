@@ -5,7 +5,8 @@ import 'package:flutter/src/widgets/framework.dart';
 class FormButton extends StatelessWidget {
   final String text;
   final Function onPressed;
-  const FormButton({super.key, required this.text, required this.onPressed});
+  const FormButton({key, required this.text, required this.onPressed})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

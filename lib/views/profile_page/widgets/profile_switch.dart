@@ -5,7 +5,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 
 class ProfileSwitch extends StatefulWidget {
-  const ProfileSwitch({super.key});
+  const ProfileSwitch({key}) : super(key: key);
 
   @override
   State<ProfileSwitch> createState() => _ProfileSwitchState();

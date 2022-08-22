@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class SuccessImage extends StatelessWidget {
-  const SuccessImage({super.key});
+  const SuccessImage({key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -6,7 +6,7 @@ import 'package:carrot_app/widgets/custom/form_button.dart';
 import 'package:flutter/material.dart';
 
 class OrderPlacedScreen extends StatelessWidget {
-  const OrderPlacedScreen({super.key});
+  const OrderPlacedScreen({key}) : super(key: key);
 
   static String routeName = "/success";
 

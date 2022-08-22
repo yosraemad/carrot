@@ -10,7 +10,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 typedef GoHomeFunction = void Function();
 
 class CartPage extends StatelessWidget {
-  const CartPage({super.key, required this.goHome});
+  const CartPage({key, required this.goHome}) : super(key: key);
 
   final GoHomeFunction goHome;
 

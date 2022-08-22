@@ -9,9 +9,9 @@ abstract class UserState extends Equatable {
 }
 
 class UserInitial extends UserState {
-  const UserInitial(super.user);
+  const UserInitial(UserModel user) : super(user);
 }
 
 class UserSignedIn extends UserState {
-  const UserSignedIn(super.user);
+  const UserSignedIn(UserModel user) : super(user);
 }

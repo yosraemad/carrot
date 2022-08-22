@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class CartPageItem extends StatelessWidget {
   final Product product;
-  const CartPageItem(this.product, {super.key});
+  const CartPageItem(this.product, {key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

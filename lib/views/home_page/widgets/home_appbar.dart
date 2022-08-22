@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
-  const HomeAppBar({super.key});
+  const HomeAppBar({key}) : super(key: key);
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);

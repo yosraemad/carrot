@@ -13,7 +13,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class HomePage extends StatefulWidget {
   static String routeName = "/home";
-  const HomePage({super.key});
+  const HomePage({key}) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();

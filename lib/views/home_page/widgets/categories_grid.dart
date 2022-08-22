@@ -5,7 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class CategoriesGrid extends StatefulWidget {
-  const CategoriesGrid({super.key});
+  const CategoriesGrid({key}) : super(key: key);
 
   @override
   State<CategoriesGrid> createState() => _CategoriesGridState();

@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CategoryItem extends StatelessWidget {
   final Map<String, dynamic> item;
-  const CategoryItem(this.item, {super.key});
+  const CategoryItem(this.item, {key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

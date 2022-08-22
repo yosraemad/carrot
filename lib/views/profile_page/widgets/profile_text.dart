@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ProfileText extends StatelessWidget {
-  const ProfileText(this.text, {super.key});
+  const ProfileText(this.text, {key}) : super(key: key);
 
   final String text;
 

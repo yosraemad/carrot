@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CheckoutButton extends StatelessWidget {
-  const CheckoutButton({super.key});
+  const CheckoutButton({key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

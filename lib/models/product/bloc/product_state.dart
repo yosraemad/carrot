@@ -11,32 +11,36 @@ abstract class ProductState extends Equatable {
 }
 
 class ProductInitial extends ProductState {
-  const ProductInitial(super.products, super.length);
+  const ProductInitial(List<Product> products, int length)
+      : super(products, length);
 }
 
 class AddingToCart extends ProductState {
-  const AddingToCart(super.products, super.length);
+  const AddingToCart(List<Product> products, int length)
+      : super(products, length);
 
   @override
   List<Object> get props => [products, length];
 }
 
 class AddedToCart extends ProductState {
-  const AddedToCart(super.products, super.length);
+  const AddedToCart(List<Product> products, int length)
+      : super(products, length);
 
   @override
   List<Object> get props => [products, length];
 }
 
 class RemovedFromCart extends ProductState {
-  const RemovedFromCart(super.products, super.length);
+  const RemovedFromCart(List<Product> products, int length)
+      : super(products, length);
 
   @override
   List<Object> get props => [products, length];
 }
 
 class CartSet extends ProductState {
-  const CartSet(super.products, super.length);
+  const CartSet(List<Product> products, int length) : super(products, length);
 
   @override
   List<Object> get props => [products, length];

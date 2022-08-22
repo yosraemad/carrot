@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CartButton extends StatelessWidget {
-  const CartButton(this.product, {super.key});
+  const CartButton(this.product, {key}) : super(key: key);
   final Product product;
 
   @override
