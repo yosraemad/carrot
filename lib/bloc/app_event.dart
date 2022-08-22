@@ -28,3 +28,29 @@ class SignUp extends AppEvent {
 class SignOut extends AppEvent {
   const SignOut();
 }
+
+class AddToCart extends AppEvent {
+  final Product product;
+
+  const AddToCart(this.product);
+
+  @override
+  List<Object> get props => [product];
+}
+
+class RemoveFromCart extends AppEvent {
+  final Product product;
+  const RemoveFromCart(this.product);
+
+  @override
+  List<Object> get props => [product];
+}
+
+class SetCart extends AppEvent {
+  final List<Product> products;
+
+  const SetCart(this.products);
+
+  @override
+  List<Object> get props => [products];
+}

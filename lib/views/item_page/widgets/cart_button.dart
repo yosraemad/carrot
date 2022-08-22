@@ -1,4 +1,4 @@
-import 'package:carrot_app/models/product/bloc/product_bloc.dart';
+import 'package:carrot_app/bloc/app_bloc.dart';
 import 'package:carrot_app/models/product/product.dart';
 import 'package:carrot_app/view_models/product_view_model.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +10,7 @@ class CartButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ProductBloc, ProductState>(
+    return BlocBuilder<AppBloc, AppState>(
       builder: (context, state) {
         if (state.products.indexWhere((element) => element.id == product.id) ==
             -1) {

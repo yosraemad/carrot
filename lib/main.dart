@@ -1,5 +1,4 @@
 import 'package:carrot_app/bloc/app_bloc.dart';
-import 'package:carrot_app/models/product/bloc/product_bloc.dart';
 import 'package:carrot_app/view_models/user_view_model.dart';
 import 'package:carrot_app/views/category_page/category_page.dart';
 import 'package:carrot_app/views/home_page/home_page.dart';
@@ -31,7 +30,6 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => AppBloc()),
-        BlocProvider(create: (context) => ProductBloc())
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
