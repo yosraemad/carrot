@@ -9,16 +9,15 @@ class UserViewModel {
     context.read<AppBloc>().add(SignIn(userId: uid));
   }
 
-  Future<void> signInUser(
-      BuildContext context, String email, String password, bool mounted) async {
+  Future<bool> signInUser(
+      BuildContext context, String email, String password) async {
     try {
       User? user = (await FirebaseAuth.instance
               .signInWithEmailAndPassword(email: email, password: password))
           .user;
-      if (user == null) return;
-      if (!mounted) return;
-
+      if (user == null) return false;
       context.read<AppBloc>().add(SignIn(userId: user.uid));
+      return true;
     } on FirebaseAuthException catch (e) {
       if (e.code == "user-not-found") {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -31,6 +30,7 @@ class UserViewModel {
       ScaffoldMessenger.of(context)
           .showSnackBar(const SnackBar(content: Text("An Error Occurred")));
     }
+    return false;
   }
 
   Future<bool> createUser(

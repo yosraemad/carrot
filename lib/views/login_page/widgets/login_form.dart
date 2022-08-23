@@ -1,4 +1,5 @@
 import 'package:carrot_app/view_models/user_view_model.dart';
+import 'package:carrot_app/views/login_page/bloc/login_bloc.dart';
 import 'package:carrot_app/widgets/custom/form_button.dart';
 import 'package:carrot_app/widgets/custom/form_textbox.dart';
 import 'package:carrot_app/widgets/custom/header_one.dart';
@@ -7,19 +8,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class LoginForm extends StatefulWidget {
-  const LoginForm({key}) : super(key: key);
+class LoginForm extends StatelessWidget {
+  LoginForm({key}) : super(key: key);
 
-  @override
-  State<LoginForm> createState() => _LoginFormState();
-}
-
-class _LoginFormState extends State<LoginForm> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
-  final TextEditingController _emailController = TextEditingController();
-
-  final TextEditingController _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -34,11 +26,12 @@ class _LoginFormState extends State<LoginForm> {
             Padding(
               padding: const EdgeInsets.only(top: 10.0),
               child: FormTextBox(
-                controller: _emailController,
+                controller: TextEditingController(
+                    text: context.watch<LoginBloc>().state.email),
                 onChanged: (val) {
-                  setState(() {
-                    _emailController.text = val;
-                  });
+                  context
+                      .read<LoginBloc>()
+                      .add(ChangeEmail(context: context, email: val));
                 },
                 label: "Email",
                 keyboardType: TextInputType.emailAddress,
@@ -47,11 +40,12 @@ class _LoginFormState extends State<LoginForm> {
             Padding(
               padding: const EdgeInsets.only(top: 10.0),
               child: FormTextBox(
-                controller: _passwordController,
+                controller: TextEditingController(
+                    text: context.watch<LoginBloc>().state.password),
                 onChanged: (val) {
-                  setState(() {
-                    _passwordController.text = val;
-                  });
+                  context
+                      .read<LoginBloc>()
+                      .add(ChangePassword(context: context, password: val));
                 },
                 label: "Password",
                 obscureText: true,
@@ -76,11 +70,9 @@ class _LoginFormState extends State<LoginForm> {
                 text: "Login",
                 onPressed: () async {
                   if (_formKey.currentState!.validate()) {
-                    await UserViewModel().signInUser(
-                        context,
-                        _emailController.text,
-                        _passwordController.text,
-                        mounted);
+                    context
+                        .read<LoginBloc>()
+                        .add(SubmitLogin(context: context));
                   }
                 },
               ),
