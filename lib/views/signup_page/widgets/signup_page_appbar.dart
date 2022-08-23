@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// Sign Up AppBar shown on the top of the sign up page
 class SignUpPageAppBar extends StatelessWidget with PreferredSizeWidget {
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);

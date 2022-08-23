@@ -7,6 +7,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+// * Form that creates user
 class SignUpForm extends StatelessWidget {
   SignUpForm({key}) : super(key: key);
 
@@ -14,7 +15,9 @@ class SignUpForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // * Listens to any errors in the sign up bloc and shows a snackbar of the error
     if (context.watch<SignupBloc>().state is ErrorOccurred) {
+      // ! WidgetsBinding is used here to make sure that the snackbar is shown when the function is done building widgets
       WidgetsBinding.instance.addPostFrameCallback((_) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             content: Text(
@@ -32,6 +35,7 @@ class SignUpForm extends StatelessWidget {
               padding: EdgeInsets.only(top: 32.0),
               child: HeaderOne(text: "Register"),
             ),
+            // * Email TextBox
             Padding(
               padding: const EdgeInsets.only(top: 27.0),
               child: FormTextBox(
@@ -52,6 +56,7 @@ class SignUpForm extends StatelessWidget {
                 }),
               ),
             ),
+            // * Password TextBox
             Padding(
               padding: const EdgeInsets.only(top: 35.0),
               child: FormTextBox(
@@ -72,6 +77,7 @@ class SignUpForm extends StatelessWidget {
                 }),
               ),
             ),
+            // * Verify Password TextBox
             Padding(
               padding: const EdgeInsets.only(top: 35.0),
               child: FormTextBox(
@@ -91,6 +97,7 @@ class SignUpForm extends StatelessWidget {
                 }),
               ),
             ),
+            // * Register Button
             Padding(
               padding: const EdgeInsets.only(top: 32.0),
               child: FormButton(
@@ -104,6 +111,7 @@ class SignUpForm extends StatelessWidget {
                 },
               ),
             ),
+            // * Terms and Conditions Text
             const TermsAndConditions()
           ],
         ),

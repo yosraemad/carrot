@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// Custom text to tell the user that the order is accepted
 class AcceptedOrderText extends StatelessWidget {
   const AcceptedOrderText({key}) : super(key: key);
 

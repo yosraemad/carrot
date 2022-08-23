@@ -1,5 +1,6 @@
 part of 'app_bloc.dart';
 
+// define the states of the app wide bloc
 abstract class AppState extends Equatable {
   const AppState(
       {required this.user, required this.products, required this.cartSet});

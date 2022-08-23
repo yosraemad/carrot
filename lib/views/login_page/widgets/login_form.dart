@@ -14,7 +14,9 @@ class LoginForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // * Listens to any errors in the sign in bloc and shows a snackbar of the error
     if (context.watch<LoginBloc>().state is ErrorOccurred) {
+      // ! WidgetsBinding is used here to make sure that the snackbar is shown when the function is done building widgets
       WidgetsBinding.instance.addPostFrameCallback((_) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             content: Text(
@@ -29,6 +31,7 @@ class LoginForm extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const HeaderOne(text: "Login"),
+            // * Email textbox
             Padding(
               padding: const EdgeInsets.only(top: 10.0),
               child: FormTextBox(
@@ -43,6 +46,7 @@ class LoginForm extends StatelessWidget {
                 keyboardType: TextInputType.emailAddress,
               ),
             ),
+            // * Password textbox
             Padding(
               padding: const EdgeInsets.only(top: 10.0),
               child: FormTextBox(
@@ -57,6 +61,7 @@ class LoginForm extends StatelessWidget {
                 obscureText: true,
               ),
             ),
+            // * Forgot Password Button
             Padding(
               padding: const EdgeInsets.only(top: 8.0),
               child: Align(
@@ -70,6 +75,7 @@ class LoginForm extends StatelessWidget {
                 ),
               ),
             ),
+            // * Login Button
             Padding(
               padding: const EdgeInsets.only(top: 18.0),
               child: FormButton(
@@ -83,6 +89,7 @@ class LoginForm extends StatelessWidget {
                 },
               ),
             ),
+            // * Button that navigates to the sign up screen
             const SignUpButton(),
           ],
         ),

@@ -6,6 +6,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+// Screen that shows when the cart is empty
 class EmptyCart extends StatelessWidget {
   const EmptyCart({key}) : super(key: key);
   @override

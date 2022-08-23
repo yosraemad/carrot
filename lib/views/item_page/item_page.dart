@@ -6,6 +6,7 @@ import 'package:carrot_app/views/item_page/widgets/product_description.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+/// Arguments that are sent to the [ItemPage] when navigating to it
 class ItemPageArgs {
   final Map<String, dynamic> item;
 
@@ -19,6 +20,7 @@ class ItemPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Getting the arguments passed to this page
     final item =
         (ModalRoute.of(context)!.settings.arguments as ItemPageArgs).item;
 

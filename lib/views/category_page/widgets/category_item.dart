@@ -4,6 +4,8 @@ import 'package:carrot_app/views/category_page/widgets/add_to_cart_button.dart';
 import "package:flutter/material.dart";
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+/// Custom GridTile for the Category page frid view
+/// @param item: the current item
 class CategoryItem extends StatelessWidget {
   final Map<String, dynamic> item;
   const CategoryItem(this.item, {key}) : super(key: key);

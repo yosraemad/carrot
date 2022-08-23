@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Utils {
+  // returns total price of the user's cart
   static double getTotalPrice(BuildContext context) {
     List<Product> products =
         BlocProvider.of<AppBloc>(context, listen: true).state.products;

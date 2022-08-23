@@ -57,6 +57,7 @@ class ProfileScreen extends StatelessWidget {
               text: "Logout",
               trailing: const SizedBox(),
               onTap: () {
+                // * tell appbloc to logout the user
                 context.read<AppBloc>().add(const SignOut());
               },
             )

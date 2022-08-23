@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// Image that appears when the user checks out the cart
 class SuccessImage extends StatelessWidget {
   const SuccessImage({key}) : super(key: key);
 

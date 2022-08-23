@@ -18,6 +18,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ! List of Widgets that the bottom navigation bar shows according to the index it's at
     final List<Widget> _widgetOptions = [
       Column(
         children: const [
@@ -34,21 +35,25 @@ class HomePage extends StatelessWidget {
       ),
       const ProfileScreen(),
     ];
-
+    // * to notify the home page whenever a change happens in the app bloc
     final appBloc = context.watch<AppBloc>();
+
+    // * Creates a bloc for the home page and all of its widgets to sync state between them
     return BlocProvider(
       create: (context) => HomeBloc(),
-      child: BlocConsumer<HomeBloc, HomeState>(
-        listener: (context, state) {},
+      child: BlocBuilder<HomeBloc, HomeState>(
         builder: (context, state) {
           return Scaffold(
             appBar: state.appBar,
             body: Builder(builder: (context) {
               if (!appBloc.state.cartSet && state.index == 2) {
+                // shows a circular progress bar when the cart is not fetched from the firestore yet
                 return const Center(
                   child: CircularProgressIndicator(),
                 );
               } else {
+                // select the widget that corresponds to the index the bottom navigation
+                // bar is at
                 return _widgetOptions.elementAt(state.index);
               }
             }),

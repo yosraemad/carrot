@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+// Bottom Navigation Bar for the home screen
 class HomeBottomNavigation extends StatelessWidget {
   const HomeBottomNavigation({Key? key}) : super(key: key);
 
@@ -15,8 +16,12 @@ class HomeBottomNavigation extends StatelessWidget {
         showUnselectedLabels: true,
         unselectedItemColor: Colors.grey,
         onTap: ((value) {
+          /// Notify the [HomeBloc] of change in the index value to update the UI
           context.read<HomeBloc>().add(ChangeIndex(value));
         }),
+
+        /// watch the [HomeBloc] for any change in the index value to render the
+        /// right icons and change colors of the selected element
         currentIndex: context.watch<HomeBloc>().state.index,
         items: [
           BottomNavigationBarItem(

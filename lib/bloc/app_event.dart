@@ -1,5 +1,6 @@
 part of 'app_bloc.dart';
 
+// define the events of the app wide state
 abstract class AppEvent extends Equatable {
   const AppEvent();
 

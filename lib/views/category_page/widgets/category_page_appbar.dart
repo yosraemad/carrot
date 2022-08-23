@@ -1,6 +1,8 @@
 import 'package:carrot_app/views/category_page/category_page.dart';
 import 'package:flutter/material.dart';
 
+/// App bar that appears on top of the [CategoryPage]
+/// @param args: the arguments of the [CategoryPage]
 class CategoryPageAppBar extends StatelessWidget with PreferredSizeWidget {
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);

@@ -1,5 +1,6 @@
 part of 'home_bloc.dart';
 
+// define state for the home page bloc
 abstract class HomeState extends Equatable {
   const HomeState(this.index, {required this.appBar});
   final int index;

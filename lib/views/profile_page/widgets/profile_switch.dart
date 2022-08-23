@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 
+/// A dummy switch for the Notifications switch in the [ProfileScreen]
 class ProfileSwitch extends StatefulWidget {
   const ProfileSwitch({key}) : super(key: key);
 

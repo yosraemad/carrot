@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
+/// typedef for the function that is invoked when the user taps on the [ProfileTile]
 typedef TapFunction = void Function()?;
 
+/// The custom [ListTile] that is used in the profile screen
 class ProfileTile extends StatelessWidget {
   const ProfileTile(
       {key, required this.icon, required this.text, this.trailing, this.onTap})

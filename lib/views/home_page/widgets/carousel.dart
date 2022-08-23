@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
+/// Carousel shown on top of the [HomePage]
 class Carousel extends StatelessWidget {
   const Carousel({key}) : super(key: key);
 

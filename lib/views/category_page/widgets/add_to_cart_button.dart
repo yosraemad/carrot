@@ -3,16 +3,19 @@ import 'package:carrot_app/models/product/product.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 
+/// Button that floats over the category item in the [CategoryPage]
 class AddToCartButton extends StatelessWidget {
   final Product product;
   const AddToCartButton(this.product, {key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    // Listen to AppState in order to get the products in the user's cart
     return BlocBuilder<AppBloc, AppState>(
       builder: (context, state) {
         if (state.products.indexWhere((element) => element.id == product.id) ==
             -1) {
+          // * item not in cart
           return Container(
             width: 40,
             height: 40,
@@ -41,9 +44,10 @@ class AddToCartButton extends StatelessWidget {
             ),
           );
         }
-
+        // * item in cart
         return Column(
           children: [
+            // * Remove one from cart button
             Container(
               width: 40,
               height: 41,
@@ -65,6 +69,7 @@ class AddToCartButton extends StatelessWidget {
                   },
                   icon: const Icon(Icons.remove)),
             ),
+            // * Item quantity in cart
             Container(
               width: 34,
               height: 35,
@@ -82,6 +87,7 @@ class AddToCartButton extends StatelessWidget {
                 ),
               ),
             ),
+            // * Add one to cart Button
             Container(
               width: 40,
               height: 41,

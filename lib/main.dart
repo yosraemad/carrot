@@ -14,6 +14,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'firebase_options.dart';
 
 void main() async {
+  // * Initializing Firebase before running the app
+  // ! This is required in order to run any firebase service
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
@@ -21,6 +23,8 @@ void main() async {
   runApp(const MyApp());
 }
 
+// The starting point of the application
+// * Listens to the app wide bloc to provide it for all it's children
 class MyApp extends StatelessWidget {
   const MyApp({key}) : super(key: key);
 
@@ -32,20 +36,28 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
+        // Defining the theme of the app
         theme: ThemeData(
             primarySwatch: PrimaryPalette.colors,
             scaffoldBackgroundColor: const Color(0xffFCFCFC)),
         home: StreamBuilder<User?>(
+          // * Listens to any changes in the firebase auth and runs the builder when it changes
+          // This is useful because now you don't have to use Navigator to navigate when
+          // signing in signing up or signing out
           stream: FirebaseAuth.instance.authStateChanges(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
+              // if the user is signed in
+              // * updates the [AppBloc] with the user id and the user's cart
               context.read<AppBloc>().add(SignIn(userId: snapshot.data!.uid));
               context.read<AppBloc>().add(const SetCart());
               return const HomePage();
             }
+            // if the user is signed out
             return const LoginPage();
           },
         ),
+        // defining all app routes
         routes: {
           LoginPage.routeName: (context) => const LoginPage(),
           SignUpPage.routeName: (context) => const SignUpPage(),
@@ -53,6 +65,8 @@ class MyApp extends StatelessWidget {
           ItemPage.routeName: (context) => const ItemPage(),
           OrderPlacedScreen.routeName: (context) => const OrderPlacedScreen(),
         },
+        // * changes the default navigation animation of the category page
+        // The animation makes the screen of the category page appear from the bottom up
         onGenerateRoute: (settings) {
           if (settings.name == CategoryPage.routeName) {
             return PageRouteBuilder(

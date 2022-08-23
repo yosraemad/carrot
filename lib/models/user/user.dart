@@ -1,6 +1,6 @@
-import 'package:carrot_app/models/product/product.dart';
 import 'package:equatable/equatable.dart';
 
+// model to store user's id and whether the user is logged in or not
 class UserModel extends Equatable {
   final String id;
   final bool isLoggedIn;

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// Custom Text for the headers in the [ProfileScreen]
 class ProfileText extends StatelessWidget {
   const ProfileText(this.text, {key}) : super(key: key);
 

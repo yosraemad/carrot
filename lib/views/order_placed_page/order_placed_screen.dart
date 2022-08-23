@@ -5,6 +5,7 @@ import 'package:carrot_app/views/order_placed_page/widgets/success_text.dart';
 import 'package:carrot_app/widgets/custom/form_button.dart';
 import 'package:flutter/material.dart';
 
+/// Screen that is shown when the user checks out
 class OrderPlacedScreen extends StatelessWidget {
   const OrderPlacedScreen({key}) : super(key: key);
 

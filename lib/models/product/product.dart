@@ -1,3 +1,4 @@
+// product model that stores data about any product
 class Product {
   Product({
     required this.id,
@@ -27,6 +28,7 @@ class Product {
 
   double get total => quantity * price;
 
+  // read product from json object
   factory Product.fromJson(Map<String, dynamic> json) => Product(
         id: json["id"],
         name: json["name"],
@@ -37,6 +39,7 @@ class Product {
         quantity: json["quantity"] ?? 1,
       );
 
+  // convert product to a json object
   Map<String, dynamic> toMap() {
     return {
       "id": id,

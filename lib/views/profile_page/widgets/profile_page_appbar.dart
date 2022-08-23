@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// Profile Page AppBar shown on the top of the profile page
 class ProfilePageAppBar extends StatelessWidget with PreferredSizeWidget {
   const ProfilePageAppBar({key}) : super(key: key);
 

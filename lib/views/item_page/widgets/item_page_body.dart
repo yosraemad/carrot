@@ -3,6 +3,7 @@ import 'package:carrot_app/views/item_page/widgets/cart_button.dart';
 import 'package:carrot_app/views/item_page/widgets/product_description.dart';
 import 'package:flutter/material.dart';
 
+/// @param item: The product that we're showing details for (provided by database)
 class ItemPageBody extends StatelessWidget {
   const ItemPageBody({
     Key? key,
@@ -14,10 +15,12 @@ class ItemPageBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(children: [
+      // * Item Image
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 84.0, vertical: 40.0),
         child: Image.network(item["image"]),
       ),
+      // * Item Price
       Padding(
         padding: const EdgeInsets.symmetric(vertical: 12.0),
         child: Text(
@@ -29,6 +32,7 @@ class ItemPageBody extends StatelessWidget {
           ),
         ),
       ),
+      // * Item Name
       Text(
         item["name"],
         style: const TextStyle(
@@ -36,6 +40,7 @@ class ItemPageBody extends StatelessWidget {
           fontWeight: FontWeight.bold,
         ),
       ),
+      // * Item Weight
       Padding(
         padding: const EdgeInsets.only(top: 6.0, bottom: 30),
         child: Text(
@@ -46,10 +51,12 @@ class ItemPageBody extends StatelessWidget {
           ),
         ),
       ),
+      // * Item Description
       Align(
         alignment: Alignment.centerLeft,
         child: ProductDescription(item["description"]),
       ),
+      // * Add to cart button
       Expanded(
         child: Align(
           alignment: Alignment.bottomCenter,

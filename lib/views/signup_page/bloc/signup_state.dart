@@ -1,5 +1,6 @@
 part of 'signup_bloc.dart';
 
+// defining states of the sign up bloc
 abstract class SignupState extends Equatable {
   const SignupState(
       {required this.email,

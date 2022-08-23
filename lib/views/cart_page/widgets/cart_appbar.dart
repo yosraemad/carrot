@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// App bar that appears on top of the [CartPage]
 class CartAppBar extends StatelessWidget with PreferredSizeWidget {
   const CartAppBar({key}) : super(key: key);
 

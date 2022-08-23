@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// The Leading widget for the "change language" list tile
 class ChangeLanguage extends StatelessWidget {
   const ChangeLanguage({key}) : super(key: key);
 

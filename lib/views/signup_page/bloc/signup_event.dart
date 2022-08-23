@@ -1,5 +1,6 @@
 part of 'signup_bloc.dart';
 
+// defining events of the sign up bloc
 abstract class SignupEvent extends Equatable {
   const SignupEvent(
       {required this.context,

@@ -2,6 +2,7 @@ import 'package:carrot_app/utils/firebase_exception.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthService {
+  // sign in user in the firebase auth
   static Future<User?> signInUser(String email, String password) async {
     try {
       return (await FirebaseAuth.instance
@@ -19,6 +20,7 @@ class AuthService {
     return null;
   }
 
+  // sign up user in the firebase auth
   static Future<User?> signUpUser(String email, String password) async {
     try {
       return (await FirebaseAuth.instance
@@ -36,6 +38,7 @@ class AuthService {
     return null;
   }
 
+  // sign out user in the firebase auth
   static Future<void> signOutUser() async {
     try {
       await FirebaseAuth.instance.signOut();

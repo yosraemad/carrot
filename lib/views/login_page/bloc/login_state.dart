@@ -1,5 +1,6 @@
 part of 'login_bloc.dart';
 
+// defining states of the login bloc
 abstract class LoginState extends Equatable {
   const LoginState({required this.email, required this.password});
   final String email;

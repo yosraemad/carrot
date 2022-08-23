@@ -6,10 +6,12 @@ import 'package:carrot_app/views/cart_page/widgets/empty_cart.dart';
 import "package:flutter/material.dart";
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+// Page that shows items inside the user's cart
 class CartPage extends StatelessWidget {
   const CartPage({key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    // listen to app state to get the items inside the user's cart
     return BlocBuilder<AppBloc, AppState>(
       builder: (context, state) {
         if (state.products.isEmpty) {

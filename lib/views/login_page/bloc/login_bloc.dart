@@ -23,11 +23,13 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     });
     on<SubmitLogin>((event, emit) async {
       try {
+        // Sign in user in Firebase
         User? user = await AuthService.signInUser(state.email, state.password);
         if (user == null) {
           emit(ErrorOccurred("An error occurred",
               email: state.email, password: state.password));
         } else {
+          // update app bloc to notify listeners about the user
           event.context.read<AppBloc>().add(SignIn(userId: user.uid));
           emit(ConfirmSignIn(email: state.email, password: state.password));
         }

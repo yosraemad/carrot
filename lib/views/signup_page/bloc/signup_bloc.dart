@@ -46,6 +46,7 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
     });
     on<SubmitSignUp>((event, emit) async {
       try {
+        // Sign Up user in Firebase
         User? user = await AuthService.signUpUser(state.email, state.password);
         if (user == null) {
           emit(ErrorOccurred("An error occurred",
@@ -53,7 +54,12 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
               password: state.password,
               verifyPassword: state.verifyPassword));
         } else {
+          // ! Pop the sign up page because it is on top of the log in page in the stack.
+          // ! When the firebase auth changes there is a stream builder that changes the
+          // ! screen beneath the sign up page and it won't be shown without popping the
+          // ! sign up page
           Navigator.pop(event.context);
+          // * update the app bloc with the user id
           event.context.read<AppBloc>().add(SignUp(userId: user.uid));
           emit(ConfirmSignup(
               email: state.email,

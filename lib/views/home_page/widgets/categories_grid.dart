@@ -4,6 +4,9 @@ import 'package:carrot_app/views/category_page/category_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
+/// Grid that shows all the categories from the firestore database
+// ! It is a stateful widget because of the animations but it doesn't keep any
+// ! logical state inside
 class CategoriesGrid extends StatefulWidget {
   const CategoriesGrid({key}) : super(key: key);
 
@@ -13,6 +16,7 @@ class CategoriesGrid extends StatefulWidget {
 
 class _CategoriesGridState extends State<CategoriesGrid>
     with TickerProviderStateMixin {
+  // Function that gets all products from the firestore
   Future<List> readJson() async {
     List<dynamic>? products =
         (await FirebaseFirestore.instance.collection("all-products").get())
@@ -21,6 +25,7 @@ class _CategoriesGridState extends State<CategoriesGrid>
     return products;
   }
 
+  // For the fade in animation
   late final AnimationController _controller =
       AnimationController(duration: const Duration(seconds: 1), vsync: this)
         ..forward();
@@ -30,6 +35,7 @@ class _CategoriesGridState extends State<CategoriesGrid>
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List>(
+      // Fetch data from firestore
       future: readJson(),
       builder: ((context, snapshot) {
         if (snapshot.hasData) {
@@ -40,6 +46,7 @@ class _CategoriesGridState extends State<CategoriesGrid>
             itemBuilder: (context, index) {
               return InkWell(
                 onTap: () {
+                  /// Go to [CategoryPage]
                   Navigator.pushNamed(context, CategoryPage.routeName,
                       arguments: CategoryPageArgs(snapshot.data![index]));
                 },

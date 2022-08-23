@@ -9,10 +9,13 @@ class CartButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // * using bloc builder here to listen to changes to the cart
+    // * regarding the item the user is currently viewing
     return BlocBuilder<AppBloc, AppState>(
       builder: (context, state) {
         if (state.products.indexWhere((element) => element.id == product.id) ==
             -1) {
+          // if the product is not in the cart
           return Padding(
             padding: const EdgeInsets.all(15.0),
             child: SizedBox(
@@ -21,6 +24,7 @@ class CartButton extends StatelessWidget {
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(elevation: 0),
                 onPressed: () {
+                  // notify app bloc with the new item added to cart
                   BlocProvider.of<AppBloc>(context).add(AddToCart(product));
                 },
                 child: const Text(
@@ -35,11 +39,13 @@ class CartButton extends StatelessWidget {
             ),
           );
         } else {
+          // if the product is in the cart
           return Padding(
             padding: const EdgeInsets.only(bottom: 15.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                // * remove one from cart button
                 Container(
                   decoration: BoxDecoration(
                     boxShadow: [
@@ -52,11 +58,13 @@ class CartButton extends StatelessWidget {
                   child: IconButton(
                       color: Theme.of(context).primaryColor,
                       onPressed: () {
+                        // notify app bloc with the new item removed from cart
                         BlocProvider.of<AppBloc>(context)
                             .add(RemoveFromCart(product));
                       },
                       icon: const Icon(Icons.remove)),
                 ),
+                // * Product Quantity Text
                 Container(
                   width: 70,
                   height: 50,
@@ -74,6 +82,7 @@ class CartButton extends StatelessWidget {
                     ),
                   ),
                 ),
+                // * add one to cart button
                 Container(
                   decoration: BoxDecoration(
                     boxShadow: [
@@ -86,6 +95,7 @@ class CartButton extends StatelessWidget {
                   child: IconButton(
                     color: Theme.of(context).primaryColor,
                     onPressed: () {
+                      // notify app bloc with the new item added to cart
                       BlocProvider.of<AppBloc>(context).add(AddToCart(product));
                     },
                     icon: const Icon(Icons.add),

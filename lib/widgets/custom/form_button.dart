@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
+// * Green button that is used in multiple pages in the app
 class FormButton extends StatelessWidget {
   final String text;
   final Function onPressed;

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+/// Custom widget for showing the product description
+/// @param description: the description of the product
 class ProductDescription extends StatelessWidget {
   final String description;
   const ProductDescription(this.description, {key}) : super(key: key);

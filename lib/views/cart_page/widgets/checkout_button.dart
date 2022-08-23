@@ -1,7 +1,9 @@
 import 'package:carrot_app/utils/utils.dart';
+import 'package:carrot_app/views/order_placed_page/order_placed_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+// Button that navigates user to the order placed page
 class CheckoutButton extends StatelessWidget {
   const CheckoutButton({key}) : super(key: key);
 
@@ -25,6 +27,7 @@ class CheckoutButton extends StatelessWidget {
             Container(
               height: double.infinity,
               padding: const EdgeInsets.symmetric(horizontal: 22),
+              // * Text to show the total price
               child: Center(
                 child: Text(
                   "\$${Utils.getTotalPrice(context).toStringAsFixed(2)}",
@@ -41,7 +44,7 @@ class CheckoutButton extends StatelessWidget {
                   minimumSize: Size.infinite,
                 ),
                 onPressed: () {
-                  Navigator.pushNamed(context, "/success");
+                  Navigator.pushNamed(context, OrderPlacedScreen.routeName);
                 },
                 child: const Text(
                   "Checkout",

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
+// Custom Text for success text
 class SuccessText extends StatelessWidget {
   const SuccessText({key}) : super(key: key);
 

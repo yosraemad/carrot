@@ -3,6 +3,8 @@ import 'package:carrot_app/models/product/product.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+/// ListTile of one item in the cart
+/// @param product: a product inside the cart
 class CartPageItem extends StatelessWidget {
   final Product product;
   const CartPageItem(this.product, {key}) : super(key: key);
@@ -46,6 +48,7 @@ class CartPageItem extends StatelessWidget {
                 )
               ],
             ),
+            // * Add and remove from cart buttons
             trailing: SizedBox(
               width: width / 3.5,
               child: Row(

@@ -12,8 +12,10 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   HomeBloc() : super(const HomeInitial(0, appBar: HomeAppBar())) {
     on<ChangeIndex>((event, emit) {
       if (event.newIndex == 2) {
+        // Cart Page is chosen
         emit(NewHomeIndex(event.newIndex, appBar: const CartAppBar()));
       } else if (event.newIndex == 4) {
+        // Profile Page is chosen
         emit(NewHomeIndex(event.newIndex, appBar: const ProfilePageAppBar()));
       } else {
         emit(NewHomeIndex(event.newIndex, appBar: const HomeAppBar()));

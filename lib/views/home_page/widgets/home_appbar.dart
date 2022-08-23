@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// App bar that appears at the top of the [HomePage]
 class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
   const HomeAppBar({key}) : super(key: key);
 

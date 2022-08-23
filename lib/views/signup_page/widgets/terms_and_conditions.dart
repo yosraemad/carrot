@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// * Terms and Conditions Text
 class TermsAndConditions extends StatelessWidget {
   const TermsAndConditions({
     Key? key,

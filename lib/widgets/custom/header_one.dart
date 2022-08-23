@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+
+// * Text that is used as a header for both sign up and log in pages
 class HeaderOne extends StatelessWidget {
   final String text;
   const HeaderOne({key, required this.text}) : super(key: key);

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// * Button that Navigates to the sign up screen
 class SignUpButton extends StatelessWidget {
   const SignUpButton({key}) : super(key: key);
 

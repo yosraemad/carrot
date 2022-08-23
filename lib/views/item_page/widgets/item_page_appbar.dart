@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// App bar that appears at the top of the [ItemPage]
 class ItemPageAppBar extends StatelessWidget with PreferredSizeWidget {
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
