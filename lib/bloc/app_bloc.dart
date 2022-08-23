@@ -1,6 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:carrot_app/models/product/product.dart';
 import 'package:carrot_app/models/user/user.dart';
+import 'package:carrot_app/services/auth_service.dart';
+import 'package:carrot_app/utils/firebase_exception.dart';
 import 'package:equatable/equatable.dart';
 
 part 'app_event.dart';
@@ -21,10 +23,15 @@ class AppBloc extends Bloc<AppEvent, AppState> {
           user: UserModel(event.userId, isLoggedIn: true),
           products: state.products));
     });
-    on<SignOut>((event, emit) {
-      emit(AppInitial(
-          user: const UserModel("", isLoggedIn: false),
-          products: state.products));
+    on<SignOut>((event, emit) async {
+      try {
+        await AuthService.signOutUser();
+        emit(const AppInitial(
+            user: const UserModel("", isLoggedIn: false), products: []));
+      } on AppException catch (exception, _) {
+        emit(ErrorOccurred(exception.toString(),
+            user: state.user, products: state.products));
+      }
     });
 
     on<AddToCart>((event, emit) {

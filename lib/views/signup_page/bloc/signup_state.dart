@@ -38,7 +38,8 @@ class ConfirmSignup extends SignupState {
 }
 
 class ErrorOccurred extends SignupState {
-  const ErrorOccurred(
+  final String message;
+  const ErrorOccurred(this.message,
       {required String email,
       required String password,
       required String verifyPassword})

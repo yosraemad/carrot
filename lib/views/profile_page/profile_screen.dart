@@ -1,9 +1,10 @@
-import 'package:carrot_app/view_models/user_view_model.dart';
+import 'package:carrot_app/bloc/app_bloc.dart';
 import 'package:carrot_app/views/profile_page/widgets/change_language.dart';
 import 'package:carrot_app/views/profile_page/widgets/profile_switch.dart';
 import 'package:carrot_app/views/profile_page/widgets/profile_text.dart';
 import 'package:carrot_app/views/profile_page/widgets/profile_tile.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -56,7 +57,7 @@ class ProfileScreen extends StatelessWidget {
               text: "Logout",
               trailing: const SizedBox(),
               onTap: () {
-                UserViewModel().signOutUser(context);
+                context.read<AppBloc>().add(const SignOut());
               },
             )
           ],

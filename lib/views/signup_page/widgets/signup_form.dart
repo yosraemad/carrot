@@ -1,4 +1,3 @@
-import 'package:carrot_app/view_models/user_view_model.dart';
 import 'package:carrot_app/views/signup_page/bloc/signup_bloc.dart';
 import 'package:carrot_app/widgets/custom/form_button.dart';
 import 'package:carrot_app/widgets/custom/form_textbox.dart';
@@ -15,6 +14,13 @@ class SignUpForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (context.watch<SignupBloc>().state is ErrorOccurred) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            content: Text(
+                (context.read<SignupBloc>().state as ErrorOccurred).message)));
+      });
+    }
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Form(

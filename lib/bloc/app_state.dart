@@ -39,3 +39,10 @@ class CartSet extends AppState {
   const CartSet({required UserModel user, required List<Product> products})
       : super(user: user, products: products);
 }
+
+class ErrorOccurred extends AppState {
+  final String message;
+  const ErrorOccurred(this.message,
+      {required UserModel user, required List<Product> products})
+      : super(user: user, products: products);
+}

@@ -1,7 +1,11 @@
 import 'package:bloc/bloc.dart';
-import 'package:carrot_app/view_models/user_view_model.dart';
+import 'package:carrot_app/bloc/app_bloc.dart';
+import 'package:carrot_app/services/auth_service.dart';
+import 'package:carrot_app/utils/firebase_exception.dart';
 import 'package:equatable/equatable.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'signup_event.dart';
 part 'signup_state.dart';
@@ -41,16 +45,23 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
           verifyPassword: state.password));
     });
     on<SubmitSignUp>((event, emit) async {
-      bool success = await UserViewModel()
-          .createUser(event.context, state.email, state.password);
-      if (success) {
-        Navigator.pop(event.context);
-        emit(ConfirmSignup(
-            email: state.email,
-            password: state.password,
-            verifyPassword: state.verifyPassword));
-      } else {
-        emit(ErrorOccurred(
+      try {
+        User? user = await AuthService.signUpUser(state.email, state.password);
+        if (user == null) {
+          emit(ErrorOccurred("An error occurred",
+              email: state.email,
+              password: state.password,
+              verifyPassword: state.verifyPassword));
+        } else {
+          Navigator.pop(event.context);
+          event.context.read<AppBloc>().add(SignUp(userId: user.uid));
+          emit(ConfirmSignup(
+              email: state.email,
+              password: state.password,
+              verifyPassword: state.verifyPassword));
+        }
+      } on AppException catch (exception, _) {
+        emit(ErrorOccurred(exception.toString(),
             email: state.email,
             password: state.password,
             verifyPassword: state.verifyPassword));

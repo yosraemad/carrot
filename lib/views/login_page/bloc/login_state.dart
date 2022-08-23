@@ -25,6 +25,8 @@ class ConfirmSignIn extends LoginState {
 }
 
 class ErrorOccurred extends LoginState {
-  const ErrorOccurred({required String email, required String password})
+  final String message;
+  const ErrorOccurred(this.message,
+      {required String email, required String password})
       : super(email: email, password: password);
 }

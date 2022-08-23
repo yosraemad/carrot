@@ -1,5 +1,4 @@
 import 'package:carrot_app/bloc/app_bloc.dart';
-import 'package:carrot_app/view_models/user_view_model.dart';
 import 'package:carrot_app/views/category_page/category_page.dart';
 import 'package:carrot_app/views/home_page/home_page.dart';
 import 'package:carrot_app/views/item_page/item_page.dart';
@@ -40,9 +39,7 @@ class MyApp extends StatelessWidget {
           stream: FirebaseAuth.instance.authStateChanges(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-              UserViewModel()
-                  .signInUserWithId(context, snapshot.data!.uid)
-                  .then((value) => const HomePage());
+              context.read<AppBloc>().add(SignIn(userId: snapshot.data!.uid));
               return const HomePage();
             }
             return const LoginPage();
