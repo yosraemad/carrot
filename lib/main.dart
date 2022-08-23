@@ -40,6 +40,7 @@ class MyApp extends StatelessWidget {
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               context.read<AppBloc>().add(SignIn(userId: snapshot.data!.uid));
+              context.read<AppBloc>().add(const SetCart());
               return const HomePage();
             }
             return const LoginPage();

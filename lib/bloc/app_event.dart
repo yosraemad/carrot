@@ -47,10 +47,8 @@ class RemoveFromCart extends AppEvent {
 }
 
 class SetCart extends AppEvent {
-  final List<Product> products;
-
-  const SetCart(this.products);
+  const SetCart();
 
   @override
-  List<Object> get props => [products];
+  List<Object> get props => [];
 }

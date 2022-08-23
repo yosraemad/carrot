@@ -1,4 +1,4 @@
-import 'package:carrot_app/view_models/product_view_model.dart';
+import 'package:carrot_app/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -27,7 +27,7 @@ class CheckoutButton extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 22),
               child: Center(
                 child: Text(
-                  "\$${ProductViewModel().getTotalPrice(context).toStringAsFixed(2)}",
+                  "\$${Utils.getTotalPrice(context).toStringAsFixed(2)}",
                   style: const TextStyle(
                       fontWeight: FontWeight.w600, fontSize: 16),
                 ),

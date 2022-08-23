@@ -1,5 +1,4 @@
 import 'package:carrot_app/bloc/app_bloc.dart';
-import 'package:carrot_app/view_models/product_view_model.dart';
 import 'package:carrot_app/views/cart_page/cart_page.dart';
 import 'package:carrot_app/views/cart_page/widgets/cart_appbar.dart';
 import 'package:carrot_app/views/home_page/bloc/home_bloc.dart';
@@ -37,7 +36,6 @@ class HomePage extends StatelessWidget {
     ];
 
     final appBloc = context.watch<AppBloc>();
-    late final Future getProducts = ProductViewModel().getUserProducts(context);
     return BlocProvider(
       create: (context) => HomeBloc(),
       child: BlocConsumer<HomeBloc, HomeState>(
@@ -45,22 +43,15 @@ class HomePage extends StatelessWidget {
         builder: (context, state) {
           return Scaffold(
             appBar: state.appBar,
-            body: FutureBuilder(
-                future: getProducts,
-                builder: (context, snapshot) {
-                  if (!snapshot.hasData && state.index == 2) {
-                    return const Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  }
-                  if (snapshot.hasError) {
-                    print(snapshot.error);
-                    return const Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  }
-                  return _widgetOptions.elementAt(state.index);
-                }),
+            body: Builder(builder: (context) {
+              if (!appBloc.state.cartSet && state.index == 2) {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              } else {
+                return _widgetOptions.elementAt(state.index);
+              }
+            }),
             bottomNavigationBar: const HomeBottomNavigation(),
           );
         },

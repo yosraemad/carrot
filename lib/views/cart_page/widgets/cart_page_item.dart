@@ -1,6 +1,7 @@
+import 'package:carrot_app/bloc/app_bloc.dart';
 import 'package:carrot_app/models/product/product.dart';
-import 'package:carrot_app/view_models/product_view_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CartPageItem extends StatelessWidget {
   final Product product;
@@ -65,7 +66,8 @@ class CartPageItem extends StatelessWidget {
                         iconSize: 17,
                         color: Theme.of(context).primaryColor,
                         onPressed: () {
-                          ProductViewModel().removeFromCart(product, context);
+                          BlocProvider.of<AppBloc>(context)
+                              .add(RemoveFromCart(product));
                         },
                         icon: product.quantity == 1
                             ? const Icon(Icons.delete_outline)
@@ -101,7 +103,8 @@ class CartPageItem extends StatelessWidget {
                       iconSize: 17,
                       color: Theme.of(context).primaryColor,
                       onPressed: () {
-                        ProductViewModel().addToCart(product, context);
+                        BlocProvider.of<AppBloc>(context)
+                            .add(AddToCart(product));
                       },
                       icon: const Icon(Icons.add),
                     ),

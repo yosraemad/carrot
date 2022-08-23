@@ -1,6 +1,5 @@
 import 'package:carrot_app/bloc/app_bloc.dart';
 import 'package:carrot_app/models/product/product.dart';
-import 'package:carrot_app/view_models/product_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -22,7 +21,7 @@ class CartButton extends StatelessWidget {
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(elevation: 0),
                 onPressed: () {
-                  ProductViewModel().addToCart(product, context);
+                  BlocProvider.of<AppBloc>(context).add(AddToCart(product));
                 },
                 child: const Text(
                   "Add to Cart",
@@ -53,7 +52,8 @@ class CartButton extends StatelessWidget {
                   child: IconButton(
                       color: Theme.of(context).primaryColor,
                       onPressed: () {
-                        ProductViewModel().removeFromCart(product, context);
+                        BlocProvider.of<AppBloc>(context)
+                            .add(RemoveFromCart(product));
                       },
                       icon: const Icon(Icons.remove)),
                 ),
@@ -86,7 +86,7 @@ class CartButton extends StatelessWidget {
                   child: IconButton(
                     color: Theme.of(context).primaryColor,
                     onPressed: () {
-                      ProductViewModel().addToCart(product, context);
+                      BlocProvider.of<AppBloc>(context).add(AddToCart(product));
                     },
                     icon: const Icon(Icons.add),
                   ),

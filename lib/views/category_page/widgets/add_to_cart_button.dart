@@ -1,6 +1,5 @@
 import 'package:carrot_app/bloc/app_bloc.dart';
 import 'package:carrot_app/models/product/product.dart';
-import 'package:carrot_app/view_models/product_view_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 
@@ -30,7 +29,7 @@ class AddToCartButton extends StatelessWidget {
             child: IconButton(
               color: Colors.white,
               onPressed: () {
-                ProductViewModel().addToCart(product, context);
+                BlocProvider.of<AppBloc>(context).add(AddToCart(product));
               },
               icon: Align(
                 alignment: Alignment.centerLeft,
@@ -61,7 +60,8 @@ class AddToCartButton extends StatelessWidget {
                   color: Theme.of(context).primaryColor,
                   iconSize: 20,
                   onPressed: () {
-                    ProductViewModel().removeFromCart(product, context);
+                    BlocProvider.of<AppBloc>(context)
+                        .add(RemoveFromCart(product));
                   },
                   icon: const Icon(Icons.remove)),
             ),
@@ -97,7 +97,7 @@ class AddToCartButton extends StatelessWidget {
                 color: Theme.of(context).primaryColor,
                 iconSize: 20,
                 onPressed: () {
-                  ProductViewModel().addToCart(product, context);
+                  BlocProvider.of<AppBloc>(context).add(AddToCart(product));
                 },
                 icon: const Icon(Icons.add),
               ),
