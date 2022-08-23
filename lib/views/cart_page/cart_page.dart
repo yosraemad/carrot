@@ -6,19 +6,14 @@ import 'package:carrot_app/views/cart_page/widgets/empty_cart.dart';
 import "package:flutter/material.dart";
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-typedef GoHomeFunction = void Function();
-
 class CartPage extends StatelessWidget {
-  const CartPage({key, required this.goHome}) : super(key: key);
-
-  final GoHomeFunction goHome;
-
+  const CartPage({key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AppBloc, AppState>(
       builder: (context, state) {
         if (state.products.isEmpty) {
-          return EmptyCart(goHome);
+          return EmptyCart();
         }
         return Column(
           children: [

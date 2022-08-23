@@ -1,13 +1,13 @@
 import 'package:carrot_app/views/cart_page/cart_page.dart';
+import 'package:carrot_app/views/home_page/bloc/home_bloc.dart';
 import 'package:carrot_app/widgets/custom/form_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class EmptyCart extends StatelessWidget {
-  const EmptyCart(this.goHome, {key}) : super(key: key);
-  final GoHomeFunction goHome;
-
+  const EmptyCart({key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -35,7 +35,7 @@ class EmptyCart extends StatelessWidget {
           child: FormButton(
               text: "Start Shopping",
               onPressed: () {
-                goHome();
+                context.read<HomeBloc>().add(const ChangeIndex(0));
               }),
         ),
       ],
