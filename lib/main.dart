@@ -62,16 +62,34 @@ class MyApp extends StatelessWidget {
           LoginPage.routeName: (context) => const LoginPage(),
           SignUpPage.routeName: (context) => const SignUpPage(),
           HomePage.routeName: (context) => const HomePage(),
-          ItemPage.routeName: (context) => const ItemPage(),
           OrderPlacedScreen.routeName: (context) => const OrderPlacedScreen(),
         },
-        // * changes the default navigation animation of the category page
-        // The animation makes the screen of the category page appear from the bottom up
+        // * changes the default navigation animation of the category and item pages
+        // The animation makes the screens of the category and item pages appear from the bottom up
         onGenerateRoute: (settings) {
           if (settings.name == CategoryPage.routeName) {
             return PageRouteBuilder(
               settings: settings,
               pageBuilder: (_, __, ___) => const CategoryPage(),
+              transitionsBuilder: (_, animation, __, child) {
+                const begin = Offset(0.0, 1.0);
+                const end = Offset.zero;
+                const curve = Curves.ease;
+
+                var tween = Tween(begin: begin, end: end)
+                    .chain(CurveTween(curve: curve));
+
+                return SlideTransition(
+                  position: animation.drive(tween),
+                  child: child,
+                );
+              },
+            );
+          }
+          if (settings.name == ItemPage.routeName) {
+            return PageRouteBuilder(
+              settings: settings,
+              pageBuilder: (_, __, ___) => const ItemPage(),
               transitionsBuilder: (_, animation, __, child) {
                 const begin = Offset(0.0, 1.0);
                 const end = Offset.zero;
