@@ -38,6 +38,14 @@ class ConfirmSignup extends SignupState {
       : super(email: email, password: password, verifyPassword: verifyPassword);
 }
 
+class SignUpPressed extends SignupState {
+  const SignUpPressed(
+      {required String email,
+      required String password,
+      required String verifyPassword})
+      : super(email: email, password: password, verifyPassword: verifyPassword);
+}
+
 class ErrorOccurred extends SignupState {
   final String message;
   const ErrorOccurred(this.message,

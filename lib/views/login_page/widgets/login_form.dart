@@ -80,13 +80,15 @@ class LoginForm extends StatelessWidget {
               padding: const EdgeInsets.only(top: 18.0),
               child: FormButton(
                 text: "Login",
-                onPressed: () async {
-                  if (_formKey.currentState!.validate()) {
-                    context
-                        .read<LoginBloc>()
-                        .add(SubmitLogin(context: context));
-                  }
-                },
+                onPressed: context.watch<LoginBloc>().state is LoginPressed
+                    ? null
+                    : () async {
+                        if (_formKey.currentState!.validate()) {
+                          context
+                              .read<LoginBloc>()
+                              .add(SubmitLogin(context: context));
+                        }
+                      },
               ),
             ),
             // * Button that navigates to the sign up screen

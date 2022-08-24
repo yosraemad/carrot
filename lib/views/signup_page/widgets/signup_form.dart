@@ -102,13 +102,15 @@ class SignUpForm extends StatelessWidget {
               padding: const EdgeInsets.only(top: 32.0),
               child: FormButton(
                 text: "Register",
-                onPressed: () {
-                  if (_formKey.currentState!.validate()) {
-                    context
-                        .read<SignupBloc>()
-                        .add(SubmitSignUp(context: context));
-                  }
-                },
+                onPressed: context.watch<SignupBloc>().state is SignUpPressed
+                    ? null
+                    : () {
+                        if (_formKey.currentState!.validate()) {
+                          context
+                              .read<SignupBloc>()
+                              .add(SubmitSignUp(context: context));
+                        }
+                      },
               ),
             ),
             // * Terms and Conditions Text

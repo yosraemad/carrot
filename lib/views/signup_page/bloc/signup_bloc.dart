@@ -45,6 +45,10 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
           verifyPassword: state.password));
     });
     on<SubmitSignUp>((event, emit) async {
+      emit(SignUpPressed(
+          email: state.email,
+          password: state.password,
+          verifyPassword: state.verifyPassword));
       try {
         // Sign Up user in Firebase
         User? user = await AuthService.signUpUser(state.email, state.password);

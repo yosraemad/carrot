@@ -3,10 +3,15 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 // * Green button that is used in multiple pages in the app
+
+typedef OnPressedFunction = Function()?;
+
 class FormButton extends StatelessWidget {
   final String text;
-  final Function onPressed;
-  const FormButton({key, required this.text, required this.onPressed})
+  final OnPressedFunction onPressed;
+  final bool isActive;
+  const FormButton(
+      {key, required this.text, required this.onPressed, this.isActive = true})
       : super(key: key);
 
   @override
@@ -17,7 +22,7 @@ class FormButton extends StatelessWidget {
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
             elevation: 0, shadowColor: Colors.transparent),
-        onPressed: () => onPressed(),
+        onPressed: onPressed,
         child: Text(
           text,
           style: const TextStyle(

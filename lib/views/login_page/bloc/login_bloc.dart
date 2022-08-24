@@ -22,6 +22,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       emit(LoginInitial(email: state.email, password: state.password));
     });
     on<SubmitLogin>((event, emit) async {
+      emit(LoginPressed(email: state.email, password: state.password));
       try {
         // Sign in user in Firebase
         User? user = await AuthService.signInUser(state.email, state.password);
