@@ -1,4 +1,6 @@
 import 'package:carrot_app/models/product/product.dart';
+import 'package:carrot_app/views/category_page/bloc/category_bloc.dart';
+import 'package:carrot_app/views/category_page/widgets/change_cart_animation.dart';
 import 'package:carrot_app/views/item_page/item_page.dart';
 import 'package:carrot_app/views/category_page/widgets/add_to_cart_button.dart';
 import "package:flutter/material.dart";
@@ -27,16 +29,25 @@ class CategoryItem extends StatelessWidget {
                 child: Stack(
                   clipBehavior: Clip.none,
                   children: [
-                    Container(
-                      decoration: BoxDecoration(
-                          color: const Color(0xfffcfcfc),
-                          border: Border.all(
-                            color: const Color(0xffe0e0e0),
-                          ),
-                          borderRadius: BorderRadius.circular(16.0)),
-                      child: Padding(
-                        padding: const EdgeInsets.all(35.0),
-                        child: Image.network(item["image"]),
+                    ChangeCartAnimation(
+                      startAnimation: BlocProvider.of<CategoryBloc>(context,
+                                  listen: true)
+                              .state is CategoryChanged &&
+                          BlocProvider.of<CategoryBloc>(context, listen: true)
+                                  .state
+                                  .changedIndex ==
+                              item["id"],
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: const Color(0xfffcfcfc),
+                            border: Border.all(
+                              color: const Color(0xffe0e0e0),
+                            ),
+                            borderRadius: BorderRadius.circular(16.0)),
+                        child: Padding(
+                          padding: const EdgeInsets.all(35.0),
+                          child: Image.network(item["image"]),
+                        ),
                       ),
                     ),
                     Positioned(

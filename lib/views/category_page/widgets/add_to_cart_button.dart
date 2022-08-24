@@ -1,5 +1,6 @@
-import 'package:carrot_app/bloc/app_bloc.dart';
+import 'package:carrot_app/bloc/app_bloc.dart' as app;
 import 'package:carrot_app/models/product/product.dart';
+import 'package:carrot_app/views/category_page/bloc/category_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +12,7 @@ class AddToCartButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Listen to AppState in order to get the products in the user's cart
-    return BlocBuilder<AppBloc, AppState>(
+    return BlocBuilder<app.AppBloc, app.AppState>(
       builder: (context, state) {
         if (state.products.indexWhere((element) => element.id == product.id) ==
             -1) {
@@ -32,7 +33,8 @@ class AddToCartButton extends StatelessWidget {
             child: IconButton(
               color: Colors.white,
               onPressed: () {
-                BlocProvider.of<AppBloc>(context).add(AddToCart(product));
+                BlocProvider.of<CategoryBloc>(context)
+                    .add(AddToCart(product: product, context: context));
               },
               icon: Align(
                 alignment: Alignment.centerLeft,
@@ -64,8 +66,8 @@ class AddToCartButton extends StatelessWidget {
                   color: Theme.of(context).primaryColor,
                   iconSize: 20,
                   onPressed: () {
-                    BlocProvider.of<AppBloc>(context)
-                        .add(RemoveFromCart(product));
+                    BlocProvider.of<CategoryBloc>(context).add(
+                        RemoveFromCart(product: product, context: context));
                   },
                   icon: const Icon(Icons.remove)),
             ),
@@ -94,7 +96,8 @@ class AddToCartButton extends StatelessWidget {
               decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
-                      blurRadius: 4.0, color: Color(0xff006f18).withAlpha(30))
+                      blurRadius: 4.0,
+                      color: const Color(0xff006f18).withAlpha(30))
                 ],
                 color: Colors.white,
               ),
@@ -103,7 +106,8 @@ class AddToCartButton extends StatelessWidget {
                 color: Theme.of(context).primaryColor,
                 iconSize: 20,
                 onPressed: () {
-                  BlocProvider.of<AppBloc>(context).add(AddToCart(product));
+                  BlocProvider.of<CategoryBloc>(context)
+                      .add(AddToCart(product: product, context: context));
                 },
                 icon: const Icon(Icons.add),
               ),

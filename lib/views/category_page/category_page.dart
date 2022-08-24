@@ -1,6 +1,8 @@
+import 'package:carrot_app/views/category_page/bloc/category_bloc.dart';
 import 'package:carrot_app/views/category_page/widgets/category_item.dart';
 import 'package:carrot_app/views/category_page/widgets/category_page_appbar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 /// Arguments passed for the category page when it is navigated to
 /// @param name: the name of the category
@@ -33,15 +35,18 @@ class CategoryPage extends StatelessWidget {
     // get the arguments passed to the category page
     final args = ModalRoute.of(context)!.settings.arguments as CategoryPageArgs;
 
-    return Scaffold(
-      appBar: CategoryPageAppBar(args: args),
-      body: GridView.builder(
-        itemCount: args.items.length,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2, childAspectRatio: (itemWidth / itemHeight)),
-        itemBuilder: (context, index) {
-          return CategoryItem(args.items[index]);
-        },
+    return BlocProvider(
+      create: (context) => CategoryBloc(),
+      child: Scaffold(
+        appBar: CategoryPageAppBar(args: args),
+        body: GridView.builder(
+          itemCount: args.items.length,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2, childAspectRatio: (itemWidth / itemHeight)),
+          itemBuilder: (context, index) {
+            return CategoryItem(args.items[index]);
+          },
+        ),
       ),
     );
   }
