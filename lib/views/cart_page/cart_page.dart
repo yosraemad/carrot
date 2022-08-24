@@ -1,4 +1,4 @@
-import 'package:carrot_app/bloc/app_bloc.dart';
+import 'package:carrot_app/bloc/app_bloc.dart' as app;
 import 'package:carrot_app/models/user/user.dart';
 import 'package:carrot_app/views/cart_page/widgets/cart_page_item.dart';
 import 'package:carrot_app/views/cart_page/widgets/checkout_button.dart';
@@ -12,10 +12,10 @@ class CartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // listen to app state to get the items inside the user's cart
-    return BlocBuilder<AppBloc, AppState>(
+    return BlocBuilder<app.AppBloc, app.AppState>(
       builder: (context, state) {
         if (state.products.isEmpty) {
-          return EmptyCart();
+          return const EmptyCart();
         }
         return Column(
           children: [

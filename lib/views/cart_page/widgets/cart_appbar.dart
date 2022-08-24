@@ -1,4 +1,6 @@
+import 'package:carrot_app/bloc/app_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 /// App bar that appears on top of the [CartPage]
 class CartAppBar extends StatelessWidget with PreferredSizeWidget {
@@ -16,12 +18,15 @@ class CartAppBar extends StatelessWidget with PreferredSizeWidget {
         Icons.close,
         size: 35,
       ),
-      actions: const [
-        Padding(
-          padding: EdgeInsets.only(right: 6.0),
-          child: Icon(
-            Icons.delete_outline,
-            size: 35,
+      actions: [
+        InkWell(
+          onTap: () => context.read<AppBloc>().add(EmptyCart()),
+          child: const Padding(
+            padding: EdgeInsets.only(right: 6.0),
+            child: Icon(
+              Icons.delete_outline,
+              size: 35,
+            ),
           ),
         )
       ],

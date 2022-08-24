@@ -53,3 +53,5 @@ class SetCart extends AppEvent {
   @override
   List<Object> get props => [];
 }
+
+class EmptyCart extends AppEvent {}

@@ -127,5 +127,10 @@ class AppBloc extends Bloc<AppEvent, AppState> {
         }
       }
     });
+
+    on<EmptyCart>((event, emit) {
+      FirestoreService.setProductsInDatabase(state.user.id, []);
+      emit(CartSet(user: state.user, products: const [], cartSet: true));
+    });
   }
 }
