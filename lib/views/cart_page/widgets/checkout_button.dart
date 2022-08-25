@@ -1,3 +1,7 @@
+import 'package:carrot_app/constants/app_colors.dart';
+import 'package:carrot_app/constants/app_doubles.dart';
+import 'package:carrot_app/constants/app_font_weights.dart';
+import 'package:carrot_app/constants/app_strings.dart';
 import 'package:carrot_app/utils/utils.dart';
 import 'package:carrot_app/views/order_placed_page/order_placed_screen.dart';
 import 'package:flutter/material.dart';
@@ -10,29 +14,33 @@ class CheckoutButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(15.0),
+      padding: const EdgeInsets.all(AppDoubles.checkoutButtonPadding),
       child: Container(
-        width: double.infinity,
-        height: 52,
+        width: AppDoubles.maxWidth,
+        height: AppDoubles.checkoutButtonHeight,
         decoration: BoxDecoration(
           boxShadow: const [
             BoxShadow(
-                color: Color.fromARGB(255, 234, 223, 223), blurRadius: 4.0)
+                color: AppColors.checkoutButtonShadowColor,
+                blurRadius: AppDoubles.checkoutButtonShadowBlurRadius)
           ],
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(8),
+          color: AppColors.white,
+          borderRadius:
+              BorderRadius.circular(AppDoubles.checkoutButtonBorderRadius),
         ),
         child: Row(
           children: [
             Container(
-              height: double.infinity,
-              padding: const EdgeInsets.symmetric(horizontal: 22),
+              height: AppDoubles.maxHeight,
+              padding: const EdgeInsets.symmetric(
+                  horizontal: AppDoubles.totalPriceHorizontalPadding),
               // * Text to show the total price
               child: Center(
                 child: Text(
                   "\$${Utils.getTotalPrice(context).toStringAsFixed(2)}",
                   style: const TextStyle(
-                      fontWeight: FontWeight.w600, fontSize: 16),
+                      fontWeight: AppFontWeights.totalPriceFontWeight,
+                      fontSize: AppDoubles.normalFontSize),
                 ),
               ),
             ),
@@ -47,8 +55,8 @@ class CheckoutButton extends StatelessWidget {
                   Navigator.pushNamed(context, OrderPlacedScreen.routeName);
                 },
                 child: const Text(
-                  "Checkout",
-                  style: TextStyle(color: Colors.white),
+                  AppStrings.checkoutText,
+                  style: TextStyle(color: AppColors.formButtonTextColor),
                 ),
               ),
             ),

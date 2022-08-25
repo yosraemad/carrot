@@ -1,3 +1,6 @@
+import 'package:carrot_app/constants/app_colors.dart';
+import 'package:carrot_app/constants/app_doubles.dart';
+import 'package:carrot_app/constants/app_strings.dart';
 import 'package:carrot_app/models/product/product.dart';
 import 'package:carrot_app/views/category_page/bloc/category_bloc.dart';
 import 'package:carrot_app/views/category_page/widgets/change_cart_animation.dart';
@@ -36,23 +39,25 @@ class CategoryItem extends StatelessWidget {
                           BlocProvider.of<CategoryBloc>(context, listen: true)
                                   .state
                                   .changedIndex ==
-                              item["id"],
+                              item[AppStrings.idMapKey],
                       child: Container(
                         decoration: BoxDecoration(
-                            color: const Color(0xfffcfcfc),
+                            color: AppColors.offWhite,
                             border: Border.all(
-                              color: const Color(0xffe0e0e0),
+                              color: AppColors.grayishWhite,
                             ),
-                            borderRadius: BorderRadius.circular(16.0)),
+                            borderRadius: BorderRadius.circular(
+                                AppDoubles.categoryItemBorderRadius)),
                         child: Padding(
-                          padding: const EdgeInsets.all(35.0),
-                          child: Image.network(item["image"]),
+                          padding: const EdgeInsets.all(
+                              AppDoubles.categoryItemImagePadding),
+                          child: Image.network(item[AppStrings.imageMapKey]),
                         ),
                       ),
                     ),
                     Positioned(
-                      top: -11.27,
-                      right: -11,
+                      top: AppDoubles.cartButtonTopPosition,
+                      right: AppDoubles.cartButtonRightPosition,
                       child: AddToCartButton(Product.fromJson(item)),
                     )
                   ],
@@ -60,15 +65,15 @@ class CategoryItem extends StatelessWidget {
               ),
             ),
             Text(
-              "\$${item["price"]}",
+              "\$${item[AppStrings.priceMapKey]}",
               style: TextStyle(color: Theme.of(context).primaryColor),
             ),
             Text(
-              item['name'],
+              item[AppStrings.nameMapKey],
               style: const TextStyle(fontWeight: FontWeight.bold),
             ),
             Text(
-              item['weight'],
+              item[AppStrings.weightMapKey],
               style: const TextStyle(color: Colors.grey),
             ),
           ],

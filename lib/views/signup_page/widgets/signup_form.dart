@@ -1,3 +1,5 @@
+import 'package:carrot_app/constants/app_doubles.dart';
+import 'package:carrot_app/constants/app_strings.dart';
 import 'package:carrot_app/views/signup_page/bloc/signup_bloc.dart';
 import 'package:carrot_app/widgets/custom/form_button.dart';
 import 'package:carrot_app/widgets/custom/form_textbox.dart';
@@ -25,19 +27,22 @@ class SignUpForm extends StatelessWidget {
       });
     }
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      padding: const EdgeInsets.symmetric(
+          horizontal: AppDoubles.registerPageHorizontalPadding),
       child: Form(
         key: _formKey,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Padding(
-              padding: EdgeInsets.only(top: 32.0),
-              child: HeaderOne(text: "Register"),
+              padding:
+                  EdgeInsets.only(top: AppDoubles.registerHeaderPaddingTop),
+              child: HeaderOne(text: AppStrings.registerHeader),
             ),
             // * Email TextBox
             Padding(
-              padding: const EdgeInsets.only(top: 27.0),
+              padding: const EdgeInsets.only(
+                  top: AppDoubles.registerEmailTextBoxPaddingTop),
               child: FormTextBox(
                 controller: TextEditingController(
                     text: context.watch<SignupBloc>().state.email),
@@ -46,11 +51,11 @@ class SignUpForm extends StatelessWidget {
                       .read<SignupBloc>()
                       .add(ChangeEmail(context: context, email: val));
                 },
-                label: "Email",
+                label: AppStrings.emailTextBox,
                 keyboardType: TextInputType.emailAddress,
                 validator: ((value) {
                   if (value == null || value.isEmpty) {
-                    return "Please enter a value";
+                    return AppStrings.emptyTextBoxValidator;
                   }
                   return null;
                 }),
@@ -58,7 +63,8 @@ class SignUpForm extends StatelessWidget {
             ),
             // * Password TextBox
             Padding(
-              padding: const EdgeInsets.only(top: 35.0),
+              padding: const EdgeInsets.only(
+                  top: AppDoubles.registerPasswordTextBoxPaddingTop),
               child: FormTextBox(
                 controller: TextEditingController(
                     text: context.watch<SignupBloc>().state.password),
@@ -67,11 +73,11 @@ class SignUpForm extends StatelessWidget {
                       .read<SignupBloc>()
                       .add(ChangePassword(context: context, password: val));
                 },
-                label: "Password",
+                label: AppStrings.passwordTextBox,
                 obscureText: true,
                 validator: ((value) {
                   if (value == null || value.isEmpty) {
-                    return "Please enter a value";
+                    return AppStrings.emptyTextBoxValidator;
                   }
                   return null;
                 }),
@@ -79,7 +85,8 @@ class SignUpForm extends StatelessWidget {
             ),
             // * Verify Password TextBox
             Padding(
-              padding: const EdgeInsets.only(top: 35.0),
+              padding: const EdgeInsets.only(
+                  top: AppDoubles.registerPasswordTextBoxPaddingTop),
               child: FormTextBox(
                 controller: TextEditingController(
                     text: context.watch<SignupBloc>().state.verifyPassword),
@@ -87,11 +94,11 @@ class SignUpForm extends StatelessWidget {
                   context.read<SignupBloc>().add(ChangeVerifyPassword(
                       context: context, verifyPassword: val));
                 },
-                label: "Verify Password",
+                label: AppStrings.verifyPasswordTextBox,
                 obscureText: true,
                 validator: ((value) {
                   if (value != context.read<SignupBloc>().state.password) {
-                    return "Not the same password";
+                    return AppStrings.notSamePasswordValidator;
                   }
                   return null;
                 }),
@@ -101,7 +108,7 @@ class SignUpForm extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top: 32.0),
               child: FormButton(
-                text: "Register",
+                text: AppStrings.registerHeader,
                 onPressed: context.watch<SignupBloc>().state is SignUpPressed
                     ? null
                     : () {

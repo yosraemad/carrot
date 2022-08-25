@@ -1,3 +1,5 @@
+import 'package:carrot_app/constants/app_doubles.dart';
+import 'package:carrot_app/constants/app_images.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
@@ -20,9 +22,10 @@ class Carousel extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 3),
         child: Container(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8.0),
+            borderRadius:
+                BorderRadius.circular(AppDoubles.carouselBorderRadius),
           ),
-          child: Image.asset("assets/images/campaign.png"),
+          child: Image.asset(AppImages.campaignImage),
         ),
       ));
     }

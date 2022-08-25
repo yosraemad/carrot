@@ -1,3 +1,6 @@
+import 'package:carrot_app/constants/app_colors.dart';
+import 'package:carrot_app/constants/app_doubles.dart';
+import 'package:carrot_app/constants/app_icons.dart';
 import 'package:carrot_app/views/category_page/category_page.dart';
 import 'package:flutter/material.dart';
 
@@ -18,20 +21,20 @@ class CategoryPageAppBar extends StatelessWidget with PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       centerTitle: true,
-      backgroundColor: Colors.transparent,
-      elevation: 0,
+      backgroundColor: AppColors.transparentAppBarColor,
+      elevation: AppDoubles.noElevation,
       leading: IconButton(
-        splashColor: Colors.transparent,
-        highlightColor: Colors.transparent,
+        splashColor: AppColors.noSplashIconButtonColor,
+        highlightColor: AppColors.noSplashIconButtonColor,
         icon: const Icon(
-          Icons.chevron_left,
-          size: 40,
+          AppIcons.backIcon,
+          size: AppDoubles.backButtonSize,
         ),
         onPressed: () => Navigator.pop(context),
       ),
       title: Text(
         args.name,
-        style: const TextStyle(fontSize: 20),
+        style: const TextStyle(fontSize: AppDoubles.bigFontSize),
       ),
     );
   }

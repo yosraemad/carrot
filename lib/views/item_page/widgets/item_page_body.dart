@@ -1,3 +1,7 @@
+import 'package:carrot_app/constants/app_colors.dart';
+import 'package:carrot_app/constants/app_doubles.dart';
+import 'package:carrot_app/constants/app_font_weights.dart';
+import 'package:carrot_app/constants/app_strings.dart';
 import 'package:carrot_app/models/product/product.dart';
 import 'package:carrot_app/views/item_page/widgets/cart_button.dart';
 import 'package:carrot_app/views/item_page/widgets/product_description.dart';
@@ -17,44 +21,49 @@ class ItemPageBody extends StatelessWidget {
     return Column(children: [
       // * Item Image
       Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 84.0, vertical: 40.0),
-        child: Image.network(item["image"]),
+        padding: const EdgeInsets.symmetric(
+            horizontal: AppDoubles.itemImageHorizontalPadding,
+            vertical: AppDoubles.itemImageVerticalPadding),
+        child: Image.network(item[AppStrings.imageMapKey]),
       ),
       // * Item Price
       Padding(
-        padding: const EdgeInsets.symmetric(vertical: 12.0),
+        padding: const EdgeInsets.symmetric(
+            vertical: AppDoubles.itemPriceHorizontalPadding),
         child: Text(
-          "\$${item["price"]}",
+          "\$${item[AppStrings.priceMapKey]}",
           style: TextStyle(
             color: Theme.of(context).primaryColor,
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
+            fontSize: AppDoubles.headerTwoFontSize,
+            fontWeight: AppFontWeights.itemPageFontWeight,
           ),
         ),
       ),
       // * Item Name
       Text(
-        item["name"],
+        item[AppStrings.nameMapKey],
         style: const TextStyle(
-          fontSize: 24,
-          fontWeight: FontWeight.bold,
+          fontSize: AppDoubles.headerTwoFontSize,
+          fontWeight: AppFontWeights.itemPageFontWeight,
         ),
       ),
       // * Item Weight
       Padding(
-        padding: const EdgeInsets.only(top: 6.0, bottom: 30),
+        padding: const EdgeInsets.only(
+            top: AppDoubles.itemWeightTopPadding,
+            bottom: AppDoubles.itemWeightBottomPadding),
         child: Text(
-          item["weight"],
+          item[AppStrings.weightMapKey],
           style: const TextStyle(
-            color: Color(0xff7c7c7c),
-            fontSize: 16,
+            color: AppColors.lightGrey,
+            fontSize: AppDoubles.normalFontSize,
           ),
         ),
       ),
       // * Item Description
       Align(
         alignment: Alignment.centerLeft,
-        child: ProductDescription(item["description"]),
+        child: ProductDescription(item[AppStrings.descriptionMapKey]),
       ),
       // * Add to cart button
       Expanded(

@@ -1,4 +1,5 @@
 import 'package:carrot_app/bloc/app_bloc.dart';
+import 'package:carrot_app/constants/app_strings.dart';
 import 'package:carrot_app/views/cart_page/cart_page.dart';
 import 'package:carrot_app/views/cart_page/widgets/cart_appbar.dart';
 import 'package:carrot_app/views/home_page/bloc/home_bloc.dart';
@@ -27,11 +28,11 @@ class HomePage extends StatelessWidget {
         ],
       ),
       const Center(
-        child: Text("Search"),
+        child: Text(AppStrings.searchText),
       ),
       const CartPage(),
       const Center(
-        child: Text("Campaign"),
+        child: Text(AppStrings.campaignText),
       ),
       const ProfileScreen(),
     ];

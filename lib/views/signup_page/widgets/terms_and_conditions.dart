@@ -1,3 +1,7 @@
+import 'package:carrot_app/constants/app_colors.dart';
+import 'package:carrot_app/constants/app_doubles.dart';
+import 'package:carrot_app/constants/app_strings.dart';
+import 'package:carrot_app/constants/app_text_aligns.dart';
 import 'package:flutter/material.dart';
 
 // * Terms and Conditions Text
@@ -9,25 +13,29 @@ class TermsAndConditions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 48.0, vertical: 12.0),
+      padding: const EdgeInsets.symmetric(
+          horizontal: AppDoubles.termsAndConditionsHorizontalPadding,
+          vertical: AppDoubles.termsAndConditionsVerticalPadding),
       child: RichText(
-          textAlign: TextAlign.center,
+          textAlign: AppTextAligns.termsAndConditionsTextAlign,
           text: TextSpan(
             children: [
               const TextSpan(
-                text: "By creating an account you are agreeing to our ",
-                style: TextStyle(color: Colors.black),
+                text: AppStrings.termsAndConditionsStringOne,
+                style:
+                    TextStyle(color: AppColors.termsAndConditionsNormalColor),
               ),
               TextSpan(
-                text: "Terms of Service ",
+                text: AppStrings.termsAndConditionsStringTwo,
                 style: TextStyle(color: Theme.of(context).primaryColor),
               ),
               const TextSpan(
-                text: "and ",
-                style: TextStyle(color: Colors.black),
+                text: AppStrings.termsAndConditionsStringThree,
+                style:
+                    TextStyle(color: AppColors.termsAndConditionsNormalColor),
               ),
               TextSpan(
-                text: "Privacy Policy",
+                text: AppStrings.termsAndConditionsStringFour,
                 style: TextStyle(color: Theme.of(context).primaryColor),
               ),
             ],

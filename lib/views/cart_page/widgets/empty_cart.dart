@@ -1,3 +1,8 @@
+import 'package:carrot_app/constants/app_doubles.dart';
+import 'package:carrot_app/constants/app_font_weights.dart';
+import 'package:carrot_app/constants/app_images.dart';
+import 'package:carrot_app/constants/app_strings.dart';
+import 'package:carrot_app/constants/app_text_aligns.dart';
 import 'package:carrot_app/views/cart_page/cart_page.dart';
 import 'package:carrot_app/views/home_page/bloc/home_bloc.dart';
 import 'package:carrot_app/widgets/custom/form_button.dart';
@@ -15,26 +20,33 @@ class EmptyCart extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Image.asset("assets/images/empty.png"),
+        Image.asset(AppImages.emptyCartImage),
         const Padding(
-          padding: EdgeInsets.only(top: 36.2, bottom: 8),
+          padding: EdgeInsets.only(
+              top: AppDoubles.emptyCartTextTopPadding,
+              bottom: AppDoubles.emptyCartTextBottomPadding),
           child: Text(
-            "Your cart is empty",
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            AppStrings.emptyCartText,
+            style: TextStyle(
+                fontWeight: AppFontWeights.emptyCartFontWeight,
+                fontSize: AppDoubles.bigFontSize),
           ),
         ),
         const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 90.0),
+          padding: EdgeInsets.symmetric(
+              horizontal: AppDoubles.makingChoiceHorizontalPadding),
           child: Text(
-            "Looks like you haven't made your choice yet...",
-            style: TextStyle(fontSize: 16),
-            textAlign: TextAlign.center,
+            AppStrings.makeChoiceText,
+            style: TextStyle(fontSize: AppDoubles.normalFontSize),
+            textAlign: AppTextAligns.emptyCartTextAlign,
           ),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 42),
+          padding: const EdgeInsets.symmetric(
+              horizontal: AppDoubles.startShoppingHorizontalPadding,
+              vertical: AppDoubles.startShoppingVerticalPadding),
           child: FormButton(
-              text: "Start Shopping",
+              text: AppStrings.startShoppingText,
               onPressed: () {
                 context.read<HomeBloc>().add(const ChangeIndex(0));
               }),

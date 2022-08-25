@@ -1,3 +1,5 @@
+import 'package:carrot_app/constants/app_doubles.dart';
+import 'package:carrot_app/constants/app_strings.dart';
 import 'package:carrot_app/views/login_page/bloc/login_bloc.dart';
 import 'package:carrot_app/widgets/custom/form_button.dart';
 import 'package:carrot_app/widgets/custom/form_textbox.dart';
@@ -24,16 +26,18 @@ class LoginForm extends StatelessWidget {
       });
     }
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      padding: const EdgeInsets.symmetric(
+          horizontal: AppDoubles.registerPageHorizontalPadding),
       child: Form(
         key: _formKey,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const HeaderOne(text: "Login"),
+            const HeaderOne(text: AppStrings.loginHeader),
             // * Email textbox
             Padding(
-              padding: const EdgeInsets.only(top: 10.0),
+              padding: const EdgeInsets.only(
+                  top: AppDoubles.signInTextBoxPaddingTop),
               child: FormTextBox(
                 controller: TextEditingController(
                     text: context.watch<LoginBloc>().state.email),
@@ -42,13 +46,14 @@ class LoginForm extends StatelessWidget {
                       .read<LoginBloc>()
                       .add(ChangeEmail(context: context, email: val));
                 },
-                label: "Email",
+                label: AppStrings.emailTextBox,
                 keyboardType: TextInputType.emailAddress,
               ),
             ),
             // * Password textbox
             Padding(
-              padding: const EdgeInsets.only(top: 10.0),
+              padding: const EdgeInsets.only(
+                  top: AppDoubles.signInTextBoxPaddingTop),
               child: FormTextBox(
                 controller: TextEditingController(
                     text: context.watch<LoginBloc>().state.password),
@@ -57,19 +62,20 @@ class LoginForm extends StatelessWidget {
                       .read<LoginBloc>()
                       .add(ChangePassword(context: context, password: val));
                 },
-                label: "Password",
+                label: AppStrings.passwordTextBox,
                 obscureText: true,
               ),
             ),
             // * Forgot Password Button
             Padding(
-              padding: const EdgeInsets.only(top: 8.0),
+              padding: const EdgeInsets.only(
+                  top: AppDoubles.forgotPasswordPaddingTop),
               child: Align(
                 alignment: Alignment.centerRight,
                 child: InkWell(
                   onTap: () {},
                   child: Text(
-                    "Forgot Password?",
+                    AppStrings.forgotPasswordString,
                     style: TextStyle(color: Theme.of(context).primaryColor),
                   ),
                 ),
@@ -79,7 +85,7 @@ class LoginForm extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top: 18.0),
               child: FormButton(
-                text: "Login",
+                text: AppStrings.loginHeader,
                 onPressed: context.watch<LoginBloc>().state is LoginPressed
                     ? null
                     : () async {

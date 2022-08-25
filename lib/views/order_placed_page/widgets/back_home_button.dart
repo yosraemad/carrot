@@ -1,3 +1,6 @@
+import 'package:carrot_app/constants/app_colors.dart';
+import 'package:carrot_app/constants/app_doubles.dart';
+import 'package:carrot_app/constants/app_strings.dart';
 import 'package:carrot_app/views/home_page/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -9,11 +12,12 @@ class BackHomeButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 100.0),
+      padding:
+          const EdgeInsets.only(bottom: AppDoubles.backHomeButtonBottomPadding),
       child: TextButton(
         child: const Text(
-          "Back Home",
-          style: TextStyle(color: Colors.black),
+          AppStrings.goHomeText,
+          style: TextStyle(color: AppColors.defaultColor),
         ),
         onPressed: () {
           /// Navigate to the home page

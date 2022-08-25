@@ -1,3 +1,7 @@
+import 'package:carrot_app/constants/app_colors.dart';
+import 'package:carrot_app/constants/app_doubles.dart';
+import 'package:carrot_app/constants/app_font_weights.dart';
+import 'package:carrot_app/constants/app_strings.dart';
 import 'package:flutter/material.dart';
 
 /// Custom widget for showing the product description
@@ -9,24 +13,28 @@ class ProductDescription extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15.0),
+      padding: const EdgeInsets.symmetric(
+          horizontal: AppDoubles.productDescriptionHorizontalPadding),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Padding(
-            padding: EdgeInsets.only(bottom: 8.0),
+            padding: EdgeInsets.only(
+                bottom: AppDoubles.productDescriptionTextBottomPadding),
             child: Text(
-              "Product Details",
+              AppStrings.productDescription,
               style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
+                fontSize: AppDoubles.normalFontSize,
+                fontWeight: AppFontWeights.bold,
               ),
             ),
           ),
           Text(
             description,
             style: const TextStyle(
-                color: Color(0xff7c7c7c), fontSize: 13, height: 1.38),
+                color: AppColors.lightGrey,
+                fontSize: AppDoubles.productDescriptionTextSize,
+                height: AppDoubles.productDescriptionLineHeight),
           )
         ],
       ),

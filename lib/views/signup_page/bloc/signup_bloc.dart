@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:carrot_app/bloc/app_bloc.dart';
+import 'package:carrot_app/constants/app_strings.dart';
 import 'package:carrot_app/services/auth_service.dart';
 import 'package:carrot_app/utils/firebase_exception.dart';
 import 'package:equatable/equatable.dart';
@@ -53,7 +54,7 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
         // Sign Up user in Firebase
         User? user = await AuthService.signUpUser(state.email, state.password);
         if (user == null) {
-          emit(ErrorOccurred("An error occurred",
+          emit(ErrorOccurred(AppStrings.errorText,
               email: state.email,
               password: state.password,
               verifyPassword: state.verifyPassword));

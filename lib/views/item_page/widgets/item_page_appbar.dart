@@ -1,3 +1,7 @@
+import 'package:carrot_app/constants/app_colors.dart';
+import 'package:carrot_app/constants/app_doubles.dart';
+import 'package:carrot_app/constants/app_icons.dart';
+import 'package:carrot_app/constants/app_strings.dart';
 import 'package:flutter/material.dart';
 
 /// App bar that appears at the top of the [ItemPage]
@@ -12,25 +16,26 @@ class ItemPageAppBar extends StatelessWidget with PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: Colors.white,
-      elevation: 1,
+      backgroundColor: AppColors.appBarColor,
+      elevation: AppDoubles.itemPageAppBarElevation,
       leading: IconButton(
-        splashColor: Colors.transparent,
-        highlightColor: Colors.transparent,
+        splashColor: AppColors.noSplashIconButtonColor,
+        highlightColor: AppColors.noSplashIconButtonColor,
         icon: const Icon(
-          Icons.chevron_left,
-          size: 40,
+          AppIcons.backIcon,
+          size: AppDoubles.backButtonSize,
         ),
         onPressed: () => Navigator.pop(context),
       ),
       centerTitle: true,
-      title: const Text("Product Details"),
+      title: const Text(AppStrings.productDescription),
       actions: const [
         Padding(
-          padding: EdgeInsets.only(right: 15.0),
+          padding:
+              EdgeInsets.only(right: AppDoubles.addToFavoritesRightPadding),
           child: Icon(
-            Icons.favorite_outline,
-            size: 30,
+            AppIcons.addToFavorites,
+            size: AppDoubles.addToFavoritesButtonSize,
           ),
         )
       ],

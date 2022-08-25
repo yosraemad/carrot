@@ -1,3 +1,7 @@
+import 'package:carrot_app/constants/app_colors.dart';
+import 'package:carrot_app/constants/app_doubles.dart';
+import 'package:carrot_app/constants/app_font_weights.dart';
+import 'package:carrot_app/constants/app_icons.dart';
 import 'package:flutter/material.dart';
 
 /// typedef for the function that is invoked when the user taps on the [ProfileTile]
@@ -19,21 +23,21 @@ class ProfileTile extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: ListTile(
-        horizontalTitleGap: 1,
+        horizontalTitleGap: AppDoubles.profileTileHorizontalTitleGap,
         contentPadding: EdgeInsets.zero,
         leading: icon,
         title: Text(
           text,
           style: const TextStyle(
-            color: Color(0xff828282),
-            fontWeight: FontWeight.w500,
-            fontSize: 16,
+            color: AppColors.grey,
+            fontWeight: AppFontWeights.profileTileWeight,
+            fontSize: AppDoubles.normalFontSize,
           ),
         ),
         trailing: trailing ??
             const Icon(
-              Icons.chevron_right,
-              size: 30,
+              AppIcons.goIcon,
+              size: AppDoubles.goButtonSize,
             ),
       ),
     );

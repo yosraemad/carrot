@@ -1,3 +1,8 @@
+import 'package:carrot_app/constants/app_colors.dart';
+import 'package:carrot_app/constants/app_doubles.dart';
+import 'package:carrot_app/constants/app_images.dart';
+import 'package:carrot_app/constants/app_offsets.dart';
+import 'package:carrot_app/constants/app_strings.dart';
 import 'package:flutter/material.dart';
 
 /// App bar that appears at the top of the [HomePage]
@@ -10,46 +15,48 @@ class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      titleSpacing: 0,
-      shadowColor: Colors.grey[100],
-      backgroundColor: Colors.white,
-      elevation: 1,
+      titleSpacing: AppDoubles.homeTitleLeftSpacing,
+      shadowColor: AppColors.homeAppBarShadowColor,
+      backgroundColor: AppColors.appBarColor,
+      elevation: AppDoubles.itemPageAppBarElevation,
       title: Padding(
-        padding: const EdgeInsets.only(left: 21.0),
+        padding: const EdgeInsets.only(left: AppDoubles.homeTitleLeftPadding),
         child: Row(
           children: [
             Container(
               width: 32,
               decoration: BoxDecoration(boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.1),
-                  spreadRadius: 0,
-                  blurRadius: 20,
-                  offset: const Offset(4, 8),
+                  color: AppColors.defaultColor.withOpacity(0.1),
+                  spreadRadius: AppDoubles.noSpread,
+                  blurRadius: AppDoubles.homeAppBarBlurRadius,
+                  offset: AppOffsets.homeAppBarBoxShadowOffset,
                 )
               ]),
               child: Image.asset(
-                "assets/images/logo.png",
+                AppImages.logo,
               ),
             ),
-            const SizedBox(width: 4),
+            const SizedBox(width: AppDoubles.homeAppBarTitleGap),
             const Text(
-              "Carrot",
-              style: TextStyle(
-                  fontWeight: FontWeight.w700, color: Color(0xff828282)),
+              AppStrings.materialAppString,
+              style:
+                  TextStyle(fontWeight: FontWeight.w700, color: AppColors.grey),
             ),
           ],
         ),
       ),
       actions: [
         Padding(
-          padding: const EdgeInsets.only(right: 16.0),
+          padding: const EdgeInsets.only(
+              right: AppDoubles.homeAppBarActionsRightPadding),
           child: TextButton.icon(
-            icon: const Icon(Icons.place, color: Color(0xff828282)),
+            icon: const Icon(Icons.place, color: AppColors.grey),
             onPressed: () {},
             label: const Text(
-              "Home",
-              style: TextStyle(color: Color(0xff828282), fontSize: 16),
+              AppStrings.homeText,
+              style: TextStyle(
+                  color: AppColors.grey, fontSize: AppDoubles.normalFontSize),
             ),
           ),
         )

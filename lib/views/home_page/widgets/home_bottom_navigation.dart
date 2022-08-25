@@ -1,3 +1,7 @@
+import 'package:carrot_app/constants/app_colors.dart';
+import 'package:carrot_app/constants/app_doubles.dart';
+import 'package:carrot_app/constants/app_icons.dart';
+import 'package:carrot_app/constants/app_strings.dart';
 import 'package:carrot_app/views/cart_page/widgets/cart_appbar.dart';
 import 'package:carrot_app/views/home_page/bloc/home_bloc.dart';
 import 'package:flutter/material.dart';
@@ -12,9 +16,9 @@ class HomeBottomNavigation extends StatelessWidget {
   Widget build(BuildContext context) {
     return BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        selectedFontSize: 12.0,
+        selectedFontSize: AppDoubles.smallFontSize,
         showUnselectedLabels: true,
-        unselectedItemColor: Colors.grey,
+        unselectedItemColor: AppColors.grey,
         onTap: ((value) {
           /// Notify the [HomeBloc] of change in the index value to update the UI
           context.read<HomeBloc>().add(ChangeIndex(value));
@@ -25,42 +29,42 @@ class HomeBottomNavigation extends StatelessWidget {
         currentIndex: context.watch<HomeBloc>().state.index,
         items: [
           BottomNavigationBarItem(
-            icon: SvgPicture.asset("assets/images/home_icon.svg"),
-            label: "Home",
+            icon: SvgPicture.asset(AppIcons.homeIconSvg),
+            label: AppStrings.homeText,
             activeIcon: SvgPicture.asset(
-              "assets/images/home_icon.svg",
+              AppIcons.homeIconSvg,
               color: Theme.of(context).primaryColor,
             ),
           ),
           BottomNavigationBarItem(
-            icon: SvgPicture.asset("assets/images/search_icon.svg"),
-            label: "Search",
+            icon: SvgPicture.asset(AppIcons.searchIconSvg),
+            label: AppStrings.searchText,
             activeIcon: SvgPicture.asset(
-              "assets/images/search_icon.svg",
+              AppIcons.searchIconSvg,
               color: Theme.of(context).primaryColor,
             ),
           ),
           BottomNavigationBarItem(
-            icon: SvgPicture.asset("assets/images/cart_icon.svg"),
-            label: "Cart",
+            icon: SvgPicture.asset(AppIcons.cartIconSvg),
+            label: AppStrings.cartText,
             activeIcon: SvgPicture.asset(
-              "assets/images/cart_icon.svg",
+              AppIcons.cartIconSvg,
               color: Theme.of(context).primaryColor,
             ),
           ),
           BottomNavigationBarItem(
-            icon: SvgPicture.asset("assets/images/campaign_icon.svg"),
-            label: "Campaigns",
+            icon: SvgPicture.asset(AppIcons.campaignIconSvg),
+            label: AppStrings.campaignText,
             activeIcon: SvgPicture.asset(
-              "assets/images/campaign_icon.svg",
+              AppIcons.campaignIconSvg,
               color: Theme.of(context).primaryColor,
             ),
           ),
           BottomNavigationBarItem(
-            icon: SvgPicture.asset("assets/images/profile_icon.svg"),
-            label: "Profile",
+            icon: SvgPicture.asset(AppIcons.accountIconSvg),
+            label: AppStrings.accountText,
             activeIcon: SvgPicture.asset(
-              "assets/images/profile_icon.svg",
+              AppIcons.accountIconSvg,
               color: Theme.of(context).primaryColor,
             ),
           ),

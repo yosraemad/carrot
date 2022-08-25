@@ -1,4 +1,8 @@
 import 'package:carrot_app/bloc/app_bloc.dart';
+import 'package:carrot_app/constants/app_colors.dart';
+import 'package:carrot_app/constants/app_doubles.dart';
+import 'package:carrot_app/constants/app_font_weights.dart';
+import 'package:carrot_app/constants/app_icons.dart';
 import 'package:carrot_app/models/product/product.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,14 +19,16 @@ class CartPageItem extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(AppDoubles.cartItemPadding),
           child: ListTile(
-            visualDensity: const VisualDensity(vertical: 4),
+            visualDensity: const VisualDensity(
+                vertical: AppDoubles.cartItemVerticalDensity),
             leading: Container(
-              padding: const EdgeInsets.all(10),
+              padding: const EdgeInsets.all(AppDoubles.cartItemImagePadding),
               decoration: BoxDecoration(
-                  border: Border.all(color: const Color(0xffe0e0e0)),
-                  borderRadius: BorderRadius.circular(16.0)),
+                  border: Border.all(color: AppColors.grayishWhite),
+                  borderRadius: BorderRadius.circular(
+                      AppDoubles.cartItemImageBorderRadius)),
               child: Image.network(product.image),
             ),
             title: Column(
@@ -31,19 +37,21 @@ class CartPageItem extends StatelessWidget {
                 Text(
                   product.name,
                   style: const TextStyle(
-                      fontWeight: FontWeight.bold, fontSize: 16),
+                      fontWeight: AppFontWeights.bold,
+                      fontSize: AppDoubles.normalFontSize),
                 ),
                 Text(
                   product.weight,
-                  style:
-                      const TextStyle(color: Color(0xff7c7c7c), fontSize: 14),
+                  style: const TextStyle(
+                      color: AppColors.lightGrey,
+                      fontSize: AppDoubles.cartItemWeightFontSize),
                 ),
                 Text(
                   "\$${product.total.toStringAsFixed(2)}",
                   style: TextStyle(
                     color: Theme.of(context).primaryColor,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
+                    fontWeight: AppFontWeights.bold,
+                    fontSize: AppDoubles.cartItemPriceFontSize,
                   ),
                 )
               ],
@@ -54,62 +62,62 @@ class CartPageItem extends StatelessWidget {
               child: Row(
                 children: [
                   Container(
-                    width: 34,
-                    height: 32,
+                    width: AppDoubles.cartItemButtonWidth,
+                    height: AppDoubles.cartItemButtonHeight,
                     decoration: BoxDecoration(
                       boxShadow: [
                         BoxShadow(
-                            blurRadius: 4.0,
-                            color: const Color(0xff006f18).withAlpha(30))
+                            blurRadius: AppDoubles.cartButtonBlurRadius,
+                            color: AppColors.lightGreen)
                       ],
-                      color: Colors.white,
+                      color: AppColors.white,
                     ),
                     child: IconButton(
-                        splashColor: Colors.transparent,
-                        iconSize: 17,
+                        splashColor: AppColors.noSplashIconButtonColor,
+                        iconSize: AppDoubles.cartItemButtonIconSize,
                         color: Theme.of(context).primaryColor,
                         onPressed: () {
                           BlocProvider.of<AppBloc>(context)
                               .add(RemoveFromCart(product));
                         },
                         icon: product.quantity == 1
-                            ? const Icon(Icons.delete_outline)
-                            : const Icon(Icons.remove)),
+                            ? const Icon(AppIcons.delete)
+                            : const Icon(AppIcons.removeFromCart)),
                   ),
                   Container(
-                    width: 34,
-                    height: 32,
+                    width: AppDoubles.cartItemButtonWidth,
+                    height: AppDoubles.cartButtonHeight,
                     color: Theme.of(context).primaryColor,
                     child: Center(
                       child: Text(
                         product.quantity.toString(),
                         style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold),
+                            color: AppColors.formButtonTextColor,
+                            fontSize: AppDoubles.normalFontSize,
+                            fontWeight: AppFontWeights.bold),
                       ),
                     ),
                   ),
                   Container(
-                    width: 34,
-                    height: 32,
+                    width: AppDoubles.cartItemButtonWidth,
+                    height: AppDoubles.cartItemButtonHeight,
                     decoration: BoxDecoration(
                       boxShadow: [
                         BoxShadow(
-                            blurRadius: 4.0,
-                            color: const Color(0xff006f18).withAlpha(30))
+                            blurRadius: AppDoubles.cartButtonBlurRadius,
+                            color: AppColors.lightGreen)
                       ],
-                      color: Colors.white,
+                      color: AppColors.white,
                     ),
                     child: IconButton(
-                      splashColor: Colors.transparent,
-                      iconSize: 17,
+                      splashColor: AppColors.noSplashIconButtonColor,
+                      iconSize: AppDoubles.cartItemButtonIconSize,
                       color: Theme.of(context).primaryColor,
                       onPressed: () {
                         BlocProvider.of<AppBloc>(context)
                             .add(AddToCart(product));
                       },
-                      icon: const Icon(Icons.add),
+                      icon: const Icon(AppIcons.addToCart),
                     ),
                   )
                 ],
@@ -118,7 +126,7 @@ class CartPageItem extends StatelessWidget {
           ),
         ),
         const Divider(
-          color: Color(0xffe0e0e0),
+          color: AppColors.dividerColor,
         )
       ],
     );

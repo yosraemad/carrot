@@ -1,3 +1,7 @@
+import 'package:carrot_app/constants/app_colors.dart';
+import 'package:carrot_app/constants/app_doubles.dart';
+import 'package:carrot_app/constants/app_strings.dart';
+import 'package:carrot_app/constants/app_text_aligns.dart';
 import 'package:flutter/material.dart';
 
 // Custom text to tell the user that the order is accepted
@@ -7,11 +11,14 @@ class AcceptedOrderText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 38.0, vertical: 8),
+      padding: EdgeInsets.symmetric(
+          horizontal: AppDoubles.acceptedOrderTextHorizontalPadding,
+          vertical: AppDoubles.acceptedOrderTextVerticalPadding),
       child: Text(
-        "We've accepted your order, and we're getting it ready",
-        style: TextStyle(fontSize: 16, color: Color(0xff7c7c7c)),
-        textAlign: TextAlign.center,
+        AppStrings.acceptedOrder,
+        style: TextStyle(
+            fontSize: AppDoubles.normalFontSize, color: AppColors.lightGrey),
+        textAlign: AppTextAligns.acceptedOrderTextAlign,
       ),
     );
   }

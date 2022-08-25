@@ -1,4 +1,8 @@
 import 'package:carrot_app/bloc/app_bloc.dart';
+import 'package:carrot_app/constants/app_colors.dart';
+import 'package:carrot_app/constants/app_curves.dart';
+import 'package:carrot_app/constants/app_offsets.dart';
+import 'package:carrot_app/constants/app_strings.dart';
 import 'package:carrot_app/views/category_page/category_page.dart';
 import 'package:carrot_app/views/home_page/home_page.dart';
 import 'package:carrot_app/views/item_page/item_page.dart';
@@ -35,11 +39,11 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => AppBloc()),
       ],
       child: MaterialApp(
-        title: 'Flutter Demo',
+        title: AppStrings.materialAppString,
         // Defining the theme of the app
         theme: ThemeData(
             primarySwatch: PrimaryPalette.colors,
-            scaffoldBackgroundColor: const Color(0xffFCFCFC)),
+            scaffoldBackgroundColor: AppColors.scaffoldBackgroundColor),
         home: StreamBuilder<User?>(
           // * Listens to any changes in the firebase auth and runs the builder when it changes
           // This is useful because now you don't have to use Navigator to navigate when
@@ -72,9 +76,9 @@ class MyApp extends StatelessWidget {
               settings: settings,
               pageBuilder: (_, __, ___) => const CategoryPage(),
               transitionsBuilder: (_, animation, __, child) {
-                const begin = Offset(0.0, 1.0);
-                const end = Offset.zero;
-                const curve = Curves.ease;
+                const begin = AppOffsets.routingAnimationBeginningOffset;
+                const end = AppOffsets.routingAnimationEndingOffset;
+                const curve = AppCurves.routingAnimationCurve;
 
                 var tween = Tween(begin: begin, end: end)
                     .chain(CurveTween(curve: curve));
@@ -91,9 +95,9 @@ class MyApp extends StatelessWidget {
               settings: settings,
               pageBuilder: (_, __, ___) => const ItemPage(),
               transitionsBuilder: (_, animation, __, child) {
-                const begin = Offset(0.0, 1.0);
-                const end = Offset.zero;
-                const curve = Curves.ease;
+                const begin = AppOffsets.routingAnimationBeginningOffset;
+                const end = AppOffsets.routingAnimationEndingOffset;
+                const curve = AppCurves.routingAnimationCurve;
 
                 var tween = Tween(begin: begin, end: end)
                     .chain(CurveTween(curve: curve));

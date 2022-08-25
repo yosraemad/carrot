@@ -1,3 +1,4 @@
+import 'package:carrot_app/constants/app_strings.dart';
 import 'package:carrot_app/utils/firebase_exception.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -9,13 +10,13 @@ class AuthService {
               .signInWithEmailAndPassword(email: email, password: password))
           .user;
     } on FirebaseAuthException catch (e) {
-      if (e.code == "user-not-found") {
-        throw AppException("No User Found with this email");
-      } else if (e.code == "wrong-password") {
-        throw AppException("Wrong Password");
+      if (e.code == AppStrings.noUserExceptionCode) {
+        throw AppException(AppStrings.noUserExceptionText);
+      } else if (e.code == AppStrings.wrongPasswordExceptionCode) {
+        throw AppException(AppStrings.wrongPasswordExceptionText);
       }
     } catch (e) {
-      throw AppException("An Error Occurred");
+      throw AppException(AppStrings.errorText);
     }
     return null;
   }
@@ -27,13 +28,13 @@ class AuthService {
               .createUserWithEmailAndPassword(email: email, password: password))
           .user;
     } on FirebaseAuthException catch (e) {
-      if (e.code == "weak-password") {
-        throw AppException("The password provided is too weak");
-      } else if (e.code == "email-already-in-use") {
-        throw AppException("An account already exists for that email");
+      if (e.code == AppStrings.weakPasswordExceptionCode) {
+        throw AppException(AppStrings.weakPasswordExceptionText);
+      } else if (e.code == AppStrings.emailInUseExceptionCode) {
+        throw AppException(AppStrings.emailInUseExceptionText);
       }
     } catch (e) {
-      throw AppException("An error occurred");
+      throw AppException(AppStrings.errorText);
     }
     return null;
   }
@@ -43,7 +44,7 @@ class AuthService {
     try {
       await FirebaseAuth.instance.signOut();
     } catch (e) {
-      throw AppException("An Error Occurred");
+      throw AppException(AppStrings.errorText);
     }
   }
 }

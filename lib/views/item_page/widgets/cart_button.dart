@@ -1,4 +1,9 @@
 import 'package:carrot_app/bloc/app_bloc.dart';
+import 'package:carrot_app/constants/app_colors.dart';
+import 'package:carrot_app/constants/app_doubles.dart';
+import 'package:carrot_app/constants/app_font_weights.dart';
+import 'package:carrot_app/constants/app_icons.dart';
+import 'package:carrot_app/constants/app_strings.dart';
 import 'package:carrot_app/models/product/product.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,22 +22,23 @@ class CartButton extends StatelessWidget {
             -1) {
           // if the product is not in the cart
           return Padding(
-            padding: const EdgeInsets.all(15.0),
+            padding: const EdgeInsets.all(AppDoubles.cartButtonPadding),
             child: SizedBox(
               width: double.infinity,
-              height: 50,
+              height: AppDoubles.cartButtonHeight,
               child: ElevatedButton(
-                style: ElevatedButton.styleFrom(elevation: 0),
+                style:
+                    ElevatedButton.styleFrom(elevation: AppDoubles.noElevation),
                 onPressed: () {
                   // notify app bloc with the new item added to cart
                   BlocProvider.of<AppBloc>(context).add(AddToCart(product));
                 },
                 child: const Text(
-                  "Add to Cart",
+                  AppStrings.addToCartText,
                   style: TextStyle(
-                    color: Colors.white,
+                    color: AppColors.formButtonTextColor,
                     fontWeight: FontWeight.bold,
-                    fontSize: 18,
+                    fontSize: AppDoubles.formButtonFontSize,
                   ),
                 ),
               ),
@@ -41,7 +47,8 @@ class CartButton extends StatelessWidget {
         } else {
           // if the product is in the cart
           return Padding(
-            padding: const EdgeInsets.only(bottom: 15.0),
+            padding:
+                const EdgeInsets.only(bottom: AppDoubles.cartButtonPadding),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -50,10 +57,10 @@ class CartButton extends StatelessWidget {
                   decoration: BoxDecoration(
                     boxShadow: [
                       BoxShadow(
-                          blurRadius: 4.0,
-                          color: const Color(0xff006f18).withAlpha(30))
+                          blurRadius: AppDoubles.cartButtonBlurRadius,
+                          color: AppColors.lightGreen)
                     ],
-                    color: Colors.white,
+                    color: AppColors.formButtonTextColor,
                   ),
                   child: IconButton(
                       color: Theme.of(context).primaryColor,
@@ -62,12 +69,12 @@ class CartButton extends StatelessWidget {
                         BlocProvider.of<AppBloc>(context)
                             .add(RemoveFromCart(product));
                       },
-                      icon: const Icon(Icons.remove)),
+                      icon: const Icon(AppIcons.removeFromCart)),
                 ),
                 // * Product Quantity Text
                 Container(
-                  width: 70,
-                  height: 50,
+                  width: AppDoubles.quantityTextWidth,
+                  height: AppDoubles.quantityTextHeight,
                   color: Theme.of(context).primaryColor,
                   child: Center(
                     child: Text(
@@ -76,9 +83,9 @@ class CartButton extends StatelessWidget {
                           .quantity
                           .toString(),
                       style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold),
+                          color: AppColors.formButtonTextColor,
+                          fontSize: AppDoubles.bigFontSize,
+                          fontWeight: AppFontWeights.itemPageFontWeight),
                     ),
                   ),
                 ),
@@ -87,10 +94,10 @@ class CartButton extends StatelessWidget {
                   decoration: BoxDecoration(
                     boxShadow: [
                       BoxShadow(
-                          blurRadius: 4.0,
-                          color: const Color(0xff006f18).withAlpha(30))
+                          blurRadius: AppDoubles.cartButtonBlurRadius,
+                          color: AppColors.lightGreen)
                     ],
-                    color: Colors.white,
+                    color: AppColors.formButtonTextColor,
                   ),
                   child: IconButton(
                     color: Theme.of(context).primaryColor,
@@ -98,7 +105,7 @@ class CartButton extends StatelessWidget {
                       // notify app bloc with the new item added to cart
                       BlocProvider.of<AppBloc>(context).add(AddToCart(product));
                     },
-                    icon: const Icon(Icons.add),
+                    icon: const Icon(AppIcons.addToCart),
                   ),
                 )
               ],

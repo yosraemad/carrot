@@ -1,3 +1,4 @@
+import 'package:carrot_app/constants/app_images.dart';
 import 'package:flutter/material.dart';
 
 // Image that appears on top of the login page
@@ -11,9 +12,7 @@ class HeaderImage extends StatelessWidget {
     return Container(
       width: double.infinity,
       alignment: Alignment.topRight,
-      child: Image.asset(
-        "assets/images/login_header.png",
-      ),
+      child: Image.asset(AppImages.loginHeaderImage),
     );
   }
 }

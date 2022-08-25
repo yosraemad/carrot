@@ -1,7 +1,5 @@
+import 'package:carrot_app/constants/app_doubles.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/basic.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 
 /// A dummy switch for the Notifications switch in the [ProfileScreen]
@@ -17,14 +15,14 @@ class _ProfileSwitchState extends State<ProfileSwitch> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 44,
-      height: 28,
+      width: AppDoubles.switchWidth,
+      height: AppDoubles.switchHeight,
       child: FlutterSwitch(
-        width: 44,
-        height: 28,
+        width: AppDoubles.switchWidth,
+        height: AppDoubles.switchHeight,
         activeColor: Theme.of(context).primaryColor,
         value: state,
-        padding: 2,
+        padding: AppDoubles.switchPadding,
         onToggle: (value) {
           setState(() {
             state = value;

@@ -1,4 +1,8 @@
 import 'package:carrot_app/bloc/app_bloc.dart' as app;
+import 'package:carrot_app/constants/app_colors.dart';
+import 'package:carrot_app/constants/app_doubles.dart';
+import 'package:carrot_app/constants/app_font_weights.dart';
+import 'package:carrot_app/constants/app_icons.dart';
 import 'package:carrot_app/models/product/product.dart';
 import 'package:carrot_app/views/category_page/bloc/category_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,20 +22,20 @@ class AddToCartButton extends StatelessWidget {
             -1) {
           // * item not in cart
           return Container(
-            width: 40,
-            height: 40,
+            width: AppDoubles.squareAddToCartButton,
+            height: AppDoubles.squareAddToCartButton,
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: AppColors.white,
               boxShadow: [
                 BoxShadow(
-                  color: const Color(0xff006f18).withAlpha(25),
-                  blurRadius: 4.0,
-                  spreadRadius: 0.0,
+                  color: AppColors.lightGreen,
+                  blurRadius: AppDoubles.cartButtonBlurRadius,
+                  spreadRadius: AppDoubles.noSpread,
                 ),
               ],
             ),
             child: IconButton(
-              color: Colors.white,
+              color: AppColors.white,
               onPressed: () {
                 BlocProvider.of<CategoryBloc>(context)
                     .add(AddToCart(product: product, context: context));
@@ -39,7 +43,7 @@ class AddToCartButton extends StatelessWidget {
               icon: Align(
                 alignment: Alignment.centerLeft,
                 child: Icon(
-                  Icons.add,
+                  AppIcons.addToCart,
                   color: Theme.of(context).primaryColor,
                 ),
               ),
@@ -51,30 +55,30 @@ class AddToCartButton extends StatelessWidget {
           children: [
             // * Remove one from cart button
             Container(
-              width: 40,
-              height: 41,
+              width: AppDoubles.squareAddToCartButton,
+              height: AppDoubles.squareAddToCartButton,
               decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
-                      blurRadius: 4.0,
-                      color: const Color(0xff006f18).withAlpha(30))
+                      blurRadius: AppDoubles.cartButtonBlurRadius,
+                      color: AppColors.lightGreen)
                 ],
-                color: Colors.white,
+                color: AppColors.white,
               ),
               child: IconButton(
-                  splashColor: Colors.transparent,
+                  splashColor: AppColors.noSplashIconButtonColor,
                   color: Theme.of(context).primaryColor,
-                  iconSize: 20,
+                  iconSize: AppDoubles.floatingCartButtonSize,
                   onPressed: () {
                     BlocProvider.of<CategoryBloc>(context).add(
                         RemoveFromCart(product: product, context: context));
                   },
-                  icon: const Icon(Icons.remove)),
+                  icon: const Icon(AppIcons.removeFromCart)),
             ),
             // * Item quantity in cart
             Container(
-              width: 34,
-              height: 35,
+              width: AppDoubles.squareAddToCartText,
+              height: AppDoubles.squareAddToCartText,
               color: Theme.of(context).primaryColor,
               child: Center(
                 child: Text(
@@ -83,33 +87,33 @@ class AddToCartButton extends StatelessWidget {
                       .quantity
                       .toString(),
                   style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold),
+                      color: AppColors.white,
+                      fontSize: AppDoubles.floatingCartButtonSize,
+                      fontWeight: AppFontWeights.bold),
                 ),
               ),
             ),
             // * Add one to cart Button
             Container(
-              width: 40,
-              height: 41,
+              width: AppDoubles.squareAddToCartButton,
+              height: AppDoubles.squareAddToCartButton,
               decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
-                      blurRadius: 4.0,
-                      color: const Color(0xff006f18).withAlpha(30))
+                      blurRadius: AppDoubles.cartButtonBlurRadius,
+                      color: AppColors.lightGreen)
                 ],
-                color: Colors.white,
+                color: AppColors.white,
               ),
               child: IconButton(
-                splashColor: Colors.transparent,
+                splashColor: AppColors.noSplashIconButtonColor,
                 color: Theme.of(context).primaryColor,
-                iconSize: 20,
+                iconSize: AppDoubles.floatingCartButtonSize,
                 onPressed: () {
                   BlocProvider.of<CategoryBloc>(context)
                       .add(AddToCart(product: product, context: context));
                 },
-                icon: const Icon(Icons.add),
+                icon: const Icon(AppIcons.addToCart),
               ),
             )
           ],

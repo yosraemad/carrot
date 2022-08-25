@@ -1,4 +1,8 @@
 import 'package:carrot_app/bloc/app_bloc.dart';
+import 'package:carrot_app/constants/app_colors.dart';
+import 'package:carrot_app/constants/app_doubles.dart';
+import 'package:carrot_app/constants/app_icons.dart';
+import 'package:carrot_app/constants/app_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -13,25 +17,25 @@ class CartAppBar extends StatelessWidget with PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       centerTitle: true,
-      elevation: 1,
+      elevation: AppDoubles.itemPageAppBarElevation,
       leading: const Icon(
-        Icons.close,
-        size: 35,
+        AppIcons.close,
+        size: AppDoubles.cartAppBarIconSize,
       ),
       actions: [
         InkWell(
           onTap: () => context.read<AppBloc>().add(EmptyCart()),
           child: const Padding(
-            padding: EdgeInsets.only(right: 6.0),
+            padding: EdgeInsets.only(right: AppDoubles.cartAppBarPadding),
             child: Icon(
-              Icons.delete_outline,
-              size: 35,
+              AppIcons.delete,
+              size: AppDoubles.cartAppBarIconSize,
             ),
           ),
         )
       ],
-      backgroundColor: Colors.white,
-      title: const Text("Cart"),
+      backgroundColor: AppColors.white,
+      title: const Text(AppStrings.cartText),
     );
   }
 }

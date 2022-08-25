@@ -1,3 +1,5 @@
+import 'package:carrot_app/constants/app_doubles.dart';
+import 'package:carrot_app/constants/app_font_weights.dart';
 import 'package:flutter/material.dart';
 
 /// Custom Text for the headers in the [ProfileScreen]
@@ -12,8 +14,8 @@ class ProfileText extends StatelessWidget {
       text,
       style: TextStyle(
           color: Theme.of(context).primaryColor,
-          fontWeight: FontWeight.w700,
-          fontSize: 12),
+          fontWeight: AppFontWeights.profileTextFontWeight, //TODO
+          fontSize: AppDoubles.smallFontSize),
     );
   }
 }

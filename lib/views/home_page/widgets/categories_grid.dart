@@ -1,5 +1,9 @@
 import 'dart:convert';
 
+import 'package:carrot_app/constants/app_curves.dart';
+import 'package:carrot_app/constants/app_doubles.dart';
+import 'package:carrot_app/constants/app_font_weights.dart';
+import 'package:carrot_app/constants/app_strings.dart';
 import 'package:carrot_app/views/category_page/category_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -18,19 +22,21 @@ class _CategoriesGridState extends State<CategoriesGrid>
     with TickerProviderStateMixin {
   // Function that gets all products from the firestore
   Future<List> readJson() async {
-    List<dynamic>? products =
-        (await FirebaseFirestore.instance.collection("all-products").get())
-            .docs
-            .toList();
+    List<dynamic>? products = (await FirebaseFirestore.instance
+            .collection(AppStrings.allProductsMapKey)
+            .get())
+        .docs
+        .toList();
     return products;
   }
 
   // For the fade in animation
-  late final AnimationController _controller =
-      AnimationController(duration: const Duration(seconds: 1), vsync: this)
-        ..forward();
-  late final Animation<double> _animation =
-      CurvedAnimation(parent: _controller, curve: Curves.easeIn);
+  late final AnimationController _controller = AnimationController(
+      duration: const Duration(seconds: AppDoubles.animationsDuration),
+      vsync: this)
+    ..forward();
+  late final Animation<double> _animation = CurvedAnimation(
+      parent: _controller, curve: AppCurves.fadeInAnimationCurve);
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +47,7 @@ class _CategoriesGridState extends State<CategoriesGrid>
         if (snapshot.hasData) {
           return GridView.builder(
             gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                maxCrossAxisExtent: 200),
+                maxCrossAxisExtent: AppDoubles.categoriesMaxCrossAxisExtent),
             itemCount: snapshot.data?.length,
             itemBuilder: (context, index) {
               return InkWell(
@@ -56,17 +62,21 @@ class _CategoriesGridState extends State<CategoriesGrid>
                     opacity: _animation,
                     child: GridTile(
                       header: Padding(
-                        padding: const EdgeInsets.only(top: 8.0),
+                        padding: const EdgeInsets.only(
+                            top: AppDoubles.categoryGridTileTopPadding),
                         child: Text(
-                          snapshot.data![index]["name"],
+                          snapshot.data![index][AppStrings.nameMapKey],
                           textAlign: TextAlign.center,
-                          style: const TextStyle(fontWeight: FontWeight.bold),
+                          style: const TextStyle(
+                              fontWeight:
+                                  AppFontWeights.categoriesGridFontWeight),
                         ),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.all(40.0),
+                        padding: const EdgeInsets.all(
+                            AppDoubles.categoryImagePadding),
                         child: Image.network(
-                          snapshot.data![index]["image"],
+                          snapshot.data![index][AppStrings.imageMapKey],
                           fit: BoxFit.fill,
                         ),
                       ),

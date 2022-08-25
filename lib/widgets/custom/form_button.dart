@@ -1,3 +1,6 @@
+import 'package:carrot_app/constants/app_colors.dart';
+import 'package:carrot_app/constants/app_doubles.dart';
+import 'package:carrot_app/constants/app_font_weights.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -18,15 +21,18 @@ class FormButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: 50,
+      height: AppDoubles.formButtonHeight,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-            elevation: 0, shadowColor: Colors.transparent),
+            elevation: AppDoubles.formButtonElevation,
+            shadowColor: AppColors.formButtonShadowColor),
         onPressed: onPressed,
         child: Text(
           text,
           style: const TextStyle(
-              color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+              color: AppColors.formButtonTextColor,
+              fontSize: AppDoubles.formButtonFontSize,
+              fontWeight: AppFontWeights.formButtonFontWeight),
         ),
       ),
     );

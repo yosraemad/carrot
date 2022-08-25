@@ -1,3 +1,5 @@
+import 'package:carrot_app/constants/app_colors.dart';
+import 'package:carrot_app/constants/app_doubles.dart';
 import 'package:flutter/material.dart';
 
 // Profile Page AppBar shown on the top of the profile page
@@ -12,8 +14,8 @@ class ProfilePageAppBar extends StatelessWidget with PreferredSizeWidget {
     return AppBar(
       centerTitle: true,
       title: const Text("Profile"),
-      backgroundColor: Colors.white,
-      elevation: 0.2,
+      backgroundColor: AppColors.appBarColor,
+      elevation: AppDoubles.profilePageElevation,
     );
   }
 }

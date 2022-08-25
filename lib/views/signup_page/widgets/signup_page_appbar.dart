@@ -1,3 +1,6 @@
+import 'package:carrot_app/constants/app_colors.dart';
+import 'package:carrot_app/constants/app_doubles.dart';
+import 'package:carrot_app/constants/app_icons.dart';
 import 'package:flutter/material.dart';
 
 // Sign Up AppBar shown on the top of the sign up page
@@ -11,14 +14,14 @@ class SignUpPageAppBar extends StatelessWidget with PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: Colors.transparent,
-      elevation: 0,
+      backgroundColor: AppColors.transparentAppBarColor,
+      elevation: AppDoubles.transparentAppBarElevation,
       leading: IconButton(
-        splashColor: Colors.transparent,
-        highlightColor: Colors.transparent,
+        splashColor: AppColors.noSplashIconButtonColor,
+        highlightColor: AppColors.noSplashIconButtonColor,
         icon: const Icon(
-          Icons.chevron_left,
-          size: 40,
+          AppIcons.backIcon,
+          size: AppDoubles.backButtonSize,
         ),
         onPressed: () {
           Navigator.pop(context);
