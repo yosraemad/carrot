@@ -10,16 +10,20 @@ part 'home_event.dart';
 part 'home_state.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
-  HomeBloc() : super(const HomeInitial(0, appBar: HomeAppBar())) {
+  PreferredSizeWidget? appBar = const HomeAppBar();
+  HomeBloc() : super(const HomeInitial(0)) {
     on<ChangeIndex>((event, emit) {
       if (event.newIndex == AppDoubles.cartPageIndex) {
         // Cart Page is chosen
-        emit(NewHomeIndex(event.newIndex, appBar: const CartAppBar()));
+        appBar = const CartAppBar();
+        emit(NewHomeIndex(event.newIndex));
       } else if (event.newIndex == AppDoubles.profilePageIndex) {
         // Profile Page is chosen
-        emit(NewHomeIndex(event.newIndex, appBar: const ProfilePageAppBar()));
+        appBar = const ProfilePageAppBar();
+        emit(NewHomeIndex(event.newIndex));
       } else {
-        emit(NewHomeIndex(event.newIndex, appBar: const HomeAppBar()));
+        appBar = const HomeAppBar();
+        emit(NewHomeIndex(event.newIndex));
       }
     });
   }

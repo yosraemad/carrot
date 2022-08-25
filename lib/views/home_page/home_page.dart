@@ -42,12 +42,13 @@ class HomePage extends StatelessWidget {
     // * Creates a bloc for the home page and all of its widgets to sync state between them
     return BlocProvider(
       create: (context) => HomeBloc(),
-      child: BlocBuilder<HomeBloc, HomeState>(
-        builder: (context, state) {
+      child: Builder(
+        builder: (context) {
           return Scaffold(
-            appBar: state.appBar,
+            appBar: context.watch<HomeBloc>().appBar,
             body: Builder(builder: (context) {
-              if (!appBloc.cartSet && state.index == 2) {
+              if (!appBloc.cartSet &&
+                  context.watch<HomeBloc>().state.index == 2) {
                 // shows a circular progress bar when the cart is not fetched from the firestore yet
                 return const Center(
                   child: CircularProgressIndicator(),
@@ -55,7 +56,8 @@ class HomePage extends StatelessWidget {
               } else {
                 // select the widget that corresponds to the index the bottom navigation
                 // bar is at
-                return _widgetOptions.elementAt(state.index);
+                return _widgetOptions
+                    .elementAt(context.watch<HomeBloc>().state.index);
               }
             }),
             bottomNavigationBar: const HomeBottomNavigation(),

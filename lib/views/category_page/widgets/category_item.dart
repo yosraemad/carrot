@@ -37,7 +37,6 @@ class CategoryItem extends StatelessWidget {
                                   listen: true)
                               .state is CategoryChanged &&
                           BlocProvider.of<CategoryBloc>(context, listen: true)
-                                  .state
                                   .changedIndex ==
                               item[AppStrings.idMapKey],
                       child: Container(

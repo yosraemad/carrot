@@ -9,20 +9,26 @@ part 'category_event.dart';
 part 'category_state.dart';
 
 class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
-  CategoryBloc() : super(const CategoryInitial(-1, -1)) {
+  int changedIndex = -1;
+  int count = -1;
+  CategoryBloc() : super(CategoryInitial()) {
     on<AddToCart>((event, emit) {
       BlocProvider.of<app.AppBloc>(event.context!)
           .add(app.AddToCart(event.product!));
+      changedIndex = event.product!.id;
+      count = event.product!.quantity;
       emit(CategoryChanged(event.product!.id, event.product!.quantity));
     });
 
     on<RemoveFromCart>((event, emit) {
       BlocProvider.of<app.AppBloc>(event.context!)
           .add(app.RemoveFromCart(event.product!));
+      changedIndex = event.product!.id;
+      count = event.product!.quantity;
       emit(CategoryChanged(event.product!.id, event.product!.quantity));
     });
     on<EndAnimation>((event, emit) {
-      emit(AnimationDone(state.changedIndex, state.count));
+      emit(AnimationDone());
     });
   }
 }

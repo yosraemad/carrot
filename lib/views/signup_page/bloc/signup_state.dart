@@ -11,7 +11,7 @@ abstract class SignupState extends Equatable {
   final String verifyPassword;
 
   @override
-  List<Object> get props => [];
+  List<Object> get props => [email, password, verifyPassword];
 }
 
 class SignupInitial extends SignupState {
@@ -53,4 +53,7 @@ class ErrorOccurred extends SignupState {
       required String password,
       required String verifyPassword})
       : super(email: email, password: password, verifyPassword: verifyPassword);
+
+  @override
+  List<Object> get props => [message];
 }

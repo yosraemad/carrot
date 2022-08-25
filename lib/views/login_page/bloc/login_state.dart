@@ -7,7 +7,7 @@ abstract class LoginState extends Equatable {
   final String password;
 
   @override
-  List<Object> get props => [];
+  List<Object> get props => [email, password];
 }
 
 class LoginInitial extends LoginState {
@@ -35,4 +35,7 @@ class ErrorOccurred extends LoginState {
   const ErrorOccurred(this.message,
       {required String email, required String password})
       : super(email: email, password: password);
+
+  @override
+  List<Object> get props => [message];
 }
