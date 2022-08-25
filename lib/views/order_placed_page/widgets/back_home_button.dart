@@ -1,6 +1,6 @@
-import 'package:carrot_app/constants/app_colors.dart';
-import 'package:carrot_app/constants/app_doubles.dart';
-import 'package:carrot_app/constants/app_strings.dart';
+import 'package:carrot_app/resources/app_colors.dart';
+import 'package:carrot_app/resources/app_doubles.dart';
+import 'package:carrot_app/resources/app_strings.dart';
 import 'package:carrot_app/views/home_page/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';

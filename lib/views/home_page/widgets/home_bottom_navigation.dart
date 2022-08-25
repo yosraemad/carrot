@@ -1,7 +1,7 @@
-import 'package:carrot_app/constants/app_colors.dart';
-import 'package:carrot_app/constants/app_doubles.dart';
-import 'package:carrot_app/constants/app_icons.dart';
-import 'package:carrot_app/constants/app_strings.dart';
+import 'package:carrot_app/resources/app_colors.dart';
+import 'package:carrot_app/resources/app_doubles.dart';
+import 'package:carrot_app/resources/app_icons.dart';
+import 'package:carrot_app/resources/app_strings.dart';
 import 'package:carrot_app/views/cart_page/widgets/cart_appbar.dart';
 import 'package:carrot_app/views/home_page/bloc/home_bloc.dart';
 import 'package:flutter/material.dart';

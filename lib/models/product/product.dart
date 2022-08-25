@@ -1,5 +1,5 @@
 // product model that stores data about any product
-import 'package:carrot_app/constants/app_strings.dart';
+import 'package:carrot_app/resources/app_strings.dart';
 
 class Product {
   Product({

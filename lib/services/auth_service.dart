@@ -1,4 +1,4 @@
-import 'package:carrot_app/constants/app_strings.dart';
+import 'package:carrot_app/resources/app_strings.dart';
 import 'package:carrot_app/utils/firebase_exception.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 

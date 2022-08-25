@@ -1,7 +1,7 @@
-import 'package:carrot_app/constants/app_colors.dart';
-import 'package:carrot_app/constants/app_doubles.dart';
-import 'package:carrot_app/constants/app_strings.dart';
-import 'package:carrot_app/constants/app_text_aligns.dart';
+import 'package:carrot_app/resources/app_colors.dart';
+import 'package:carrot_app/resources/app_doubles.dart';
+import 'package:carrot_app/resources/app_strings.dart';
+import 'package:carrot_app/resources/app_text_aligns.dart';
 import 'package:flutter/material.dart';
 
 // Custom text to tell the user that the order is accepted

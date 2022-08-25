@@ -1,5 +1,5 @@
-import 'package:carrot_app/constants/app_doubles.dart';
-import 'package:carrot_app/constants/app_strings.dart';
+import 'package:carrot_app/resources/app_doubles.dart';
+import 'package:carrot_app/resources/app_strings.dart';
 import 'package:carrot_app/views/login_page/bloc/login_bloc.dart';
 import 'package:carrot_app/widgets/custom/form_button.dart';
 import 'package:carrot_app/widgets/custom/form_textbox.dart';

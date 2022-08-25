@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:carrot_app/constants/app_doubles.dart';
+import 'package:carrot_app/resources/app_doubles.dart';
 import 'package:carrot_app/views/category_page/bloc/category_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

@@ -1,5 +1,5 @@
 import 'package:carrot_app/bloc/app_bloc.dart' as app;
-import 'package:carrot_app/constants/app_doubles.dart';
+import 'package:carrot_app/resources/app_doubles.dart';
 import 'package:carrot_app/models/product/product.dart';
 import 'package:carrot_app/widgets/cart_button/add_to_cart.dart' as plus_button;
 import 'package:carrot_app/widgets/cart_button/quantity_text.dart';

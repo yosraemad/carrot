@@ -1,4 +1,4 @@
-import 'package:carrot_app/constants/app_strings.dart';
+import 'package:carrot_app/resources/app_strings.dart';
 import 'package:carrot_app/models/product/product.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 

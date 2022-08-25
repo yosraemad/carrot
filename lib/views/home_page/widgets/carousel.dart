@@ -1,5 +1,5 @@
-import 'package:carrot_app/constants/app_doubles.dart';
-import 'package:carrot_app/constants/app_images.dart';
+import 'package:carrot_app/resources/app_doubles.dart';
+import 'package:carrot_app/resources/app_images.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 

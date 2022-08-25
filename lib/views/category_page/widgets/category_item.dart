@@ -1,6 +1,6 @@
-import 'package:carrot_app/constants/app_colors.dart';
-import 'package:carrot_app/constants/app_doubles.dart';
-import 'package:carrot_app/constants/app_strings.dart';
+import 'package:carrot_app/resources/app_colors.dart';
+import 'package:carrot_app/resources/app_doubles.dart';
+import 'package:carrot_app/resources/app_strings.dart';
 import 'package:carrot_app/models/product/product.dart';
 import 'package:carrot_app/views/category_page/bloc/category_bloc.dart';
 import 'package:carrot_app/views/category_page/widgets/change_cart_animation.dart';

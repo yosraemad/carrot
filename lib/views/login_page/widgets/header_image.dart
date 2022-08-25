@@ -1,4 +1,4 @@
-import 'package:carrot_app/constants/app_images.dart';
+import 'package:carrot_app/resources/app_images.dart';
 import 'package:flutter/material.dart';
 
 // Image that appears on top of the login page

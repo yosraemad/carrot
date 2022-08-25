@@ -1,8 +1,8 @@
-import 'package:carrot_app/constants/app_colors.dart';
-import 'package:carrot_app/constants/app_doubles.dart';
-import 'package:carrot_app/constants/app_font_weights.dart';
-import 'package:carrot_app/constants/app_icons.dart';
-import 'package:carrot_app/constants/app_strings.dart';
+import 'package:carrot_app/resources/app_colors.dart';
+import 'package:carrot_app/resources/app_doubles.dart';
+import 'package:carrot_app/resources/app_font_weights.dart';
+import 'package:carrot_app/resources/app_icons.dart';
+import 'package:carrot_app/resources/app_strings.dart';
 import 'package:flutter/material.dart';
 
 /// The Leading widget for the "change language" list tile

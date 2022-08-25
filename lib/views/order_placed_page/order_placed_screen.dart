@@ -1,5 +1,5 @@
-import 'package:carrot_app/constants/app_doubles.dart';
-import 'package:carrot_app/constants/app_strings.dart';
+import 'package:carrot_app/resources/app_doubles.dart';
+import 'package:carrot_app/resources/app_strings.dart';
 import 'package:carrot_app/views/order_placed_page/widgets/accepted_order_text.dart';
 import 'package:carrot_app/views/order_placed_page/widgets/back_home_button.dart';
 import 'package:carrot_app/views/order_placed_page/widgets/success_image.dart';

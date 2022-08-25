@@ -1,6 +1,6 @@
-import 'package:carrot_app/constants/app_doubles.dart';
-import 'package:carrot_app/constants/app_font_weights.dart';
-import 'package:carrot_app/constants/app_strings.dart';
+import 'package:carrot_app/resources/app_doubles.dart';
+import 'package:carrot_app/resources/app_font_weights.dart';
+import 'package:carrot_app/resources/app_strings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';

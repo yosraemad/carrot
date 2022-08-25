@@ -1,11 +1,11 @@
 import 'package:carrot_app/bloc/app_bloc.dart';
-import 'package:carrot_app/constants/app_colors.dart';
-import 'package:carrot_app/constants/app_doubles.dart';
+import 'package:carrot_app/resources/app_colors.dart';
+import 'package:carrot_app/resources/app_doubles.dart';
 import 'package:carrot_app/models/product/product.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../constants/app_icons.dart';
+import '../../resources/app_icons.dart';
 
 class RemoveFromCartButton extends StatelessWidget {
   final Product product;

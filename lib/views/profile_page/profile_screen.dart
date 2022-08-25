@@ -1,7 +1,7 @@
 import 'package:carrot_app/bloc/app_bloc.dart';
-import 'package:carrot_app/constants/app_doubles.dart';
-import 'package:carrot_app/constants/app_icons.dart';
-import 'package:carrot_app/constants/app_strings.dart';
+import 'package:carrot_app/resources/app_doubles.dart';
+import 'package:carrot_app/resources/app_icons.dart';
+import 'package:carrot_app/resources/app_strings.dart';
 import 'package:carrot_app/views/profile_page/widgets/change_language.dart';
 import 'package:carrot_app/views/profile_page/widgets/profile_switch.dart';
 import 'package:carrot_app/views/profile_page/widgets/profile_text.dart';

@@ -1,8 +1,8 @@
-import 'package:carrot_app/constants/app_doubles.dart';
-import 'package:carrot_app/constants/app_font_weights.dart';
-import 'package:carrot_app/constants/app_images.dart';
-import 'package:carrot_app/constants/app_strings.dart';
-import 'package:carrot_app/constants/app_text_aligns.dart';
+import 'package:carrot_app/resources/app_doubles.dart';
+import 'package:carrot_app/resources/app_font_weights.dart';
+import 'package:carrot_app/resources/app_images.dart';
+import 'package:carrot_app/resources/app_strings.dart';
+import 'package:carrot_app/resources/app_text_aligns.dart';
 import 'package:carrot_app/views/cart_page/cart_page.dart';
 import 'package:carrot_app/views/home_page/bloc/home_bloc.dart';
 import 'package:carrot_app/widgets/custom/form_button.dart';

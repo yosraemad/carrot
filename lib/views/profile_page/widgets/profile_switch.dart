@@ -1,4 +1,4 @@
-import 'package:carrot_app/constants/app_doubles.dart';
+import 'package:carrot_app/resources/app_doubles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 

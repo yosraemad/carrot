@@ -1,7 +1,7 @@
-import 'package:carrot_app/constants/app_colors.dart';
-import 'package:carrot_app/constants/app_doubles.dart';
-import 'package:carrot_app/constants/app_icons.dart';
-import 'package:carrot_app/constants/app_strings.dart';
+import 'package:carrot_app/resources/app_colors.dart';
+import 'package:carrot_app/resources/app_doubles.dart';
+import 'package:carrot_app/resources/app_icons.dart';
+import 'package:carrot_app/resources/app_strings.dart';
 import 'package:flutter/material.dart';
 
 /// App bar that appears at the top of the [ItemPage]

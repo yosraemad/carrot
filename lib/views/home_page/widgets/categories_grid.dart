@@ -1,9 +1,9 @@
 import 'dart:convert';
 
-import 'package:carrot_app/constants/app_curves.dart';
-import 'package:carrot_app/constants/app_doubles.dart';
-import 'package:carrot_app/constants/app_font_weights.dart';
-import 'package:carrot_app/constants/app_strings.dart';
+import 'package:carrot_app/resources/app_curves.dart';
+import 'package:carrot_app/resources/app_doubles.dart';
+import 'package:carrot_app/resources/app_font_weights.dart';
+import 'package:carrot_app/resources/app_strings.dart';
 import 'package:carrot_app/views/category_page/category_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
