@@ -78,7 +78,7 @@ class AppDoubles {
   static const double addToFavoritesRightPadding = 15;
 
   static const double cartButtonPadding = 15;
-  static const double cartButtonHeight = 50;
+  static const double cartButtonHeight = 30;
   static const double cartButtonBlurRadius = 4;
 
   static const double quantityTextWidth = 70;

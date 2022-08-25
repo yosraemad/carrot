@@ -5,6 +5,9 @@ import 'package:carrot_app/constants/app_font_weights.dart';
 import 'package:carrot_app/constants/app_icons.dart';
 import 'package:carrot_app/constants/app_strings.dart';
 import 'package:carrot_app/models/product/product.dart';
+import 'package:carrot_app/widgets/cart_button/add_to_cart.dart';
+import 'package:carrot_app/widgets/cart_button/quantity_text.dart';
+import 'package:carrot_app/widgets/cart_button/remove_from_cart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -56,61 +59,20 @@ class CartButton extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 // * remove one from cart button
-                Container(
-                  decoration: BoxDecoration(
-                    boxShadow: [
-                      BoxShadow(
-                          blurRadius: AppDoubles.cartButtonBlurRadius,
-                          color: AppColors.lightGreen)
-                    ],
-                    color: AppColors.formButtonTextColor,
-                  ),
-                  child: IconButton(
-                      color: Theme.of(context).primaryColor,
-                      onPressed: () {
-                        // notify app bloc with the new item removed from cart
-                        BlocProvider.of<AppBloc>(context)
-                            .add(RemoveFromCart(product));
-                      },
-                      icon: const Icon(AppIcons.removeFromCart)),
-                ),
+                RemoveFromCartButton(product),
                 // * Product Quantity Text
-                Container(
+                QuantityText(
+                  quantity: appBloc.products
+                      .firstWhere((element) => element.id == product.id)
+                      .quantity
+                      .toString(),
+                  product: product,
                   width: AppDoubles.quantityTextWidth,
                   height: AppDoubles.quantityTextHeight,
-                  color: Theme.of(context).primaryColor,
-                  child: Center(
-                    child: Text(
-                      appBloc.products
-                          .firstWhere((element) => element.id == product.id)
-                          .quantity
-                          .toString(),
-                      style: const TextStyle(
-                          color: AppColors.formButtonTextColor,
-                          fontSize: AppDoubles.bigFontSize,
-                          fontWeight: AppFontWeights.itemPageFontWeight),
-                    ),
-                  ),
+                  fontSize: AppDoubles.bigFontSize,
                 ),
                 // * add one to cart button
-                Container(
-                  decoration: BoxDecoration(
-                    boxShadow: [
-                      BoxShadow(
-                          blurRadius: AppDoubles.cartButtonBlurRadius,
-                          color: AppColors.lightGreen)
-                    ],
-                    color: AppColors.formButtonTextColor,
-                  ),
-                  child: IconButton(
-                    color: Theme.of(context).primaryColor,
-                    onPressed: () {
-                      // notify app bloc with the new item added to cart
-                      BlocProvider.of<AppBloc>(context).add(AddToCart(product));
-                    },
-                    icon: const Icon(AppIcons.addToCart),
-                  ),
-                )
+                AddToCartButton(product: product)
               ],
             ),
           );
