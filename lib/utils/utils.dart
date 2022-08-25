@@ -7,7 +7,7 @@ class Utils {
   // returns total price of the user's cart
   static double getTotalPrice(BuildContext context) {
     List<Product> products =
-        BlocProvider.of<AppBloc>(context, listen: true).state.products;
+        BlocProvider.of<AppBloc>(context, listen: true).products;
     double total = 0;
     for (int i = 0; i < products.length; i++) {
       total += products[i].total;

@@ -47,7 +47,7 @@ class HomePage extends StatelessWidget {
           return Scaffold(
             appBar: state.appBar,
             body: Builder(builder: (context) {
-              if (!appBloc.state.cartSet && state.index == 2) {
+              if (!appBloc.cartSet && state.index == 2) {
                 // shows a circular progress bar when the cart is not fetched from the firestore yet
                 return const Center(
                   child: CircularProgressIndicator(),

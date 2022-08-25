@@ -16,9 +16,11 @@ class AddToCartButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Listen to AppState in order to get the products in the user's cart
-    return BlocBuilder<app.AppBloc, app.AppState>(
-      builder: (context, state) {
-        if (state.products.indexWhere((element) => element.id == product.id) ==
+    app.AppBloc appBloc = BlocProvider.of<app.AppBloc>(context, listen: true);
+    return Builder(
+      builder: (context) {
+        if (appBloc.products
+                .indexWhere((element) => element.id == product.id) ==
             -1) {
           // * item not in cart
           return Container(
@@ -82,7 +84,7 @@ class AddToCartButton extends StatelessWidget {
               color: Theme.of(context).primaryColor,
               child: Center(
                 child: Text(
-                  state.products
+                  appBloc.products
                       .firstWhere((element) => element.id == product.id)
                       .quantity
                       .toString(),

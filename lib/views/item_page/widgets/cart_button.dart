@@ -16,9 +16,12 @@ class CartButton extends StatelessWidget {
   Widget build(BuildContext context) {
     // * using bloc builder here to listen to changes to the cart
     // * regarding the item the user is currently viewing
-    return BlocBuilder<AppBloc, AppState>(
-      builder: (context, state) {
-        if (state.products.indexWhere((element) => element.id == product.id) ==
+
+    AppBloc appBloc = BlocProvider.of<AppBloc>(context, listen: true);
+    return Builder(
+      builder: (context) {
+        if (appBloc.products
+                .indexWhere((element) => element.id == product.id) ==
             -1) {
           // if the product is not in the cart
           return Padding(
@@ -78,7 +81,7 @@ class CartButton extends StatelessWidget {
                   color: Theme.of(context).primaryColor,
                   child: Center(
                     child: Text(
-                      state.products
+                      appBloc.products
                           .firstWhere((element) => element.id == product.id)
                           .quantity
                           .toString(),

@@ -12,18 +12,19 @@ class CartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // listen to app state to get the items inside the user's cart
-    return BlocBuilder<app.AppBloc, app.AppState>(
-      builder: (context, state) {
-        if (state.products.isEmpty) {
+    app.AppBloc appBloc = BlocProvider.of<app.AppBloc>(context, listen: true);
+    return Builder(
+      builder: (context) {
+        if (appBloc.products.isEmpty) {
           return const EmptyCart();
         }
         return Column(
           children: [
             Expanded(
               child: ListView.builder(
-                itemCount: state.products.length,
+                itemCount: appBloc.products.length,
                 itemBuilder: (context, index) {
-                  return CartPageItem(state.products[index]);
+                  return CartPageItem(appBloc.products[index]);
                 },
               ),
             ),
