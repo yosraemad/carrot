@@ -16,3 +16,12 @@ class HomeInitial extends HomeState {
 class NewHomeIndex extends HomeState {
   const NewHomeIndex(int index) : super(index);
 }
+
+class AllProductsSet extends HomeState {
+  const AllProductsSet(int index) : super(index);
+}
+
+class ErrorOccurred extends HomeState {
+  final String message;
+  const ErrorOccurred(int index, {required this.message}) : super(index);
+}

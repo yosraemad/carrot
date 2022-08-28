@@ -1,5 +1,6 @@
 import 'package:carrot_app/resources/app_strings.dart';
 import 'package:carrot_app/models/product/product.dart';
+import 'package:carrot_app/utils/firebase_exception.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class FirestoreService {
@@ -21,5 +22,18 @@ class FirestoreService {
       AppStrings.idMapKey: uid,
       AppStrings.productsMapKey: cart.map((e) => e.toMap()).toList(),
     });
+  }
+
+  static Future<List> getAllProducts() async {
+    try {
+      List<dynamic>? products = (await FirebaseFirestore.instance
+              .collection(AppStrings.allProductsMapKey)
+              .get())
+          .docs
+          .toList();
+      return products;
+    } catch (e) {
+      throw AppException(e.toString());
+    }
   }
 }

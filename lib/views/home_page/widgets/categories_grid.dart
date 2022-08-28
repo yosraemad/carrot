@@ -5,8 +5,10 @@ import 'package:carrot_app/resources/app_doubles.dart';
 import 'package:carrot_app/resources/app_font_weights.dart';
 import 'package:carrot_app/resources/app_strings.dart';
 import 'package:carrot_app/views/category_page/category_page.dart';
+import 'package:carrot_app/views/home_page/bloc/home_bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 /// Grid that shows all the categories from the firestore database
 // ! It is a stateful widget because of the animations but it doesn't keep any
@@ -21,13 +23,8 @@ class CategoriesGrid extends StatefulWidget {
 class _CategoriesGridState extends State<CategoriesGrid>
     with TickerProviderStateMixin {
   // Function that gets all products from the firestore
-  Future<List> readJson() async {
-    List<dynamic>? products = (await FirebaseFirestore.instance
-            .collection(AppStrings.allProductsMapKey)
-            .get())
-        .docs
-        .toList();
-    return products;
+  getAllProducts() {
+    BlocProvider.of<HomeBloc>(context).add(GetAllProducts());
   }
 
   // For the fade in animation
@@ -39,22 +36,30 @@ class _CategoriesGridState extends State<CategoriesGrid>
       parent: _controller, curve: AppCurves.fadeInAnimationCurve);
 
   @override
+  void initState() {
+    if (context.read<HomeBloc>().allProductsSet == false) {
+      getAllProducts();
+    }
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return FutureBuilder<List>(
+    return Builder(
       // Fetch data from firestore
-      future: readJson(),
-      builder: ((context, snapshot) {
-        if (snapshot.hasData) {
+      builder: ((context) {
+        if (context.watch<HomeBloc>().allProductsSet) {
           return GridView.builder(
             gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                 maxCrossAxisExtent: AppDoubles.categoriesMaxCrossAxisExtent),
-            itemCount: snapshot.data?.length,
+            itemCount: context.read<HomeBloc>().allProducts.length,
             itemBuilder: (context, index) {
               return InkWell(
                 onTap: () {
                   /// Go to [CategoryPage]
                   Navigator.pushNamed(context, CategoryPage.routeName,
-                      arguments: CategoryPageArgs(snapshot.data![index]));
+                      arguments: CategoryPageArgs(
+                          context.read<HomeBloc>().allProducts[index]));
                 },
                 child: Card(
                   elevation: 3,
@@ -65,7 +70,8 @@ class _CategoriesGridState extends State<CategoriesGrid>
                         padding: const EdgeInsets.only(
                             top: AppDoubles.categoryGridTileTopPadding),
                         child: Text(
-                          snapshot.data![index][AppStrings.nameMapKey],
+                          context.read<HomeBloc>().allProducts[index]
+                              [AppStrings.nameMapKey],
                           textAlign: TextAlign.center,
                           style: const TextStyle(
                               fontWeight:
@@ -76,7 +82,8 @@ class _CategoriesGridState extends State<CategoriesGrid>
                         padding: const EdgeInsets.all(
                             AppDoubles.categoryImagePadding),
                         child: Image.network(
-                          snapshot.data![index][AppStrings.imageMapKey],
+                          context.read<HomeBloc>().allProducts[index]
+                              [AppStrings.imageMapKey],
                           fit: BoxFit.fill,
                         ),
                       ),
