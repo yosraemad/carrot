@@ -50,6 +50,9 @@ class _CategoriesGridState extends State<CategoriesGrid>
       builder: ((context) {
         if (context.watch<HomeBloc>().allProductsSet) {
           return GridView.builder(
+            physics: NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            scrollDirection: Axis.vertical,
             gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                 maxCrossAxisExtent: AppDoubles.categoriesMaxCrossAxisExtent),
             itemCount: context.read<HomeBloc>().allProducts.length,

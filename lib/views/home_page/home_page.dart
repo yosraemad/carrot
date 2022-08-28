@@ -20,12 +20,17 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // ! List of Widgets that the bottom navigation bar shows according to the index it's at
-    final List<Widget> _widgetOptions = [
-      Column(
-        children: const [
-          Carousel(),
-          Expanded(child: CategoriesGrid()),
-        ],
+    final List<Widget> widgetOptions = [
+      SingleChildScrollView(
+        child: ListView(
+          shrinkWrap: true,
+          physics: const ScrollPhysics(),
+          scrollDirection: Axis.vertical,
+          children: const [
+            Carousel(),
+            CategoriesGrid(),
+          ],
+        ),
       ),
       const Center(
         child: Text(AppStrings.searchText),
@@ -56,7 +61,7 @@ class HomePage extends StatelessWidget {
               } else {
                 // select the widget that corresponds to the index the bottom navigation
                 // bar is at
-                return _widgetOptions
+                return widgetOptions
                     .elementAt(context.watch<HomeBloc>().state.index);
               }
             }),
