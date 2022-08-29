@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
+// defining a type for the function used to validate the textbox
 typedef ValidatorFunction = String? Function(String? value)?;
 
+// * TextBox that is used for the log in and sign up pages
 class FormTextBox extends StatefulWidget {
   final String label;
   final TextInputType keyboardType;
@@ -10,13 +12,14 @@ class FormTextBox extends StatefulWidget {
   final ValidatorFunction validator;
   final Function(String val)? onChanged;
   const FormTextBox(
-      {super.key,
+      {key,
       required this.label,
       this.keyboardType = TextInputType.text,
       this.obscureText = false,
       required this.controller,
       this.validator,
-      this.onChanged});
+      this.onChanged})
+      : super(key: key);
 
   @override
   State<FormTextBox> createState() => _FormTextBoxState();

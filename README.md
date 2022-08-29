@@ -1,16 +1,14 @@
-# carrot_app
+# Carrot
 
-A new Flutter project.
+A grocery shopping app. This app is created for learning purposes and doesn't actually order groceries.
 
-## Getting Started
+## Main Features
 
-This project is a starting point for a Flutter application.
+- Adding and Removing from Cart. The cart is saved in firestore, so it isn't lost when the user logs out/ opens the app from another device.
+- Signing in and out using email and password
+- The application uses BLoC pattern to manage state.
+- The application follows MVVM architecture
 
-A few resources to get you started if this is your first Flutter project:
+## Credits
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Application design credits: https://www.figma.com/community/file/1000483962330331839
